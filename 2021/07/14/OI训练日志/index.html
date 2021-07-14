@@ -467,21 +467,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-14
+                    2021-07-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    16 分
                 </div>
                 
 
@@ -805,6 +805,39 @@ void dfs(int x,int y,int step,int mode)&#x2F;&#x2F;step为计步器，mode记录
 		&#125;
 	return;
 &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="2021-7-14"><a href="#2021-7-14" class="headerlink" title="2021/7/14"></a>2021/7/14</h2><p>1123、1124、1125、1126、1127、1128都水过。</p>
+<h3 id="11-C-中的floor、ceil、round函数"><a href="#11-C-中的floor、ceil、round函数" class="headerlink" title="11.C++中的floor、ceil、round函数"></a>11.C++中的floor、ceil、round函数</h3><p>头文件均为cmath，floor是向下取整，ceil是上取整，返回值以double的形式，保留六位小数</p>
+<p>round函数用于四舍五入，对一般的小数而言，仅仅保留到整数位，如：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">round(1.5)&#x3D;2.000000
+round(1.56)&#x3D;2.000000
+round(-1.56)&#x3D;-2.000000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>保留小数的用法，可以先乘后除！</p>
+<p>如：对1.5684保留两位有效数字：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cmath&gt;
+#include&lt;cstdio&gt;
+using namespace std;
+int main()
+&#123;
+    double x&#x3D;1.5684;
+    printf(&quot;对1.5684保留两位有效数字： &quot;);
+    printf(&quot;%.2lf\n&quot;,round(x*100)&#x2F;100);
+    return 0;
+&#125;
+结果：对1.5684保留两位有效数字：1.57<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>手写round()</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int round(double x)
+&#123;
+    if(x&gt;0)
+    return (int)(x+0.5);
+    if(x&lt;0)
+    return (int)(x-0.5);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1381,7 +1414,7 @@ void dfs(int x,int y,int step,int mode)&#x2F;&#x2F;step为计步器，mode记录
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.5k</span>&nbsp;字
+                class="white-color">5.7k</span>&nbsp;字
             
             
             
