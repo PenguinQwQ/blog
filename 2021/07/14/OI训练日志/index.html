@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="归档: 2021, 🐟的博客">
+    <meta name="keywords" content="OI训练日志, 🐟的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>归档: 2021 | 🐟的博客</title>
+    <title>OI训练日志 | 🐟的博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -306,278 +306,1004 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                会飞的鱼🐟
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['纵有疾风起，人生不言弃。','每一个不曾起舞的日子，都是对生命的辜负。'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 25,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">OI训练日志</h1>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                                <span class="chip bg-color">OI训练</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">算法竞赛刷题</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                算法竞赛
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-07-14
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-07-14
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/blog/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="格式说明"><a href="#格式说明" class="headerlink" title="格式说明"></a>格式说明</h2><p>(1)代码块+# n 作为有价值的代码和思路积累，提高码力的关键要素。</p>
+<h2 id="2021-7-12"><a href="#2021-7-12" class="headerlink" title="2021/7/12"></a>2021/7/12</h2><p>咕咕咕，今天也要补题呢！</p>
+<p>一本通：第一部分C++语言 第五章数组补题</p>
+<p>第一节 一维数组</p>
+<p>2034反序输出：</p>
+<h3 id="1-输入一行未知个数的整数，不能用一般的输入来处理了。"><a href="#1-输入一行未知个数的整数，不能用一般的输入来处理了。" class="headerlink" title="1.输入一行未知个数的整数，不能用一般的输入来处理了。"></a>1.输入一行未知个数的整数，不能用一般的输入来处理了。</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">写法一：
+int a[200],n;
+while(scanf(&quot;%d&quot;,&amp;a[n])!&#x3D;EOF)
+    n++;
+EOF是end of file的缩写，指的是文字流的结尾，windows平台stdin输入流的EOF标志是ctrl+z
+写法二：
+int x,a[200],n&#x3D;0;
+while(scanf(&quot;%d&quot;,&amp;x)&#x3D;&#x3D;1)
+    a[++n]&#x3D;x;
+for(int i&#x3D;n;i&gt;&#x3D;1;i--)
+    printf(&quot;%d &quot;,a[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2035、2036水题；</p>
+<p>2037约瑟夫问题：很好的一道模拟题，我用了一个cnt标记坐标，一个tot记录报数。</p>
+<h3 id="2-要求成环的话感觉直接取模最方便了（成环的本质是周期，取模是最自然的做法）"><a href="#2-要求成环的话感觉直接取模最方便了（成环的本质是周期，取模是最自然的做法）" class="headerlink" title="2.要求成环的话感觉直接取模最方便了（成环的本质是周期，取模是最自然的做法）"></a>2.要求成环的话感觉直接取模最方便了（成环的本质是周期，取模是最自然的做法）</h3><p>2038水题 2039冒泡排序模板</p>
+<h3 id="3-冒泡排序"><a href="#3-冒泡排序" class="headerlink" title="3.冒泡排序"></a>3.冒泡排序</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">原理，每一轮循环会将当前行中的最小数排列到最后，下一次对n-1个数进行重复操作，将剩余n-1个数中的最小数排列到倒数第二个位置，这样n-1次循环后就可以实现排序了。
+Core code:
+for(int i&#x3D;1;i&lt;&#x3D;n-1;i++)
+    for(int j&#x3D;1;j&lt;&#x3D;n-i;j++)
+        if(a[j]&gt;a[j+1]) swap(a[j],a[j+1]);
+进一步优化：如果在一轮排序过程中没有发生交换，说明已经排列好顺序了，不必再进行排列了，设置一下判定交换的变量，如果没有发生交换，直接break出循环即可！
+for(int i&#x3D;1;i&lt;&#x3D;n-1;i++)
+&#123;
+    bool s&#x3D;0;
+    for(int j&#x3D;1;j&lt;&#x3D;n-i;j++)
+        if(a[j]&gt;a[j+1]) &#123;swap(a[j],a[j+1]);s&#x3D;1;&#125;
+	if(!s) break;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-memset函数的用法："><a href="#4-memset函数的用法：" class="headerlink" title="4.memset函数的用法："></a>4.memset函数的用法：</h3><p>1.需要的头文件(C++中): cstring</p>
+<p>函数原型：void * memset ( void * ptr, int value, size_t num );</p>
+<p>2.本质是char型初始化函数。</p>
+<p>用法：memset(结构体/数组名，用于替换的ASCII码对应字符，前n个字符)；</p>
+<p>memset(结构体/数组名,”用于替换的字符”,前n个字符)</p>
+<p>函数解释：将ptr中的前n个字节用ch替换，并且返回s</p>
+<p>函数作用：在一段内存块中填充某一个给定的值，常用较大的对结构体和数组的清零操作</p>
+<p>3.对于char数组str[100]：</p>
+<p>例1:memset(str,’A’,sizeof(str))意思就是在str的sizeof(str)个字节中填充’A’,也就是</p>
+<p>把str用字符A填满</p>
+<p>例2:memset(str,97,10)意思就是将str的前十个位置用ASCII码为97的字符填充上去</p>
+<p>也就是把str数组的前十个元素都用字符a填满</p>
+<p>4.对于非char型数组，只可以用0或-1来进行初始化</p>
+<p>这是因为memset函数是一个字节一个字节填充的，而只有0和-1的所有二进制位都是相同的</p>
+<p>否则，如果填充1，最后写入int四个字节的就是0X01010101=16843009而不是1了</p>
+<p>最后，其实bool型数组是可以用1进行初始化的，因为Bool只占用一个字节，那么写上1就不会</p>
+<p>造成二进制位的重复了，因此对于bool数组check[100] memset(check,1,sizeof(check)) 成立</p>
+<p>示范代码：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+char a[15];
+int b[15];
+int main()
+&#123;
+	memset(a,97,10);
+	int i&#x3D;0,j&#x3D;0;
+	while(a[i]!&#x3D;0)
+		printf(&quot;%c &quot;,a[i++]);
+	printf(&quot;\n&quot;);
+	memset(a,&#39;w&#39;,sizeof(a));
+	i&#x3D;0;
+	while(a[i]!&#x3D;0)
+		printf(&quot;%c &quot;,a[i++]);
+	printf(&quot;\n&quot;);
+	memset(b,-1,sizeof(b));
+	i&#x3D;0;
+	while(b[i]!&#x3D;0)
+		printf(&quot;%d &quot;,b[i++]);
+	printf(&quot;\n&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-欧拉筛（线性筛素数）"><a href="#5-欧拉筛（线性筛素数）" class="headerlink" title="5.欧拉筛（线性筛素数）"></a>5.欧拉筛（线性筛素数）</h3><p>特别强的一篇blog:<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/cicos/notprime">https://www.luogu.com.cn/blog/cicos/notprime</a></p>
+<p>看完基本就学会了，数论证明欧拉筛的合理性，再用代码实现，这就是浪漫！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;&#x2F;欧拉筛模板：
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int MAXN&#x3D;1002;
+bool isprime[MAXN];
+int n,prime[MAXN],cnt;
+void seive()
+&#123;
+	cnt&#x3D;0;&#x2F;&#x2F;素数计数器，一开始标记的素数个数为0
+	memset(isprime,1,sizeof(isprime));&#x2F;&#x2F;初始化判定素数的数组
+	iisprime[1]&#x3D;0;&#x2F;&#x2F;标记1不是素数
+	for(int i&#x3D;2;i&lt;&#x3D;n;i++)&#x2F;&#x2F;从2到n开始循环
+		&#123;
+			if(isprime[i])&#x2F;&#x2F;如果i没有被筛掉，说明是素数
+				prime[++cnt]&#x3D;i;&#x2F;&#x2F;保存进素数口袋中
+			for(int j&#x3D;1;(j&lt;&#x3D;cnt)&amp;&amp;(i*prime[j]&lt;&#x3D;n);j++)&#x2F;&#x2F;用i进行新一轮的素数筛取
+				&#123;
+					isprime[i*prime[j]]&#x3D;0;&#x2F;&#x2F;筛合数
+					if(i%prime[j]&#x3D;&#x3D;0)&#x2F;&#x2F;重要的判定，详见原理
+						break;
+				&#125;
+		&#125;
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;n);
+	seive();
+	for(int i&#x3D;1;i&lt;&#x3D;cnt;i++)
+		printf(&quot;%d\n&quot;,prime[i]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2040、1102、1103、1104、1105水过。</p>
+<h2 id="2021-7-13"><a href="#2021-7-13" class="headerlink" title="2021/7/13"></a>2021/7/13</h2><p>1106水过。</p>
+<h3 id="6-强制类型转换"><a href="#6-强制类型转换" class="headerlink" title="6.强制类型转换"></a>6.强制类型转换</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/alidada_blog/article/details/83536149">https://blog.csdn.net/alidada_blog/article/details/83536149</a></p>
+<p>隐式类型转换：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int i&#x3D;10;
+double b&#x3D;i;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>显式类型转换：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int i&#x3D;10;
+printf(&quot;%0.2lf&quot;,(double)i);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>直接在变量之前加上(type)就可以完成转换喽！</p>
+<p>1110:提供了一个很好·的思考方向。</p>
+<p>对于范围不大的绝对值，可以直接加一个范围，保证-10000<del>10000–&gt;0</del>20000</p>
+<p>这样造一个桶排序的模型，然后用桶对应的下标存储对应值+10000第一次出现的坐标即可。而且</p>
+<p>初始化的值为-1，正好用上memset函数，与题干不谋而合！</p>
+<h3 id="7-C-中STL库-vector向量数据结构"><a href="#7-C-中STL库-vector向量数据结构" class="headerlink" title="7.C++中STL库 vector向量数据结构"></a>7.C++中STL库 vector向量数据结构</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/junbaobei/p/10776066.html">https://www.cnblogs.com/junbaobei/p/10776066.html</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+vector 常见操作： 
+a.push_back(x); 向向量a中加入x元素 
+a.pop_back(); 删除a向量末尾的元素 
+a.size()；输出a向量的大小，即元素个数 
+a.begin()得到数组头的指针
+a.end()得到数组末尾的最后一个元素加一的指针
+a.erase(起点的指针，终点的指针)清空数组a从起点到终点的元素。当不填时就是清空所有。 
+a.clear() 清空所有的元素。 
+a.empty() 检验a是否为空。 
+a.front() 得到数组头的引用 
+两种遍历方式：
+直接用元素进行遍历：
+for(int i&#x3D;0;i&lt;a.size();i++)
+	printf(&quot;%d &quot;,a[i]);
+利用数组的迭代器进行遍历： 
+for(vector&lt;int&gt;::iterator it&#x3D;a.begin();it!&#x3D;a.end();it++)
+			printf(&quot;%d &quot;,*it);
+对vector 进行排序时，注意sort的写法：
+sort(a.begin(),a.end());
+从小到大排列（默认）
+reverse(a.begin(),a.end());对a中的所有元素进行反序排列，不是sort一下从大到小；
+要做到从大到小可以先sort后reverse
+sort可以自定义cmp函数，依旧是用int作为传入形参即可，设定为vector对应的变量类型即可 
+*&#x2F;
+#include&lt;cstdio&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+using namespace std;
+vector &lt;int&gt; a;
+int n,x;
+bool cmp(int t1,int t2)
+&#123;
+	return t1&lt;t2;&#x2F;&#x2F;sort是按照cmp函数为真的顺序来进行排列的 
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		&#123;
+			scanf(&quot;%d&quot;,&amp;x);
+			a.push_back(x);
+		&#125;
+	for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)
+		printf(&quot;%d &quot;,a[i]);
+	printf(&quot;\n&quot;);
+	cout&lt;&lt;a.size()&lt;&lt;endl;
+&#x2F;&#x2F;	for(int *ip&#x3D;a.begin();ip&lt;&#x3D;a.end();ip++)
+&#x2F;&#x2F;		printf(&quot;%d &quot;,*ip);
+&#x2F;&#x2F;	printf(&quot;\n&quot;);
+	sort(a.begin(),a.end(),cmp);
+	for(vector&lt;int&gt;::iterator it&#x3D;a.begin();it!&#x3D;a.end();it++)
+			printf(&quot;%d &quot;,*it);
+		cout&lt;&lt;endl;
+	cout&lt;&lt;a.front();
+	cout&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8-关于sort函数的应用"><a href="#8-关于sort函数的应用" class="headerlink" title="8.关于sort函数的应用"></a>8.关于sort函数的应用</h3><p>sort的头文件是<algorithm></p>
+<pre class="line-numbers language-none"><code class="language-none">void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>sort的第一个参数是要排序数组的起始地址，第二个参数是结束的地址（最后一个数据的后一个数据的地址）第三个参数cmp是排序的方法，可以是升序也可以是降序。如果第三个参数不写，那么默认的就是从小到大进行排列。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">对于数组：a[20]
+sort(a,a+20,cmp);
+对于STL容器（如vector）
+sort(a.begin(),a.end(),cmp);
+对于结构体node数组：st[20];
+sort(st,st+20,cmp);按照st中某一个变量的值来进行排序！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>1111、1112、1113、1114、1115、1116水题。</p>
+<p>桶排序yyds！</p>
+<p>1116有个小坑，如果平台不是因为不同数据造成断裂的，那么需要在读入完毕后再进行一次鉴定！</p>
+<h3 id="9-关于unique函数的应用"><a href="#9-关于unique函数的应用" class="headerlink" title="9.关于unique函数的应用"></a>9.关于unique函数的应用</h3><p>头文件是<algorithm></p>
+<p>作用就是去除数组中重复的元素，一般与sort函数搭配使用，因为unique函数的原理是去除相邻的相同元素，所以必须先进行排序！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;algorithm&gt;
+int a[10]&#x3D;&#123;0,2,3,7,6,4,4,7,5,2&#125;;
+sort(a,a+10,cmp);&#x2F;&#x2F;排序后,a[10]&#x3D;&#123;0,2,2,3,4,4,5,6,7,7&#125;;
+int len&#x3D;unique(a,a+10)-a;这一句的含义就是得到去重之后的数组的有效长度。
+&#x2F;&#x2F;unique后的数组a[10]&#x3D;&#123;0,2,3,4,5,6,7,5,6,7&#125;最后的三个数不是所需要的哦
+for(int i&#x3D;1;i&lt;&#x3D;len;i++)
+    cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;
+ 这样输出的结果就是：0,2,3,4,5,6,7
+ 注：unique的返回值是最后数组的结尾地址！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对于vector，unique函数有一种更高级的用法：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">vector&lt;int&gt;v (a,a+MAXN);将a数组赋值到v向量中
+sort(v.begin(),v.end(),cmp);先排序
+vector&lt;int&gt;::iterator it&#x3D;unique(v.begin(),v.end());得到去重后最后一个元素的指针地址。
+v.erase(it,v.end());手动去除it以后到v.end()范围内的重复元素。
+for(it&#x3D;v.begin();it!&#x3D;v.end();it++)
+    cout&lt;&lt;*it;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样就利用vector将后面藏着的元素给删除了</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41139830/article/details/80631988">https://blog.csdn.net/qq_41139830/article/details/80631988</a></p>
+<p>1117桶排+标记</p>
+<p>1118 铺地毯，非常经典的一道模拟题，NOIP提高组2011年D1T1</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+思路1：30pts(在mle的边缘疯狂试探) 
+定义一个二维数组map[MAXN][MAXN],对每一张地毯执行更新操作，跑一个双重循环，每个坐标点
+都能得到更新，对于访问坐标(x,y)直接输出map[x][y]即可ans&#x3D;map[x][y]空间必然会炸。 
+思路2：100pts(AC)
+二维数组会炸空间，不妨换个思路？
+对于所有的地毯信息，我们用两个数组a[],b[]维护。横长为x[],纵高为y[] 
+第i张地毯的横坐标为a[i]，纵坐标为b[i],横纵长度分别为x[i],y[i] 
+倒着考察每一张地毯的信息，是否覆盖到了目标点(xi,yi)
+输出这个地毯的值就好了。
+如果循环出来也没有检测到覆盖，就输出-1 
+*&#x2F;
+#include&lt;cstdio&gt;
+using namespace std;
+bool t;
+int a[10002],b[10002],x[10002],y[10002],x0,y0,n;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i&#x3D;n;i&gt;&#x3D;1;i--)
+		scanf(&quot;%d%d%d%d&quot;,&amp;a[i],&amp;b[i],&amp;x[i],&amp;y[i]);
+	scanf(&quot;%d%d&quot;,&amp;x0,&amp;y0);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		&#123;
+			if( x0&gt;&#x3D;a[i] &amp;&amp; x0&lt;&#x3D;(a[i]+x[i]) &amp;&amp; y0&gt;&#x3D;b[i] &amp;&amp; y0&lt;&#x3D;(b[i]+y[i]))
+				&#123;
+				printf(&quot;%d&quot;,n+1-i);
+				t&#x3D;true;
+				break;
+				&#125;
+		&#125;
+	if(!t) printf(&quot;-1&quot;);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第二节 二维数组</p>
+<p>2041、2042、2043、2044水题</p>
+<h3 id="10-二维矩阵的细节处理"><a href="#10-二维矩阵的细节处理" class="headerlink" title="10.二维矩阵的细节处理"></a>10.二维矩阵的细节处理</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">同一行的矩阵数值上x坐标相同
+同一列的矩阵数值上y坐标相同
+同一对角线上的x+y为定值或者x&#x3D;y
+在设计深度优先搜索和广度优先搜索的时候，注意方向数组的初始化方法：
+int dir[4][2]&#x3D;&#123;&#123;-1,0&#125;,&#123;1,0&#125;,&#123;0,-1&#125;,&#123;0,1&#125;&#125; &#x2F;&#x2F;按照上下左右定义方向数组！
+x1&#x3D;x+dir[0][0];y1&#x3D;y+dir[0][1];&#x2F;&#x2F;进行坐标变换
+注意，在进行坐标变换后一定要对坐标的合法性做出判断！
+if(x1&gt;&#x3D;1 &amp;&amp; x1&lt;&#x3D;n &amp;&amp; y1&gt;&#x3D;1 &amp;&amp; y1&lt;&#x3D;n)
+题干还可能有其他方面的限制，比如某一些坐标是不能够走过去的，要注意这样的book[x1][y1]数组是否合法，然后再进行dfs操作
+例如T2045🐍型填数：
+Core code:
+int dir[4][2]&#x3D;&#123;&#123;1,0&#125;,&#123;0,-1&#125;,&#123;-1,0&#125;,&#123;0,1&#125;&#125;,n;&#x2F;&#x2F;四个方向，定义为方向数组
+int map[21][21];
+void dfs(int x,int y,int step,int mode)&#x2F;&#x2F;step为计步器，mode记录上一步的走法，直到走到撞墙为止 
+&#123;
+	if(step&gt;n*n) return;&#x2F;&#x2F;设置边界出口条件
+	map[x][y]&#x3D;step;&#x2F;&#x2F;填数操作
+	int x1,y1;
+	x1&#x3D;x+dir[mode][0];&#x2F;&#x2F;x坐标变换
+	y1&#x3D;y+dir[mode][1];&#x2F;&#x2F;y坐标变换
+	if( x1&gt;&#x3D;1 &amp;&amp; x1&lt;&#x3D;n &amp;&amp; y1&gt;&#x3D;1&amp;&amp; y1&lt;&#x3D;n &amp;&amp; (!map[x1][y1]) )
+		dfs(x1,y1,step+1,mode);&#x2F;&#x2F;如果新坐标合法，尝试继续往下走。
+	else
+	 	&#123;
+		mode&#x3D;(mode+1)%4;&#x2F;&#x2F;这里取模是极妙的操作！因为方向数组0、1、2、3呈现一定的规律性
+&#x2F;&#x2F;下一步的方向试探是可预测的，直接+1后取模，“蛇形”的方向限制就在于此！
+		x1&#x3D;x+dir[mode][0];			
+		y1&#x3D;y+dir[mode][1];
+		dfs(x1,y1,step+1,mode);
+		&#125;
+	return;
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">Steve hjr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yoursite.com/blog/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/">https://yoursite.com/blog/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">Steve hjr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                                    <span class="chip bg-color">OI训练</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">算法竞赛刷题</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/22.jpg" class="responsive-img" alt="OI训练日志">
+                        
+                        <span class="card-title">OI训练日志</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    算法竞赛
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                        <span class="chip bg-color">OI训练</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">算法竞赛刷题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/2021/07/11/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/14.jpg" class="responsive-img" alt="博客建设日志">
+                        
+                        <span class="card-title">博客建设日志</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/">
+                        <span class="chip bg-color">博客建设</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/blog/medias/banner/0.jpg)');
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 🐟的博客<br />'
+            + '文章作者: Steve hjr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
 </script>
 
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
     </div>
 </div>
 
-<main class="content">
+<!-- TOC 悬浮按钮. -->
 
-    
-    <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
-    </div>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
-<script type="text/javascript" src="/blog/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
 
-    
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
 
-    let option = {
-        title: {
-            top: 0,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#3C4858'
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2020-07-14", "2021-07-14"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                color: '#196127',
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'cn',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'cn',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2020-07-14", 0], ["2020-07-15", 0], ["2020-07-16", 0], ["2020-07-17", 0], ["2020-07-18", 0], ["2020-07-19", 0], ["2020-07-20", 0], ["2020-07-21", 0], ["2020-07-22", 0], ["2020-07-23", 0], ["2020-07-24", 0], ["2020-07-25", 0], ["2020-07-26", 0], ["2020-07-27", 0], ["2020-07-28", 0], ["2020-07-29", 0], ["2020-07-30", 0], ["2020-07-31", 0], ["2020-08-01", 0], ["2020-08-02", 0], ["2020-08-03", 0], ["2020-08-04", 0], ["2020-08-05", 0], ["2020-08-06", 0], ["2020-08-07", 0], ["2020-08-08", 0], ["2020-08-09", 0], ["2020-08-10", 0], ["2020-08-11", 0], ["2020-08-12", 0], ["2020-08-13", 0], ["2020-08-14", 0], ["2020-08-15", 0], ["2020-08-16", 0], ["2020-08-17", 0], ["2020-08-18", 0], ["2020-08-19", 0], ["2020-08-20", 0], ["2020-08-21", 0], ["2020-08-22", 0], ["2020-08-23", 0], ["2020-08-24", 0], ["2020-08-25", 0], ["2020-08-26", 0], ["2020-08-27", 0], ["2020-08-28", 0], ["2020-08-29", 0], ["2020-08-30", 0], ["2020-08-31", 0], ["2020-09-01", 0], ["2020-09-02", 0], ["2020-09-03", 0], ["2020-09-04", 0], ["2020-09-05", 0], ["2020-09-06", 0], ["2020-09-07", 0], ["2020-09-08", 0], ["2020-09-09", 0], ["2020-09-10", 0], ["2020-09-11", 0], ["2020-09-12", 0], ["2020-09-13", 0], ["2020-09-14", 0], ["2020-09-15", 0], ["2020-09-16", 0], ["2020-09-17", 0], ["2020-09-18", 0], ["2020-09-19", 0], ["2020-09-20", 0], ["2020-09-21", 0], ["2020-09-22", 0], ["2020-09-23", 0], ["2020-09-24", 0], ["2020-09-25", 0], ["2020-09-26", 0], ["2020-09-27", 0], ["2020-09-28", 0], ["2020-09-29", 0], ["2020-09-30", 0], ["2020-10-01", 0], ["2020-10-02", 0], ["2020-10-03", 0], ["2020-10-04", 0], ["2020-10-05", 0], ["2020-10-06", 0], ["2020-10-07", 0], ["2020-10-08", 0], ["2020-10-09", 0], ["2020-10-10", 0], ["2020-10-11", 0], ["2020-10-12", 0], ["2020-10-13", 0], ["2020-10-14", 0], ["2020-10-15", 0], ["2020-10-16", 0], ["2020-10-17", 0], ["2020-10-18", 0], ["2020-10-19", 0], ["2020-10-20", 0], ["2020-10-21", 0], ["2020-10-22", 0], ["2020-10-23", 0], ["2020-10-24", 0], ["2020-10-25", 0], ["2020-10-26", 0], ["2020-10-27", 0], ["2020-10-28", 0], ["2020-10-29", 0], ["2020-10-30", 0], ["2020-10-31", 0], ["2020-11-01", 0], ["2020-11-02", 0], ["2020-11-03", 0], ["2020-11-04", 0], ["2020-11-05", 0], ["2020-11-06", 0], ["2020-11-07", 0], ["2020-11-08", 0], ["2020-11-09", 0], ["2020-11-10", 0], ["2020-11-11", 0], ["2020-11-12", 0], ["2020-11-13", 0], ["2020-11-14", 0], ["2020-11-15", 0], ["2020-11-16", 0], ["2020-11-17", 0], ["2020-11-18", 0], ["2020-11-19", 0], ["2020-11-20", 0], ["2020-11-21", 0], ["2020-11-22", 0], ["2020-11-23", 0], ["2020-11-24", 0], ["2020-11-25", 0], ["2020-11-26", 0], ["2020-11-27", 0], ["2020-11-28", 0], ["2020-11-29", 0], ["2020-11-30", 0], ["2020-12-01", 0], ["2020-12-02", 0], ["2020-12-03", 0], ["2020-12-04", 0], ["2020-12-05", 0], ["2020-12-06", 0], ["2020-12-07", 0], ["2020-12-08", 0], ["2020-12-09", 0], ["2020-12-10", 0], ["2020-12-11", 0], ["2020-12-12", 0], ["2020-12-13", 0], ["2020-12-14", 0], ["2020-12-15", 0], ["2020-12-16", 0], ["2020-12-17", 0], ["2020-12-18", 0], ["2020-12-19", 0], ["2020-12-20", 0], ["2020-12-21", 0], ["2020-12-22", 0], ["2020-12-23", 0], ["2020-12-24", 0], ["2020-12-25", 0], ["2020-12-26", 0], ["2020-12-27", 0], ["2020-12-28", 0], ["2020-12-29", 0], ["2020-12-30", 0], ["2020-12-31", 0], ["2021-01-01", 0], ["2021-01-02", 0], ["2021-01-03", 0], ["2021-01-04", 0], ["2021-01-05", 0], ["2021-01-06", 0], ["2021-01-07", 0], ["2021-01-08", 0], ["2021-01-09", 0], ["2021-01-10", 0], ["2021-01-11", 0], ["2021-01-12", 0], ["2021-01-13", 0], ["2021-01-14", 0], ["2021-01-15", 0], ["2021-01-16", 0], ["2021-01-17", 0], ["2021-01-18", 0], ["2021-01-19", 0], ["2021-01-20", 0], ["2021-01-21", 0], ["2021-01-22", 0], ["2021-01-23", 0], ["2021-01-24", 0], ["2021-01-25", 0], ["2021-01-26", 0], ["2021-01-27", 0], ["2021-01-28", 0], ["2021-01-29", 0], ["2021-01-30", 0], ["2021-01-31", 0], ["2021-02-01", 0], ["2021-02-02", 0], ["2021-02-03", 0], ["2021-02-04", 0], ["2021-02-05", 0], ["2021-02-06", 0], ["2021-02-07", 0], ["2021-02-08", 0], ["2021-02-09", 0], ["2021-02-10", 0], ["2021-02-11", 0], ["2021-02-12", 0], ["2021-02-13", 0], ["2021-02-14", 0], ["2021-02-15", 0], ["2021-02-16", 0], ["2021-02-17", 0], ["2021-02-18", 0], ["2021-02-19", 0], ["2021-02-20", 0], ["2021-02-21", 0], ["2021-02-22", 0], ["2021-02-23", 0], ["2021-02-24", 0], ["2021-02-25", 0], ["2021-02-26", 0], ["2021-02-27", 0], ["2021-02-28", 0], ["2021-03-01", 0], ["2021-03-02", 0], ["2021-03-03", 0], ["2021-03-04", 0], ["2021-03-05", 0], ["2021-03-06", 0], ["2021-03-07", 0], ["2021-03-08", 0], ["2021-03-09", 0], ["2021-03-10", 0], ["2021-03-11", 0], ["2021-03-12", 0], ["2021-03-13", 0], ["2021-03-14", 0], ["2021-03-15", 0], ["2021-03-16", 0], ["2021-03-17", 0], ["2021-03-18", 0], ["2021-03-19", 0], ["2021-03-20", 0], ["2021-03-21", 0], ["2021-03-22", 0], ["2021-03-23", 0], ["2021-03-24", 0], ["2021-03-25", 0], ["2021-03-26", 0], ["2021-03-27", 0], ["2021-03-28", 0], ["2021-03-29", 0], ["2021-03-30", 0], ["2021-03-31", 0], ["2021-04-01", 0], ["2021-04-02", 0], ["2021-04-03", 0], ["2021-04-04", 0], ["2021-04-05", 0], ["2021-04-06", 0], ["2021-04-07", 0], ["2021-04-08", 0], ["2021-04-09", 0], ["2021-04-10", 0], ["2021-04-11", 0], ["2021-04-12", 0], ["2021-04-13", 0], ["2021-04-14", 0], ["2021-04-15", 0], ["2021-04-16", 0], ["2021-04-17", 0], ["2021-04-18", 0], ["2021-04-19", 0], ["2021-04-20", 0], ["2021-04-21", 0], ["2021-04-22", 0], ["2021-04-23", 0], ["2021-04-24", 0], ["2021-04-25", 0], ["2021-04-26", 0], ["2021-04-27", 0], ["2021-04-28", 0], ["2021-04-29", 0], ["2021-04-30", 0], ["2021-05-01", 0], ["2021-05-02", 0], ["2021-05-03", 0], ["2021-05-04", 0], ["2021-05-05", 0], ["2021-05-06", 0], ["2021-05-07", 0], ["2021-05-08", 0], ["2021-05-09", 0], ["2021-05-10", 0], ["2021-05-11", 0], ["2021-05-12", 0], ["2021-05-13", 0], ["2021-05-14", 0], ["2021-05-15", 0], ["2021-05-16", 0], ["2021-05-17", 0], ["2021-05-18", 0], ["2021-05-19", 0], ["2021-05-20", 0], ["2021-05-21", 0], ["2021-05-22", 0], ["2021-05-23", 0], ["2021-05-24", 0], ["2021-05-25", 0], ["2021-05-26", 0], ["2021-05-27", 0], ["2021-05-28", 0], ["2021-05-29", 0], ["2021-05-30", 0], ["2021-05-31", 0], ["2021-06-01", 0], ["2021-06-02", 0], ["2021-06-03", 0], ["2021-06-04", 0], ["2021-06-05", 0], ["2021-06-06", 0], ["2021-06-07", 0], ["2021-06-08", 0], ["2021-06-09", 0], ["2021-06-10", 0], ["2021-06-11", 0], ["2021-06-12", 0], ["2021-06-13", 0], ["2021-06-14", 0], ["2021-06-15", 0], ["2021-06-16", 0], ["2021-06-17", 0], ["2021-06-18", 0], ["2021-06-19", 0], ["2021-06-20", 0], ["2021-06-21", 0], ["2021-06-22", 0], ["2021-06-23", 0], ["2021-06-24", 0], ["2021-06-25", 0], ["2021-06-26", 0], ["2021-06-27", 0], ["2021-06-28", 0], ["2021-06-29", 0], ["2021-06-30", 0], ["2021-07-01", 0], ["2021-07-02", 0], ["2021-07-03", 0], ["2021-07-04", 0], ["2021-07-05", 0], ["2021-07-06", 0], ["2021-07-07", 0], ["2021-07-08", 0], ["2021-07-09", 0], ["2021-07-10", 0], ["2021-07-11", 1], ["2021-07-12", 0], ["2021-07-13", 0], ["2021-07-14", 1]]
-        }]
+        });
 
-    };
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
 
-    myChart.setOption(option);
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
 </script>
 
     
-
-    
-
-    <div id="cd-timeline" class="container">
-        
-        <div class="cd-timeline-block">
-
-            
-            
-            
-            <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/blog/archives/2021">2021</a>
-            </div>
-            
-
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/blog/archives/2021/07">07</a>
-            </div>
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>14</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/blog/medias/featureimages/22.jpg" class="responsive-img" alt="OI训练日志">
-                                
-                                <span class="card-title">OI训练日志</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    格式说明(1)代码块+# n 作为有价值的代码和思路积累，提高码力的关键要素。
-2021/7/12咕咕咕，今天也要补题呢！
-一本通：第一部分C++语言 第五章数组补题
-第一节 一维数组
-2034反序输出：
-1.输入一行未知个数的整数，不能用
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2021-07-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    算法竞赛
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/"><span class="chip bg-color">OI训练</span></a>
-                            
-                            <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/"><span class="chip bg-color">算法竞赛刷题</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>11</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/blog/2021/07/11/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/blog/medias/featureimages/14.jpg" class="responsive-img" alt="博客建设日志">
-                                
-                                <span class="card-title">博客建设日志</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    
-
-
-
-1.文章内容编辑1.1生成新文章指令 hexo new [layout] “title”  取layout为post 格式，就会在/source/_post中生成一个.md文件，这样用typora（一种markdown语法编辑器）可
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/blog/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/blog/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/"><span class="chip bg-color">博客建设</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-    </div>
 
 </main>
 
