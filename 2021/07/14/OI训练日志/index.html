@@ -467,21 +467,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-15
+                    2021-07-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    5.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    23 分
                 </div>
                 
 
@@ -841,6 +841,123 @@ int main()
 
 
 
+<h2 id="2021-7-15"><a href="#2021-7-15" class="headerlink" title="2021/7/15"></a>2021/7/15</h2><h3 id="12-一般的字符串函数"><a href="#12-一般的字符串函数" class="headerlink" title="12.一般的字符串函数"></a>12.一般的字符串函数</h3><h4 id="gets-puts"><a href="#gets-puts" class="headerlink" title="gets()/puts()"></a>gets()/puts()</h4><p>头文件是cstdio和cstring</p>
+<p>gets从标准输入设备读取字符串函数，可以无限读取，不会判断上界，因此应当保证字符串数组是足够大的，这样读取的时候才不会发生溢出。也就是说，输入一行字符串时，gets()可以一直读取包括空格在内的所有字符，直到最后输入换行符了才停止，并且在源字符串中并不会存储’\n’,而是以’\0’空字符结尾，并以此来结束字符串。</p>
+<p>puts是对应的字符串打印函数，在输出字符串的同时会自动换行！</p>
+<h4 id="getchar-https-blog-csdn-net-hou09tian-article-details-80741890"><a href="#getchar-https-blog-csdn-net-hou09tian-article-details-80741890" class="headerlink" title="getchar()https://blog.csdn.net/hou09tian/article/details/80741890"></a>getchar()<a target="_blank" rel="noopener" href="https://blog.csdn.net/hou09tian/article/details/80741890">https://blog.csdn.net/hou09tian/article/details/80741890</a></h4><p>(没怎么用过.jpg)</p>
+<h4 id="cin-cout"><a href="#cin-cout" class="headerlink" title="cin/cout"></a>cin/cout</h4><p>当cin读取数据时，会传递并忽略任何前导白色空格字符，一旦接触到第一个非空格字符就开始阅读，当它读取到下一个空白字符式，它将停止读取。如对于cin&gt;&gt;name;可以输入”Mark”和”Twain”，但是不能输入”Mark Twain”,因为cin不能输入带有嵌入空格的字符串。</p>
+<h4 id="scanf-printf"><a href="#scanf-printf" class="headerlink" title="scanf/printf()"></a>scanf/printf()</h4><p>使用scanf读入字符串时要使用格式控制符%s，如：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">char str[100];
+scanf(&quot;%s&quot;,str);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>注意，以scanf输入字符串时，以空格或回车作为字符串的结尾。</p>
+<p>同样的，以printf()输出时，也用%s控制一下格式，同时不需要输入取地址符！因为str本身就是字符串的首地址。</p>
+<h3 id="13-进行字符串排序时，应当用string类型参与sort函数，如："><a href="#13-进行字符串排序时，应当用string类型参与sort函数，如：" class="headerlink" title="13.进行字符串排序时，应当用string类型参与sort函数，如："></a>13.进行字符串排序时，应当用string类型参与sort函数，如：</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">string str[21];
+for(int i&#x3D;0;i&lt;n;i++)
+    cin&gt;&gt;str[i];
+sort(str,str+n);
+&#x2F;&#x2F;当然，也可以自己写一个cmp函数从大到小排列字符串。
+bool cmp(string s1,string s2)
+&#123;
+    return s1&gt;s2;
+&#125;
+sort(str,str+n,cmp);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样得到的字符串顺序是按照字典序进行排列的。字典序从小到大。</p>
+<h3 id="14-字母大小写的切换："><a href="#14-字母大小写的切换：" class="headerlink" title="14.字母大小写的切换："></a>14.字母大小写的切换：</h3><p>我们直到，字母大小写的区别在于ASCII码的不同，相应地差出一定地ASCII值，而char型变量地本质</p>
+<p>就是ASCII码，所以可以通过增减一个’A’-‘a’进行大小写的切换！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">string strlwr(string s)&#x2F;&#x2F;这个函数是大写切换成小写的意思
+&#123;
+    for(int i&#x3D;0;i&lt;s.size();i++)
+    &#123;
+        if(s[i]&gt;&#x3D;&#39;A&#39;&amp;&amp;s[i]&lt;&#x3D;&#39;Z&#39;)&#x2F;&#x2F;在&#39;A&#39;和&#39;Z&#39;之间，必为大写字母
+        	s[i]&#x3D;s[i]-&#39;A&#39;+&#39;a&#39;;
+    &#125;
+    return s;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="2021-7-16"><a href="#2021-7-16" class="headerlink" title="2021/7/16"></a>2021/7/16</h2><h3 id="15-字符串去空格的方法："><a href="#15-字符串去空格的方法：" class="headerlink" title="15.字符串去空格的方法："></a>15.字符串去空格的方法：</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;0;i&lt;s.size();i++)
+&#123;
+    if(s[i]&#x3D;&#x3D;&#39; &#39;)
+        s.erase(i,1);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注意,s.erase()函数的用法，s.erase(pos,lenth)，其中pos为s字符串中要删除字符的起始位置，而lenth为需要删除的长度。</p>
+<p>那么原字符串中s[i]~s[i+lenth-1]范围内的所有字符都会被清除掉。如果必要，注意指针的位置</p>
+<p>需要进行相应的调整！比如删掉lenth长的字符后，后面的所有字符都会前移lenth的长度，那么</p>
+<p>为了遍历完所有原字符串的元素，需要将指针前移lenth个单位才可以！</p>
+<p>而且，后面的字符会自动向前补位，这里的s.size()也会减小到原来的s.size()-lenth</p>
+<p>2046、2047、2048水过</p>
+<p>2049有点坑，在用erase时忘了调整指针的位置了，没有前移一个单位。</p>
+<h3 id="16-字符串中找寻子串的方法："><a href="#16-字符串中找寻子串的方法：" class="headerlink" title="16.字符串中找寻子串的方法："></a>16.字符串中找寻子串的方法：</h3><p>关键是对string 类型可用的find()函数！</p>
+<p>1.基本的查找功能：</p>
+<p>s.find(“d”) 查找字符d在字符串s中首次出现的位置，其返回值为s[i]=’d’的第一个i</p>
+<p>s.find(“dw”)查找字符串dw在字符串s中首次出现的位置。</p>
+<p>如果没有找到，find函数会返回一个特别的标记npos，也就是说。</p>
+<p>if(s.find(“d”)==s.npos) 说明字符d在s中并不存在。</p>
+<p>2.返回子串出现在母串中首次出现的位置和最后一次出现的位置：</p>
+<p>s.find_first_of(“deploy”)</p>
+<p>s.find_last_of(“destroy”)</p>
+<p>3.查找某一给定位置后用的子串的位置：</p>
+<p>s.find(“c”,7)从原有字符串s的下标7开始，查找字符c在s中的下标，这里包括了位置坐标7！</p>
+<p>4.查找所有子串在母串中出现的位置：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">s&#x3D;&quot;abcdefghdeijklmnopqrstuvdewxyz&quot;;
+int pos&#x3D;s.find(&quot;de&quot;);
+while(pos!&#x3D;s.npos)
+	&#123;
+		printf(&quot;The &#39;dw&#39; in s is %d \n&quot;,pos++);
+		pos&#x3D;s.find(&quot;de&quot;,pos);
+	&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>5.反向查找子串在母串中出现的位置，通常我们可以这样来使用：当正向查找和反向查找得到的位置不相同时，说明子串并不是唯一的。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">pos1&#x3D;s.find(&quot;dw&quot;);
+pos2&#x3D;s.rfind(&quot;dw&quot;);
+if(pos1&#x3D;&#x3D;pos2) printf(&quot;YES&quot;);
+else printf(&quot;NO&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="17-数组作为函数参数传递时："><a href="#17-数组作为函数参数传递时：" class="headerlink" title="17.数组作为函数参数传递时："></a>17.数组作为函数参数传递时：</h3><p>对于一维数组，可以进行如下的传递：</p>
+<p>int arr[10];</p>
+<p>void func(int a[10])</p>
+<p>void func(int a[])</p>
+<p>void func(int *a)</p>
+<p>对于二维数组，写法有不同！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int arr[10][3];
+void func(int a[10][3])
+void func(int a[][3])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="18-Char类型和String类型的相互转化："><a href="#18-Char类型和String类型的相互转化：" class="headerlink" title="18.Char类型和String类型的相互转化："></a>18.Char类型和String类型的相互转化：</h3><p>简单粗暴的遍历赋值。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">这是一个初始化的函数，将string类型转化到char型数组中
+void toCharArray(string b,char a[]) string类型b-&gt;char数组a
+&#123;
+	for(int i&#x3D;0;i&lt;b.size();i++)
+		a[i]&#x3D;b[i];
+&#125;
+这是一个将char数组转化为string类型的函数
+void toString(char a[],string &amp;b) char数组a-&gt;string类型b
+&#123;
+	int len&#x3D;strlen(a);
+	for(int i&#x3D;0;i&lt;len;i++)
+        b+&#x3D;a[i];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>1839 水过</p>
+<h3 id="19-强行用cin读取含空格的string类型"><a href="#19-强行用cin读取含空格的string类型" class="headerlink" title="19.强行用cin读取含空格的string类型"></a>19.强行用cin读取含空格的string类型</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(cin&gt;&gt;str)
+&#123;
+    ...
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="20-算法的时间与空间复杂度的分析："><a href="#20-算法的时间与空间复杂度的分析：" class="headerlink" title="20.算法的时间与空间复杂度的分析："></a>20.算法的时间与空间复杂度的分析：</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jack1995/p/12152833.html">https://www.cnblogs.com/jack1995/p/12152833.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nwnu-daizh/p/8652285.html">https://www.cnblogs.com/nwnu-daizh/p/8652285.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50479555">https://zhuanlan.zhihu.com/p/50479555</a></p>
+<h3 id="21-函数的传址调用和传值调用："><a href="#21-函数的传址调用和传值调用：" class="headerlink" title="21.函数的传址调用和传值调用："></a>21.函数的传址调用和传值调用：</h3><p>void fuc(int a,int b)</p>
+<p>fuc(x,y)</p>
+<p>这里是传值调用，也就是将形参进行运算，对带入函数的两个x,y没有影响。</p>
+<p>void fuc(int &amp;a,int &amp;b)</p>
+<p>fuc(x,y)</p>
+<p>这里是传址调用，将x、y的地址赋予给了a、b，会影响x、y本身的大小！</p>
 
                 
             </div>
@@ -1080,18 +1197,17 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/">
+                <a href="/blog/2021/07/16/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/22.jpg" class="responsive-img" alt="OI训练日志">
+                        <img src="/blog/medias/featureimages/19.jpg" class="responsive-img" alt="基础数据结构">
                         
-                        <span class="card-title">OI训练日志</span>
+                        <span class="card-title">基础数据结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1101,9 +1217,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1116,16 +1232,11 @@ int main()
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
-                        <span class="chip bg-color">OI训练</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/">
-                        <span class="chip bg-color">算法竞赛刷题</span>
+                    <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1414,7 +1525,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.7k</span>&nbsp;字
+                class="white-color">11.2k</span>&nbsp;字
             
             
             

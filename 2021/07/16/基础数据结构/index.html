@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="🐟的博客">
+    <meta name="keywords" content="基础数据结构, 🐟的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>🐟的博客</title>
+    <title>基础数据结构 | 🐟的博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -307,415 +307,1152 @@
 </header>
 
     
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/19.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">基础数据结构</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
 <style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                算法竞赛
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-07-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-07-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/blog/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1437031748&auto=0&height=66"></iframe>
+
+<h1 id="基础数据结构专题"><a href="#基础数据结构专题" class="headerlink" title="基础数据结构专题"></a>基础数据结构专题</h1><p>  算法竞赛中，曾有人指出：数据结构+算法=程序，此说法固然有夸大其词的成分，但也道破了程序设计中数据结构的地位。基础数据结构是程序的骨架，本文就常见的数据结构进行知识性的总结。</p>
+<p>  基础数据结构，包括栈、队列、树、堆、链表、图论基础数据结构等。补充</p>
+<h2 id="1-栈："><a href="#1-栈：" class="headerlink" title="1.栈："></a>1.栈：</h2><p>栈是一种运算受限的线性表，符合LIFO(Last in first out)特性，即后进先出。STL中加入头文件stack后可以调用标准库中的栈。不过通常还是手写为佳，速度更快。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">一个手写栈的例子：
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+const int N&#x3D;100;
+int top,stack[N];
+void push(int x)&#x2F;&#x2F;压x入栈
+&#123;
+	if(top&#x3D;&#x3D;N) printf(&quot;overflow\n&quot;);
+	else &#123;stack[++top]&#x3D;x;return;&#125;
+&#125;
+void pop()&#x2F;&#x2F;弹出栈顶元素
+&#123;
+	if(top&#x3D;&#x3D;0) &#123;printf(&quot;underflow\n&quot;);return;&#125;
+	else &#123;top--;return;&#125;
+&#125;
+int topnum()&#x2F;&#x2F;访问栈顶元素值
+&#123;
+	return stack[top];
+&#125;
+bool empty()&#x2F;&#x2F;检验栈是否为空
+&#123;
+	return !top;
+&#125;
+int size()&#x2F;&#x2F;求栈大小
+&#123;
+	return top;
+&#125;
+int main()
+&#123;
+	push(1);
+	push(2);
+	push(3);
+	cout&lt;&lt;topnum()&lt;&lt;endl;
+	cout&lt;&lt;&quot;The size of stack is:&quot;&lt;&lt;size()&lt;&lt;endl;
+	pop();
+	cout&lt;&lt;topnum()&lt;&lt;endl;
+	if(!empty()) cout&lt;&lt;&quot;The stack is not empty&quot;&lt;&lt;endl;
+		cout&lt;&lt;&quot;The size of stack is:&quot;&lt;&lt;size()&lt;&lt;endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>STL中的栈，常用以下内容：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">声明方式：
+stack&lt;类型说明符&gt; a;声明一个名称为a的栈
+a.empty()返回一个布尔值，检验栈是否为空
+a.push(x)将x压栈
+a.pop()删除栈顶元素但不返回其值
+a.top()返回栈顶元素，但不删除
+a.size()返回栈中元素的个数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-队列："><a href="#2-队列：" class="headerlink" title="2.队列："></a>2.队列：</h2><p>队列是限定在一端进行插入，另一端进行删除的特殊线性表。就像排队一样，符合(FIFO)特性，即First in first out先进先出，所以队列也称先进先出表。</p>
+<p>队列一般可以用一个数组进行模拟，如数组Q[n]，表示一个规模为n的队列。n就是队列的最大容量。在队列的运算中需要维护两个指针—头指针head和尾指针tail，其中head指向队首的前一个位置，tail指向实际队尾元素所在的位置。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">一个手写队列的例子：
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+int q[101];
+int head,tail;
+void push(int x&#x2F;&#x2F;压x入队尾
+&#123;
+	if(tail&#x3D;&#x3D;100) tail&#x3D;0;
+	else q[++tail]&#x3D;x;
+	return;
+&#125;
+void pop()&#x2F;&#x2F;弹出队尾元素
+&#123;
+	if(head&#x3D;&#x3D;100) head&#x3D;0;
+	else head++;
+	return;
+&#125;
+int front()&#x2F;&#x2F;返回队首元素
+&#123;
+	if((tail-head)&#x3D;&#x3D;0) printf(&quot;Null element!&quot;);
+	return q[head+1];
+&#125;
+int back()&#x2F;&#x2F;返回队尾元素
+&#123;
+	if((tail-head)&#x3D;&#x3D;0) printf(&quot;Null element!&quot;);
+	return q[tail];
+&#125;
+bool empty()&#x2F;&#x2F;检验队列是否为空
+&#123;
+	if((tail-head)&#x3D;&#x3D;0) return true;
+	else return false;
+&#125;
+int size()&#x2F;&#x2F;返回队列大小
+&#123;
+	return (tail-head);
+&#125;
+int main()
+&#123;
+	push(1);
+	push(2);
+	push(3);
+	cout&lt;&lt;front()&lt;&lt;endl;
+	cout&lt;&lt;back()&lt;&lt;endl;
+	pop();
+	cout&lt;&lt;size()&lt;&lt;endl;
+	cout&lt;&lt;front()&lt;&lt;endl;
+	return 0;	
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>STL中同样有队列可以调用：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+using namespace std;
+const int N&#x3D;100;
+queue&lt;int&gt; q;
+int main()
+&#123;
+	q.push(1);&#x2F;&#x2F;压队
+	q.push(2);
+	q.push(3);
+	cout&lt;&lt;q.size()&lt;&lt;endl;&#x2F;&#x2F;队伍大小
+	cout&lt;&lt;q.front()&lt;&lt;endl;&#x2F;&#x2F;队首元素
+	cout&lt;&lt;q.back()&lt;&lt;endl;&#x2F;&#x2F;队尾元素
+	q.pop();&#x2F;&#x2F;弹出队尾元素
+	if(!q.empty()) cout&lt;&lt;&quot;The queue is not empty!&quot;&lt;&lt;endl;&#x2F;&#x2F;检验队伍是否为空
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-指针与数据结构"><a href="#3-指针与数据结构" class="headerlink" title="3.指针与数据结构"></a>3.指针与数据结构</h2><h3 id="3-1指针实现动态数组"><a href="#3-1指针实现动态数组" class="headerlink" title="3.1指针实现动态数组"></a>3.1指针实现动态数组</h3><p>指针传送门：<a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-pointers.html">https://www.runoob.com/cplusplus/cpp-pointers.html</a></p>
+<p>原理：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">对于空间要求较大的情况，比如一个巨大的稀疏矩阵，我们可以用动态数组的方法优化空间复杂度。
+根本原理在于，指针可以对操作系统动态地申请空间！
+int *a,n;
+cin&gt;&gt;n;
+a&#x3D;new int[n];&#x2F;&#x2F;这里，a向操作系统申请了连续的n个int型操作空间
+for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)
+&#123;
+    *a&#x3D;i;&#x2F;&#x2F;或者写成a[i]&#x3D;i，则后一句就不需要了。
+	a++;
+&#125;
+a-&#x3D;n;&#x2F;&#x2F;如果上面的写法是将a++，对指针做了自增的地址变换，那么这里一定要将指针“拨”回起点。
+&#x2F;&#x2F;而如果上面没有a++，写的是*(a+i)&#x3D;i或者a[i]&#x3D;i,就不需要了，因为本质上没有对指针的地址进行变换！
+for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)
+    cout&lt;&lt;a[i];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>例题：</p>
+<p>输入n,m,k,其中n、m很大，对应一个n行m列的稀疏矩阵，接下来输入k组数据，每组数据按照行优先的方式给出，输入数据为行坐标、列坐标、数值大小三个，要求你按照列优先的顺序输出数值。</p>
+<p>input:</p>
+<p>4 5 9<br>1 2 12<br>1 4 23<br>2 2 56<br>2 5 78<br>3 2 100<br>3 4 56<br>4 1 73<br>4 3 34<br>4 5 55</p>
+<p>output:</p>
+<p>73 12 56 100 34 23 56 78 55</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;iostream&gt;
+using namespace std;
+const int LP&#x3D;100001;
+int x[LP],y[LP],val[LP],c[LP],*a[LP];&#x2F;&#x2F;这里x、y、val分别存储第i个数据的行列坐标和数值
+&#x2F;&#x2F;c[i]存储第i列的数据的个数，a指针数组只申请了一维，另一维的大小根据c[i]的数值来申请，从而节约空间！a[i]标记第i列的数组的开头地址！
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;
+    for(int i&#x3D;1;i&lt;&#x3D;k;i++)
+    &#123;
+        cin&gt;&gt;x[i]&gt;&gt;y[i]&gt;&gt;val[i];&#x2F;&#x2F;读入数据
+        c[y[i]]++;&#x2F;&#x2F;标记y[i]列的数据+1
+    &#125;
+    for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+        a[i]&#x3D;new int[c[i]];&#x2F;&#x2F;按照列申请所需要的空间大小
+   	for(int i&#x3D;1;i&lt;&#x3D;k;i++)
+    &#123;
+        *a[y[i]]&#x3D;val[i];&#x2F;&#x2F;对第y[i]列的数据进行赋值操作
+        a[y[i]]++;&#x2F;&#x2F;指针地址自动移到下一位
+    &#125;
+    for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+    &#123;
+        a[i]-&#x3D;c[i];&#x2F;&#x2F;这里必须将指针头回到原位！
+        for(int j&#x3D;1;j&lt;&#x3D;c[j];j++,a[i]++)
+            cout&lt;&lt;*a[i]&lt;&lt;&quot; &quot;;&#x2F;&#x2F;动态按照列优先顺序输出数据！
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-2指针与结构体："><a href="#3-2指针与结构体：" class="headerlink" title="3.2指针与结构体："></a>3.2指针与结构体：</h3><p>当一个指针指向结构体时，称之为结构体指针变量。结构体指针变量指向的是结构体的起始地址，通过结构体指针可访问结构体变量。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">一般的声明形式：
+struct node&#123;
+    int val;
+    int next,head;
+&#125;pos;&#x2F;&#x2F;声明结构体变量Node以及定义变量pos
+node *p;&#x2F;&#x2F;声明结构体指针
+p&#x3D;&amp;pos;&#x2F;&#x2F;p对pos取址，使得指针p指向变量pos
+pos.val&#x3D;100;
+结构体指针访问变量的成员：
+1. 指针名-&gt;成员名 
+2. (*指针名).成员名 (理解为先取址间接调用结构体，再在结构体中访问成员)
+例：
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+struct student&#123;
+	char name[20];
+	char sex;
+	int score;
+&#125;;
+student s[3]&#x3D;&#123;&#123;&quot;xiaoming&quot;,&#39;m&#39;,149&#125;,&#123;&quot;xiaohong&quot;,&#39;f&#39;,139&#125;,&#123;&quot;xiaogang&quot;,&#39;m&#39;,128&#125;&#125;;
+student *p;
+int main()
+&#123;
+	for(p&#x3D;s;p&lt;s+3;p++)&#x2F;&#x2F;这里p指向收到s数组地址的限制了！
+		printf(&quot;%-9s%3c%7d\n&quot;,p-&gt;name,(*p).sex,p-&gt;score);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>同时，结构体内含自定义指针，被称为自引用结构。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct node&#123;
+    int val;
+    node head;&#x2F;&#x2F;非法，等同递归！
+&#125;
+struct node&#123;
+    int val;
+    node *head;
+&#125;;&#x2F;&#x2F;合法，自引用结构！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-3指针实现链表："><a href="#3-3指针实现链表：" class="headerlink" title="3.3指针实现链表："></a>3.3指针实现链表：</h3><p>一般的，有两种存储结构，成为线性结构和链型结构。</p>
+<p>对于线性结构，如数组、栈、队列等。我们拿数组作为例子，数组的声明需要提前知道具体的空间大小，一定程度上会造成空间资源的浪费。同时，线性表的访问较为方便，通过数组名+下标即可访问相应的元素，复杂度O(1)。但是，在增添或删减元素时，为了保持顺序，需要整体移动所有的元素，十分麻烦，复杂度O(n)。</p>
+<p>对于链型结构，如链表。可以根据实际需求动态申请存储空间，一定程度上避免了空间资源的浪费，实现了动态数据结构。但是，访问某个特定的元素比较麻烦，需要从头指针开始遍历，直到找到所需的元素，复杂度O(n)。在增添或删减元素时，可以很方便地进行，复杂度O(1)。</p>
+<p>正所谓鱼与熊掌不可兼得，实际情况选择哪种数据结构，还是需要根据具体题目，具体情况具体分析啊。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">一个指针链表实例：
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+struct Node&#123;&#x2F;&#x2F;定义链表节点结构体 
+	int data;&#x2F;&#x2F;节点的数据域 
+	Node *next;&#x2F;&#x2F;节点的指针域 
+&#125;;
+Node *head,*tail,*p;&#x2F;&#x2F;定义链表的头指针head、尾指针tail和操作指针p 
+int x;&#x2F;&#x2F;定义输入临时变量 
+int main()
+&#123;
+	&#x2F;&#x2F;新增节点操作： 
+	cin&gt;&gt;x;
+	head&#x3D;new Node;&#x2F;&#x2F;申请一个头节点 
+	tail&#x3D;head;&#x2F;&#x2F;构建空链表 
+	while(x!&#x3D;-1)
+	&#123;
+	p&#x3D;new Node;&#x2F;&#x2F;添加节点的操作 
+	p-&gt;data&#x3D;x;&#x2F;&#x2F;新增的节点数据域为x 
+	p-&gt;next&#x3D;NULL;&#x2F;&#x2F;新增节点为尾节点，先让指针域为空 
+	tail-&gt;next&#x3D;p;&#x2F;&#x2F;原来链表的尾节点指针域连接到新增的节点上面 
+	tail&#x3D;p;&#x2F;&#x2F;新的节点为当前的尾节点了 
+	cin&gt;&gt;x;&#x2F;&#x2F;进行下一轮节点的存储 
+	&#125;
+	&#x2F;&#x2F;遍历节点操作 
+	p&#x3D;head-&gt;next; &#x2F;&#x2F;头节点的数据域没有存储数据，直接从第一个数据节点开始 
+	while(p-&gt;next!&#x3D;NULL)&#x2F;&#x2F;当没有遍历到链表的尾节点时 
+		&#123;
+			cout&lt;&lt;p-&gt;data&lt;&lt;endl;&#x2F;&#x2F;输出当前节点的数据 
+			p&#x3D;p-&gt;next;&#x2F;&#x2F;接着找到下一个节点的位置 
+		&#125;
+	cout&lt;&lt;p-&gt;data;&#x2F;&#x2F;输出尾节点的数据 
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更加简洁的链表全功能实现：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+struct Node&#123;&#x2F;&#x2F;定义链表节点结构体 
+	int data;&#x2F;&#x2F;节点的数据域 
+	Node *next;&#x2F;&#x2F;节点的指针域 
+&#125;;
+Node *head,*tail,*p;&#x2F;&#x2F;定义链表的头指针head、尾指针tail和操作指针p 
+int temp;&#x2F;&#x2F;定义输入临时变量 
+void init()&#x2F;&#x2F;初始化链表
+&#123;
+	head&#x3D;new Node;
+	tail&#x3D;head;
+	return;
+&#125; 
+void add(int x)&#x2F;&#x2F;添加数据为x的节点
+&#123;
+	p&#x3D;new Node;&#x2F;&#x2F;申请新节点 
+	p-&gt;data&#x3D;x;&#x2F;&#x2F;更新数据域 
+	p-&gt;next&#x3D;NULL;&#x2F;&#x2F;更新指针域 
+	tail-&gt;next&#x3D;p;&#x2F;&#x2F;更新尾节点的指针域 
+	tail&#x3D;p;&#x2F;&#x2F;更新尾节点 
+	return;
+&#125; 
+void insert(int x,Node *t)&#x2F;&#x2F;插入函数，在节点t的后方插入一个数据域为x的新节点 
+&#123;
+&#x2F;&#x2F;注意，不存在指针的传址调用，因为指针的本质就是指向Node节点的地址了！直接就是传址调用！ 
+	 p&#x3D;new Node;&#x2F;&#x2F;申请插入的新节点 
+	 p-&gt;data&#x3D;x;&#x2F;&#x2F;更新数据域 
+	 p-&gt;next&#x3D;t-&gt;next;&#x2F;&#x2F;更新指针域，将插入的节点指向t节点的后继节点 
+	 t-&gt;next&#x3D;p;&#x2F;&#x2F;将t节点的后继指针指向新插入的节点 
+	return;
+&#125;
+void dfs()&#x2F;&#x2F;遍历函数，作用是遍历整个链表 
+&#123;
+	p&#x3D;head-&gt;next;&#x2F;&#x2F;指向第一个数据节点 
+	while(p-&gt;next!&#x3D;NULL)&#x2F;&#x2F;未到尾节点时 
+		&#123;
+			cout&lt;&lt;p-&gt;data&lt;&lt;&quot; &quot;;&#x2F;&#x2F;输出数据 
+			p&#x3D;p-&gt;next;&#x2F;&#x2F;继承后继节点 
+		&#125;
+	cout&lt;&lt;p-&gt;data&lt;&lt;endl;&#x2F;&#x2F;输出尾节点数据 
+	return;
+&#125;
+Node *find(int x)&#x2F;&#x2F;查询函数，返回一个Node指针，找到数据域为x的节点在链表中的位置
+&#123;
+	p&#x3D;head-&gt;next;	
+	while(p-&gt;next!&#x3D;NULL)
+		&#123;
+			if(p-&gt;data&#x3D;&#x3D;x)
+				return p;
+			else
+				p&#x3D;p-&gt;next;
+		&#125;
+	if(p-&gt;data&#x3D;&#x3D;x)
+		return p;
+	else
+		return NULL;
+&#125;
+void erase(int i)&#x2F;&#x2F;删除第i个节点 
+&#123;
+	int j&#x3D;1;&#x2F;&#x2F;记录当前遍历到第j个节点 
+	p&#x3D;head-&gt;next;&#x2F;&#x2F;初始指针位于第一个节点上 
+	while((p-&gt;next!&#x3D;NULL) &amp;&amp; (j&lt;i-1)) &#x2F;&#x2F;当没有遍历到尾节点，并且直到i-1个节点时停止 
+	&#123;
+		p&#x3D;p-&gt;next;&#x2F;&#x2F;指向下一个几点 
+		j++;&#x2F;&#x2F;节点计数++ 
+	&#125;
+	if(p&#x3D;&#x3D;NULL)&#x2F;&#x2F;如果已经遍历到尾节点，那么不存在下一个节点要删除了。 
+		cout&lt;&lt;&quot;no this position&quot;&lt;&lt;endl;
+	else&#x2F;&#x2F;否则，当前节点就不是尾节点，是因为是第i-1个节点而出循环了，就可以删除！ 
+	&#123;
+		Node *t&#x3D;p-&gt;next;&#x2F;&#x2F;找到待删除的节点地址，用t指针存储 
+		p-&gt;next&#x3D;p-&gt;next-&gt;next;&#x2F;&#x2F;将i-1节点的指针指向第i+1个节点 
+		delete(t);&#x2F;&#x2F;删除第i个节点，释放其空间！ 
+	&#125;
+&#125;
+int main()
+&#123;
+	init();
+	add(985);
+	add(211);
+	add(233);
+	add(114514);
+	dfs();
+	insert(666,find(211));
+	dfs();
+	erase(2);
+	dfs();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>还有双向链表/循环链表等操作：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+struct node&#123;
+	int data;
+	node *pre,*next;
+&#125;;
+node *head,*tail,*p;&#x2F;&#x2F;定义头指针尾指针和操作指针。 
+void init()
+&#123;
+	head&#x3D;new node;
+	tail&#x3D;head;
+&#125;
+void add(int x)&#x2F;&#x2F;添加操作，加入数据域为x的新节点 
+&#123;
+	p&#x3D;new node;
+	p-&gt;data&#x3D;x;
+	p-&gt;next&#x3D;NULL;
+	p-&gt;pre&#x3D;tail;
+	tail-&gt;next&#x3D;p;
+	tail&#x3D;p;
+	return;
+&#125;
+void erase(int i)&#x2F;&#x2F;删除操作，删除第x个节点
+&#123;
+	p&#x3D;head-&gt;next;
+	int j&#x3D;1;
+	while( j&lt;(i-1) &amp;&amp; p-&gt;next!&#x3D;NULL) 
+	&#123;
+		p&#x3D;p-&gt;next;
+		j++;	
+	&#125;	
+	if(p&#x3D;&#x3D;NULL)&#123;
+		cout&lt;&lt;&quot;no position exist!&quot;&lt;&lt;endl;
+	&#125;
+	else
+		&#123;
+			node *t&#x3D;p-&gt;next;
+			p-&gt;next&#x3D;t-&gt;next;
+			t-&gt;next-&gt;pre&#x3D;p;
+			delete(t);
+		&#125;
+&#125; 
+void insert(int i,int val)&#x2F;&#x2F;对x节点的后面插入数据为val的节点
+&#123;
+	int j&#x3D;1;
+	p&#x3D;head-&gt;next;
+	while((p-&gt;next!&#x3D;NULL)&amp;&amp;(j&lt;i))
+	&#123;
+		p&#x3D;p-&gt;next;
+		j++;
+	&#125;
+	if(j!&#x3D;i) &#123;
+		cout&lt;&lt;&quot;no node exist!&quot;&lt;&lt;endl;
+		return;
+	&#125;
+	else
+	&#123;
+		node *t;
+		t&#x3D;p;
+		p&#x3D;new node;
+		p-&gt;data&#x3D;val;
+		p-&gt;pre&#x3D;t;
+		p-&gt;next&#x3D;t-&gt;next;
+		p-&gt;next-&gt;pre&#x3D;p;
+		t-&gt;next&#x3D;p;
+	&#125;
+&#125; 
+void dfs1()&#x2F;&#x2F;顺序遍历
+&#123;
+	p&#x3D;head-&gt;next;
+	while(p-&gt;next!&#x3D;NULL)
+		&#123;
+			cout&lt;&lt;p-&gt;data&lt;&lt;&quot; &quot;;
+			p&#x3D;p-&gt;next;
+		&#125;
+	cout&lt;&lt;p-&gt;data&lt;&lt;endl;
+	return;
+&#125;
+void dfs2()&#x2F;&#x2F;倒序遍历
+&#123;
+	p&#x3D;tail;
+	while(p-&gt;pre!&#x3D;head)
+		&#123;
+			cout&lt;&lt;p-&gt;data&lt;&lt;&quot; &quot;;
+			p&#x3D;p-&gt;pre;
+		&#125;
+	cout&lt;&lt;p-&gt;data&lt;&lt;endl;
+	return;
+&#125;
+int main()
+&#123;
+	init();
+	add(985);
+	add(211);
+	add(233);
+	insert(2,666);
+	dfs1();
+	dfs2();
+	&#x2F;&#x2F;以上为双向链表，以下为双向循环链表 
+	head-&gt;pre&#x3D;tail;
+	tail-&gt;next&#x3D;head;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">Steve hjr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yoursite.com/blog/blog/2021/07/16/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">https://yoursite.com/blog/blog/2021/07/16/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">Steve hjr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
         cursor: pointer;
-        z-index: 100;
     }
 
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
     }
 
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
     }
 
-    #prev-cover i {
-        margin-right: 3px;
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
     }
 
-    #next-cover i {
-        margin-left: 3px;
+    .reward-content ul {
+        padding-left: 0 !important;
     }
 
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
     }
 
-    .carousel-control i {
+    .reward-tabs .tab a {
         color: #fff;
-        font-size: 2.4rem;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
     }
 </style>
 
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item red white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                会飞的鱼🐟
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['纵有疾风起，人生不言弃。','每一个不曾起舞的日子，都是对生命的辜负。'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 25,
-                        showCursor: true
-                    });
-                </script>
-                
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-<script>
-    $('.bg-cover').css('background-image', 'url(/blog/medias/banner/0.jpg)');
-</script>
-
-
-
-            <div class="cover-btns">
-                <a href="#articles" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-                    <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/UltraHjr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:hjrxfly@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2390766703" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2390766703" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-    <a href="https://www.zhihu.com/people/tai-chu-88-75?utm_source=qq&amp;utm_medium=social&amp;utm_oi=1242367425653751808" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tai-chu-88-75?utm_source=qq&amp;utm_medium=social&amp;utm_oi=1242367425653751808" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
-    </a>
-
-
-
-    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
-    </div>
-
-    
 </div>
 
 <script>
     $(function () {
-        let coverSlider = $('.carousel');
+        $('.tabs').tabs();
+    });
+</script>
 
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
+            
+        </div>
+    </div>
 
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/2021/07/16/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/19.jpg" class="responsive-img" alt="基础数据结构">
+                        
+                        <span class="card-title">基础数据结构</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    算法竞赛
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/22.jpg" class="responsive-img" alt="OI训练日志">
+                        
+                        <span class="card-title">OI训练日志</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    算法竞赛
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                        <span class="chip bg-color">OI训练</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">算法竞赛刷题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1')) {
+            return;
         }
 
-        coverSlider.carousel({
-            duration: Number('250'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
 
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 15000);
-        };
-        autoCarousel();
-        
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
 
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 🐟的博客<br />'
+            + '文章作者: Steve hjr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
 
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
         });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
         });
         
     });
 </script>
 
-
-
-<main class="content">
-
     
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;“你喜欢樱花🌸么”
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            樱花下落的速度是秒速五厘米,如果樱花下落时是有声音的,你会不会听到我对你的思念。
-        </div>
-    </div>
-</div>
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/blog/2021/07/16/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/blog/medias/featureimages/19.jpg" class="responsive-img" alt="基础数据结构">
-                            
-                            <span class="card-title">基础数据结构</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-基础数据结构专题  算法竞赛中，曾有人指出：数据结构+算法=程序，此说法固然有夸大其词的成分，但也道破了程序设计中数据结构的地位。基础数据结构是程序的骨架，本文就常见的数据结构进行知识性的总结。
-  基础数据结构，包括栈、队列、树、堆、
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    算法竞赛
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                            <span class="chip bg-color">数据结构</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/blog/2021/07/14/OI%E8%AE%AD%E7%BB%83%E6%97%A5%E5%BF%97/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/blog/medias/featureimages/22.jpg" class="responsive-img" alt="OI训练日志">
-                            
-                            <span class="card-title">OI训练日志</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-格式说明(1)代码块+# n 作为有价值的代码和思路积累，提高码力的关键要素。
-2021/7/12咕咕咕，今天也要补题呢！
-一本通：第一部分C++语言 第五章数组补题
-第一节 一维数组
-2034反序输出：
-1.输入一行未知个数的整数，不
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    算法竞赛
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
-                            <span class="chip bg-color">OI训练</span>
-                        </a>
-                        
-                        <a href="/blog/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%88%B7%E9%A2%98/">
-                            <span class="chip bg-color">算法竞赛刷题</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/blog/2021/07/11/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/blog/medias/featureimages/14.jpg" class="responsive-img" alt="博客建设日志">
-                            
-                            <span class="card-title">博客建设日志</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-
-
-1.文章内容编辑1.1生成新文章指令 hexo new [layout] “title”  取layout为post 格式，就会在/source/_post中生成一个.md文件，这样用typora（一种markdown语法编辑器）可
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/blog/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    博客
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/blog/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/">
-                            <span class="chip bg-color">博客建设</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
 
 </main>
 
