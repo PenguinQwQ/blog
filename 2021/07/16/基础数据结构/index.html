@@ -467,21 +467,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-16
+                    2021-07-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    6.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    31 分
                 </div>
                 
 
@@ -962,6 +962,288 @@ int main()
 	tail-&gt;next&#x3D;head;
 	return 0;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="4-树形结构："><a href="#4-树形结构：" class="headerlink" title="4.树形结构："></a>4.树形结构：</h2><h3 id="4-1树的概念"><a href="#4-1树的概念" class="headerlink" title="4.1树的概念:"></a>4.1树的概念:</h3><p>树是一种非线性的数据结构。</p>
+<p>一棵树是一个由n(n&gt;0)个元素组成的优先集合。</p>
+<ul>
+<li>每个元素称为结点</li>
+<li>有一个特定的结点，成为根结点或者树根（root）</li>
+<li>除根结点外，其余结点能分成m（m&gt;=0）个互不相交的优先级和T0,T1,….Tm-1,其中的每个子集又都是一颗树。</li>
+<li>树是递归定义的。</li>
+<li>一棵树中至少有一个结点，它没有前驱，就是根结点。其余每个结点都有唯一的前驱结点，而每一个结点都可以有0或多个后继结点。</li>
+<li>一个结点的子树个数，称为这个结点的度，也就是一个结点的儿子个数。度为0的结点成为叶结点，度不为零的节点称为分支结点，根以外的分支结点又称为内部结点，树中各结点的度的最大值成为树的度。</li>
+<li>对两个用线段相连的结点，称上结点为下端结点的父结点，下端结点为上端结点的子结点。称从根结点到某个结点所经过的所有结点都是这个子结点的祖先，称以某个结点为根的子树中的所有结点为这个结点的子孙。</li>
+<li>定义一棵树的根结点的层次为0，其余所有结点的层次为父结点的层次加一，一棵树中所有结点层次的最大值称为树的深度。</li>
+<li>树上任意两点间有一条路径，这条路径的长度等于所经过结点总数-1。</li>
+<li>森林是m(m&gt;=0)棵互不相交的树的集合。</li>
+</ul>
+<h3 id="4-2树的存储结构："><a href="#4-2树的存储结构：" class="headerlink" title="4.2树的存储结构："></a>4.2树的存储结构：</h3><p>一种较常规的存树方法：树型双链表结构，允许从根节点或叶节点进行双向遍历。</p>
+<p>一本通例题：1336：【例3-1】找树根和孩子</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N&#x3D;200;
+struct node&#123;&#x2F;&#x2F;定义结点，data存数据域，记录结点标号，同时声明一个指向父结点的指针和N个指向子结点的指针 
+	int data;
+	node *fa,*child[N];
+	int childnum;&#x2F;&#x2F;每个结点增加一个记录儿子数目的计数器 
+&#125;tree[N];&#x2F;&#x2F;生成N个结点 
+int n,m,x,y,maxn&#x3D;-1000,maxroot,root,ans[N];
+void init()&#x2F;&#x2F;初始化，建树 
+&#123;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#x2F;&#x2F;对每个结点，初始化数据域，儿子数目和父结点的指向 
+		&#123;
+			tree[i].data&#x3D;i;
+			tree[i].childnum&#x3D;0;
+			tree[i].fa&#x3D;NULL;
+		&#125;
+	return;
+&#125;
+void addedge(int a,int b)&#x2F;&#x2F;加有向边，使得b是a的儿子 
+&#123;
+	++tree[a].childnum;&#x2F;&#x2F;a结点的孩子数目+1 
+	tree[a].child[tree[a].childnum]&#x3D;&amp;tree[b];&#x2F;&#x2F;使得a结点的当前子结点指针指向b结点 
+    &#x2F;&#x2F;易错：一定要注意这里的写法，对于a结点，先访问第childnum个儿子的指针，让它保存有结点b的地址，别忘记加取址符号！
+	tree[b].fa&#x3D;&amp;tree[a];&#x2F;&#x2F;b结点的父结点指针指向a 
+	return;
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);&#x2F;&#x2F;输入nm 
+	init();&#x2F;&#x2F;初始化 
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)&#x2F;&#x2F;读边存边 
+		&#123;
+			scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+			addedge(x,y);&#x2F;&#x2F;加有向边，建树 
+		&#125;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#x2F;&#x2F;对于n个结点做数据处理 
+		&#123;
+			if(tree[i].fa&#x3D;&#x3D;NULL)&#x2F;&#x2F;如果i结点的父结点为NULL，说明为根结点 
+				&#123;
+					root&#x3D;i;&#x2F;&#x2F;标记根节点
+				&#125;
+			if(tree[i].childnum&gt;maxn)&#x2F;&#x2F;如果记录到了最多儿子的结点，更新maxroot 
+				&#123;
+					maxn&#x3D;tree[i].childnum;
+					maxroot&#x3D;i;
+				&#125;
+		&#125;
+	printf(&quot;%d\n&quot;,root);
+	printf(&quot;%d\n&quot;,maxroot);
+	for(int i&#x3D;1;i&lt;&#x3D;tree[maxroot].childnum;i++)&#x2F;&#x2F;收集maxroot下的所有儿子结点 
+		&#123;
+			ans[i]&#x3D;tree[maxroot].child[i]-&gt;data;
+		&#125;
+	sort(ans+1,ans+1+tree[maxroot].childnum);&#x2F;&#x2F;排序 
+	for(int i&#x3D;1;i&lt;&#x3D;tree[maxroot].childnum;i++)&#x2F;&#x2F;输出 
+		printf(&quot;%d &quot;,ans[i]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-3树的遍历"><a href="#4-3树的遍历" class="headerlink" title="4.3树的遍历"></a>4.3树的遍历</h3><p>基于深度优先搜索的递归算法，可以进行先序遍历和后序遍历。先序遍历，遵循先根节点，后左结点，再右结点的顺序。后序遍历，遵循先左结点，后右结点，最后根节点的顺序。</p>
+<p>实例代码：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+const int N&#x3D;210;
+struct node&#123;
+	int data;
+	node *fa,*son[N];
+	int sonnum;
+&#125;;
+node tree[N];
+int n,m,x,y;
+void init()
+&#123;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		&#123;
+			tree[i].data&#x3D;i;
+			tree[i].fa&#x3D;NULL;
+			tree[i].sonnum&#x3D;0;
+		&#125;
+	return;
+&#125;
+void addedge(int a,int b)
+&#123;
+	++tree[a].sonnum;
+	tree[a].son[tree[a].sonnum]&#x3D;&amp;tree[b];
+	tree[b].fa&#x3D;&amp;tree[a];
+	return;
+&#125;
+void first(int x)&#x2F;&#x2F;先序遍历，先访问根结点，后左结点，后右结点，记录当前所在的结点编号 
+&#123;
+	printf(&quot;%d &quot;,x);
+	for(int i&#x3D;1;i&lt;&#x3D;tree[x].sonnum;i++)
+			first(tree[x].son[i]-&gt;data); &#x2F;&#x2F;注意，这里由于是按照输入顺序进行的建树，默认子结点从左到右
+&#x2F;&#x2F;的顺序进行添加！所以，自然直接进行遍历即可。 
+	return;
+&#125;
+void last(int x)
+&#123;
+	for(int i&#x3D;1;i&lt;&#x3D;tree[x].sonnum;i++)
+			last(tree[x].son[i]-&gt;data); 
+		printf(&quot;%d &quot;,x);
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	init();
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+			addedge(x,y);
+		&#125;
+	first(1);
+	printf(&quot;\n&quot;);
+	last(1);
+	return 0;
+&#125;
+
+&#x2F;*
+8 7
+1 3
+1 4 
+4 2
+2 6
+2 7
+2 8
+1 5
+first:1 3 4 2 6 7 8 5
+last:3 6 7 8 2 4 5 1
+*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-4已知先序遍历、中序遍历，求解后序遍历"><a href="#4-4已知先序遍历、中序遍历，求解后序遍历" class="headerlink" title="4.4已知先序遍历、中序遍历，求解后序遍历"></a>4.4已知先序遍历、中序遍历，求解后序遍历</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+已知先序遍历和中序遍历，要求导出后序遍历。
+先序遍历：先树根再左子树再右子树
+中序遍历：先左子树再树根再右子树 
+我们可以先通过先序遍历找到树根元素，然后在中序遍历中找到树根，从而划分出左右子树所包含的元素。
+接着，继续递归下去，直到全部为叶节点时就可以输出了。 
+定义find(l1,r1,l2,r2)函数，其中[l1,r1]为当前树对应先序遍历，[l2,r2]为当前树对应中序遍历
+那么，先序遍历s1,中序遍历s2
+int m&#x3D;s2.find(s1[l1])就可以找到s2中树根的位置了。m-l2就是左子树的长度，那么m-l2+l1就是左子树在先序遍历中的右边界了。那么m-l2+l1+1就是右子树的左边界，右子树的有边界就是r1了 
+接着
+find(l1+1,m-l2+l1,l2,m-1)这是处理左子树
+find(m-l2+l1+1,r1,m+1,r2)这是处理右子树
+但是，处理这两个子树的前提，是这两个子树是有效的，也就是左右子树必须存在，这样递归下去才有意义，否则就是死循环递归爆栈。因此，前提必须是：左子树有效则l1+1&lt;&#x3D;m-l2+l1，移项整理得到l2&lt;&#x3D;m-1，即l2&lt;m 当且仅当左子树为叶子节点时取到等号
+右子树有效则m+1&lt;&#x3D;r2才可以，即m&lt;r2
+*&#x2F; 
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+string s1,s2;
+void find(int l1,int r1,int l2,int r2)
+&#123;
+	int m&#x3D;s2.find(s1[l1]);&#x2F;&#x2F;找到树根在中序遍历中的位置 
+	if(m&gt;l2) find(l1+1,m-l2+l1,l2,m-1);&#x2F;&#x2F;m&gt;l2说明左子树是存在的，不是叶子结点 
+	if(m&lt;r2) find(m-l2+l1+1,r1,m+1,r2);&#x2F;&#x2F;m&lt;r2说明右子树是存在的，不是叶子结点 
+	printf(&quot;%c&quot;,s1[l1]);
+&#125;
+int main()
+&#123;
+	cin&gt;&gt;s1&gt;&gt;s2;
+	find(0,s1.size()-1,0,s2.size()-1);&#x2F;&#x2F;画出整棵树对应的先序遍历和中序遍历 
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-5占坑：二叉查找树-二叉排序树，以及二叉树的相关知识"><a href="#4-5占坑：二叉查找树-二叉排序树，以及二叉树的相关知识" class="headerlink" title="4.5占坑：二叉查找树/二叉排序树，以及二叉树的相关知识."></a>4.5占坑：二叉查找树/二叉排序树，以及二叉树的相关知识.</h3><p>先鸽一波，和平衡树一块学。</p>
+<h2 id="5-堆"><a href="#5-堆" class="headerlink" title="5.堆"></a>5.堆</h2><p>堆可以理解成一个对一个完全二叉树进行的操作，来维护这个完全二叉树数据的有序性。核心原理如下：</p>
+<ul>
+<li><p>一个二叉树tree[N]中，对于结点x，其树中结点为tree[x]，它的左儿子坐标为2<em>x，对应结点为tree[2</em>x]</p>
+<p>而右儿子的坐标为2<em>x+1，对应结点为tree[2</em>x+1]，结点x的父亲结点为x/2，对应结点为tree[x/2]。这样的话，就可以方便的用一个数组来模拟整个完全完全二叉树了。</p>
+</li>
+<li><p>核心操作有两种，一种是put操作，就是往堆中添加一个元素；一种是get擦欧总，就是从堆中取出并删除这个元素。两种操作搭配使用，可以维护堆数据的有序性。</p>
+</li>
+<li><p>堆顶元素是所有元素最小的，父结点小于子结点的叫小根堆。堆顶元素是所有元素中最大的，父结点大于子结点的叫做大根堆。</p>
+</li>
+<li><p>STL中有标准的堆模板，优先队列（priority_queue)，推荐手写，更加快捷</p>
+</li>
+</ul>
+<p>例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3378">https://www.luogu.com.cn/problem/P3378</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">一个手写堆案例：洛谷P3378
+#include&lt;cstdio&gt;
+using namespace std;
+const int N&#x3D;1002000;
+int heap[N],size,n;
+void swap(int &amp;a,int &amp;b)
+&#123;
+	int t;
+	t&#x3D;a;
+	a&#x3D;b;
+	b&#x3D;t;
+	return;
+&#125;
+void add(int x)&#x2F;&#x2F;将大小为x的元素添加到堆中
+&#123;
+	int now,next;&#x2F;&#x2F;now指向当前添加元素的位置，next指向父结点的比较位置
+	heap[++size]&#x3D;x;&#x2F;&#x2F;将x元素添加到堆尾 
+	now&#x3D;size;&#x2F;&#x2F;找到现在的新增元素位置 
+	while(now&gt;1)&#x2F;&#x2F;在now还未到堆首时 
+	&#123;
+		next&#x3D;now&gt;&gt;1;
+		if(heap[next]&lt;&#x3D;heap[now]) break;&#x2F;&#x2F;一旦满足不了小根堆的条件，跳出循环 
+		swap(heap[next],heap[now]);&#x2F;&#x2F;交换父子结点 
+		now&#x3D;next;	
+	&#125; 
+&#125;
+void dis()&#x2F;&#x2F;小根堆的删除 
+&#123;
+	int now,next;
+	heap[1]&#x3D;heap[size--];
+	now&#x3D;1;
+	while((now&lt;&lt;1)&lt;&#x3D;size)
+		&#123;
+			next&#x3D;now&lt;&lt;1;&#x2F;&#x2F;找到左子结点的坐标 
+			if(next+1&lt;&#x3D;size &amp;&amp; heap[next+1]&lt;heap[next]) next++;&#x2F;&#x2F;如果有右子结点，比较左右子结点的大小，决定父结点与那个进行比较 
+			if(heap[next]&gt;&#x3D;heap[now]) break;&#x2F;&#x2F;如果最小的儿子仍比父结点大，就没有交换的必要了 
+			swap(heap[next],heap[now]);&#x2F;&#x2F;否则交换 
+			now&#x3D;next;&#x2F;&#x2F;将当前位置下移。 
+		&#125;
+&#125;
+int main()
+&#123;
+	int tmp,x;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		&#123;
+			scanf(&quot;%d&quot;,&amp;tmp);
+			if(tmp&#x3D;&#x3D;1)
+				&#123;
+					scanf(&quot;%d&quot;,&amp;x);
+					add(x);
+					continue;
+				&#125;
+			if(tmp&#x3D;&#x3D;2)
+				&#123;
+					printf(&quot;%d\n&quot;,heap[1]);
+					continue;
+				&#125;
+			if(tmp&#x3D;&#x3D;3)
+				&#123;
+					dis();
+					continue;
+				&#125;
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>STL中同样有堆这种数据结构！默认的堆是大根堆，可以手动生成一个小根堆。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">头文件：
+#include&lt;queue&gt;
+priority_queue&lt;int&gt; q1;&#x2F;&#x2F;大根堆
+priority_queue&lt;int , vector&lt;int&gt; , greater&lt;int&gt; &gt; q2;&#x2F;&#x2F;小根堆
+在求解最短路问题，或者最小生成树问题时，常常要求拿出权值最小的路，需要小根堆！
+#define make_pair mp
+typedef pair&lt;int,int&gt; pii;
+priority_queue &lt;pii,vector&lt;pii&gt;,greater&lt;pii&gt; &gt; q;
+这样得到的一个堆就是可以维护两种信息了！分别是边的序号和边的权值！接下来按照边权生成小根堆就可以满足需要了！
+ q.push(mp(d[s],s));
+...
+    int k&#x3D;q.top().second;
+这样得到的k就是按照d[s]大小生成小根堆，排好后的二元组的s值了！
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1540,7 +1822,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.3k</span>&nbsp;字
+                class="white-color">14.3k</span>&nbsp;字
             
             
             
