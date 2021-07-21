@@ -467,21 +467,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-17
+                    2021-07-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    7.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    35 分
                 </div>
                 
 
@@ -963,6 +963,300 @@ void toString(char a[],string &amp;b) char数组a-&gt;string类型b
 <h2 id="2021-7-17"><a href="#2021-7-17" class="headerlink" title="2021/7/17"></a>2021/7/17</h2><h3 id="22-typedef的用法："><a href="#22-typedef的用法：" class="headerlink" title="22.typedef的用法："></a>22.typedef的用法：</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenhanxuan1999/article/details/99020715">https://blog.csdn.net/chenhanxuan1999/article/details/99020715</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/superhoy/article/details/53504472">https://blog.csdn.net/superhoy/article/details/53504472</a></p>
 <p>转基础数据结构和基础图论</p>
+<h2 id="2021-7-18"><a href="#2021-7-18" class="headerlink" title="2021/7/18"></a>2021/7/18</h2><p>基础图论</p>
+<h3 id="23-排序算法："><a href="#23-排序算法：" class="headerlink" title="23.排序算法："></a>23.排序算法：</h3><p>快速排序：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+快速排序的思路是，对于区间[l,r]，选取中间的代表元素mid&#x3D;a[(l+r)&#x2F;2]
+然后，在左端逐个找比代表元大的元素，在右端逐个找比代表元小的元素，然后两两交换，这个过程需要两个指针
+分别进行维护 
+指针指到中间时，退出循环之后向下递归，实现排序。 
+
+*&#x2F;
+#include&lt;cstdio&gt;
+using namespace std;
+const int N&#x3D;1002;
+int n,a[N];
+void swap(int &amp;x,int &amp;y)
+&#123;
+	int t;
+	t&#x3D;x;
+	x&#x3D;y;
+	y&#x3D;t;
+	return;
+&#125;
+void qsort(int l,int r)
+&#123;
+	if(l&#x3D;&#x3D;r) return;
+	int mid&#x3D;a[(l+r)&#x2F;2];
+	int i&#x3D;l,j&#x3D;r;
+	do&#123;
+		while(a[i]&lt;mid) i++;
+		while(a[j]&gt;mid) j--;
+		if(i&lt;&#x3D;j)
+		&#123;
+			swap(a[i],a[j]);
+			i++;
+			j--;
+		&#125;
+	&#125;while(i&lt;&#x3D;j);
+	if(l&lt;j) qsort(l,j);
+	if(i&lt;r) qsort(i,r);
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;n);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		scanf(&quot;%d&quot;,&amp;a[i]);
+	qsort(1,n);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		printf(&quot;%d &quot;,a[i]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>归并排序+输出逆序对：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+将区间数段分半，先使每一段数据排好序，再进行二路归并。
+归并的过程：左端[l,mid] a[i]，右端[mid+1,r] a[j]
+两个指针分别比较
+若a[i]&lt;a[j]
+r[k]&#x3D;a[i],i++,k++
+若a[j]&lt;a[i]
+r[k]&#x3D;a[j],j++,k++
+最后，若行列中的元素有剩余
+while(i&lt;&#x3D;mid)
+&#123;
+	r[k]&#x3D;a[i];
+	k++;i++;
+&#125;
+while(j&lt;&#x3D;r)
+&#123;
+	r[k]&#x3D;a[j];
+	k++;j++;
+&#125;
+
+*&#x2F;
+#include&lt;cstdio&gt;
+using namespace std;
+const int N&#x3D;500010;
+long long a[N],s[N],n;
+long long res;
+void mergesort(int l,int r)
+&#123;
+	if(l&gt;&#x3D;r) return;
+	int mid&#x3D;(l+r)&gt;&gt;1;
+	mergesort(l,mid);
+	mergesort(mid+1,r);
+	int i&#x3D;l,j&#x3D;mid+1,k&#x3D;l;
+	while(i&lt;&#x3D;mid &amp;&amp; j&lt;&#x3D;r )
+	&#123;
+		if(a[i]&lt;&#x3D;a[j])&#x2F;&#x2F;这里很重要，要把左端和右端相同的元素消灭掉，原则上先上左端的元素，这样即使左端全是相等的元素，也可以处理！系！ 
+			&#123;
+				s[k]&#x3D;a[i];k++;i++;
+			&#125;
+		if(a[i]&gt;a[j])
+			&#123;
+				s[k]&#x3D;a[j];k++;j++;
+				res+&#x3D;mid-i+1;
+			&#125;
+	&#125;
+	while(i&lt;&#x3D;mid)
+		&#123;
+			s[k]&#x3D;a[i];k++;i++;
+		&#125;
+	while(j&lt;&#x3D;r)
+		&#123;
+			s[k]&#x3D;a[j];k++;j++;
+		&#125;
+	for(i&#x3D;l;i&lt;&#x3D;r;i++)
+		a[i]&#x3D;s[i];
+	return;
+&#125;
+int main()
+&#123;
+	scanf(&quot;%lld&quot;,&amp;n);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		scanf(&quot;%lld&quot;,&amp;a[i]);
+	mergesort(1,n);
+	printf(&quot;%lld&quot;,res);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>深搜1317、1318练手，感觉曾经搜索的功力尚未尽失。</p>
+<h2 id="2021-7-19"><a href="#2021-7-19" class="headerlink" title="2021/7/19"></a>2021/7/19</h2><h3 id="24-递推算法的运行原理："><a href="#24-递推算法的运行原理：" class="headerlink" title="24.递推算法的运行原理："></a>24.递推算法的运行原理：</h3><p>递推是动态规划的一种写法，另一种是递归+记忆化搜索，以dfs/bfs为载体进行的。（更高深的层次不够还没有接触到）</p>
+<p>递推的前提：</p>
+<p>1.从题干中提取信息设计恰当的状态。</p>
+<p>2.根据题干要求找到状态之间的递推关系，称为状态转移方程。</p>
+<p>3.初始化递推条件，如f[1] [0]=1之类的递推起点，即数列中的首项。</p>
+<p>例题：1313 位数问题：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+思路：对于所有的n位数，相当于向n个盒子中填数，其中第一个格子不能填0，其余n-1个格子可以填0~9 
+求解这n个盒子有偶数个3的所有方案数目。
+考虑动态规划：
+定义状态f[i][j]表示第i位标记填上j的所有方案数。这个f数组不考虑首位！
+即f[x][0]表示总共填入x个盒子，且这x个盒子有偶数个3的方案数，
+f[x][1]表示总共填入x个盒子，且这x个盒子有奇数个3的方案数
+写状态转移方程：
+只需要考虑从x-1个盒子到x个盒子的变化！
+第x个盒子是3，那么： 
+f[x][0]+&#x3D;f[x-1][1]
+第x个盒子不是3，那么：
+f[x][0]+&#x3D;f[x-1][0]*9 
+综上：
+f[x][0]&#x3D;f[x-1][1]+f[x-1][0]*9
+同理：
+f[x][1]&#x3D;f[x-1][0]+f[x-1][1]*9 
+x枚举到n-1位，则有：
+ans&#x3D;f[n-1][1]+f[n-1][0]*8
+在中间注意取模！ 
+*&#x2F;
+#include&lt;cstdio&gt;
+using namespace std;
+const int mod&#x3D;12345;
+int n,f[1002][2];
+
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;n);
+	f[1][1]&#x3D;1;&#x2F;&#x2F;一个盒子奇数个3，只能有一个3 
+	f[1][0]&#x3D;9;&#x2F;&#x2F;一个盒子偶数个3，只能有0个3，共9种
+	for(int x&#x3D;2;x&lt;&#x3D;n-1;x++)
+		&#123;
+			f[x][0]&#x3D;(f[x-1][1]+f[x-1][0]*9)%mod;
+			f[x][1]&#x3D;(f[x-1][0]+f[x-1][1]*9)%mod;
+		&#125; 
+	f[n][0]&#x3D;(f[n-1][1]+f[n-1][0]*8)%mod;
+	printf(&quot;%d&quot;,f[n][0]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="25-汉诺塔问题："><a href="#25-汉诺塔问题：" class="headerlink" title="25.汉诺塔问题："></a>25.汉诺塔问题：</h3><p><a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1205">http://ybt.ssoier.cn:8088/problem_show.php?pid=1205</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+考虑汉诺塔问题
+（1）移动次数 
+每次只能移动一个圆盘。
+设h[x]表示将x个盘子从a柱移动到c柱所需要的操作次数
+假设已经知道h[x-1]，即已知将前x-1个盘子移动到c所需要的操作步骤 
+移动第x个盘子，需要先将x-1个盘子移动到b上，再把x移到c上，然后再把x-1移到c上 
+即h[x]&#x3D;2*h[x-1]+1;
+（2）考虑模拟移动的整个情况，打印移动路径
+分析的实质依旧是递归转化：假设要将n个盘子从a柱移动到c柱上，那么可以将上方n-1个盘子“绑在一起”，
+当成n&#x3D;2的情况来解决！ 
+这个过程如何设计递归搜索函数？函数要维护那些量？我们要根据需要维护的信息来进行设计！
+首先，我们需要明确原柱、目标柱、辅助转移柱是哪个，这是我们打印路径的依据。
+其次，我们需要明确要将多少个盘子“绑”在一起，这样才能精确地打印出移动地盘子标号。
+定义dfs(int x,int a,int b,int c) 这个函数的意思是将x个盘子，从a移动到b以c为辅助柱的方案路径。
+void dfs(int x,int a,int c,int b)
+&#123;
+	if(x&#x3D;&#x3D;0) return;&#x2F;&#x2F;递归出口！ 
+	dfs(x-1,a,b,c)；&#x2F;&#x2F;先将x-1个盘子从a移动到b，空出来第x个盘子和c柱
+	printf(&quot;%c-&gt;%d-&gt;%c\n&quot;,a,x,c);&#x2F;&#x2F;进行一次操作
+	dfs(x-1,b,c,a);&#x2F;&#x2F;再将移动到辅助柱b的x-1个盘子移动到c柱 
+
+&#125;
+*&#x2F;
+#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+using namespace std;
+int n;
+char a,b,c;
+void dfs(int x,char a,char c,char b)
+&#123;
+	if(x&#x3D;&#x3D;0) return;&#x2F;&#x2F;递归出口！ 
+	dfs(x-1,a,b,c);&#x2F;&#x2F;先将x-1个盘子从a移动到b，空出来第x个盘子和c柱
+	printf(&quot;%c-&gt;%d-&gt;%c\n&quot;,a,x,c);&#x2F;&#x2F;进行一次操作
+	dfs(x-1,b,c,a);&#x2F;&#x2F;再将移动到辅助柱b的x-1个盘子移动到c柱 
+	return;
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;n);
+	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+	dfs(n,a,b,c);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里搜索函数的构造非常巧妙！一定是根据需要维护的信息进行构造的！所以，在进行递归函数的设计时，要关注题干中需要我们维护的隐形信息！</p>
+<h3 id="26-思考本质的方向："><a href="#26-思考本质的方向：" class="headerlink" title="26.思考本质的方向："></a>26.思考本质的方向：</h3><p>例题：集合的划分<a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1315(%E9%9C%80%E8%A6%81%E5%86%99%E9%AB%98%E7%B2%BE%E5%BA%A6%EF%BC%8C%E6%B2%A1%E6%9C%89%E5%86%99%EF%BC%8C%E8%BF%87%E4%B8%8D%E4%BA%86%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E7%82%B9)">http://ybt.ssoier.cn:8088/problem_show.php?pid=1315(需要写高精度，没有写，过不了最后一个数据点)</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;*
+对于这个问题，我们思考一下本质。设S[n][k]为n元素分为k组的种类数目 
+对任意元素ai,有两种情况： 
+（1）&#123;ai&#125; 是k个子集 中的一个，那么，只需要将剩余的n-1个元素分为k-1组就可以解决问题了
+（2）&#123;ai&#125;不是k个子集中的一个，那么元素ai必定与其他元素组成了一个集合，只需要使n-1个元素分为k组后，有
+k种选择情况。 
+s[n][k]&#x3D;s[n-1][k-1]+s[n-1][k]*k;
+分析一下边界条件：
+首先，对于k&#x3D;1或k&#x3D;n，显然s[n][n]&#x3D;s[n][1]&#x3D;1;
+其次，如果k&gt;n，将所有n个元素分为k组都做不到，s[n][k]&#x3D;0;
+ 
+*&#x2F;
+#include&lt;cstdio&gt;
+using namespace std;
+int n,k;
+int s[30][30];
+int main()
+&#123;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;k);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		for(int j&#x3D;1;j&lt;&#x3D;k;j++)
+			&#123;
+				if(j&gt;i) 
+				&#123;
+					s[i][j]&#x3D;0;
+					continue;
+				&#125;
+				if(j&#x3D;&#x3D;1 || j&#x3D;&#x3D;n)
+				&#123;
+					s[i][j]&#x3D;1;
+					continue;
+				&#125;
+				s[i][j]&#x3D;s[i-1][j-1]+s[i-1][j]*j;
+			&#125;
+	printf(&quot;%d&quot;,s[n][k]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里，对单独一个元素an拿出来思考，思考它对k个子集的参与度和贡献，是非常必要的一种思考方向！</p>
+<h2 id="2021-7-20"><a href="#2021-7-20" class="headerlink" title="2021/7/20"></a>2021/7/20</h2><h3 id="27-读入优化："><a href="#27-读入优化：" class="headerlink" title="27.读入优化："></a>27.读入优化：</h3><p>对于数量级很大的数据读入，无论是cin还是scanf都有些捉襟见肘，此时可以进行读入优化：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline int read()
+&#123;
+    char ch;
+    while((ch&#x3D;getchar())&gt;&#39;9&#39;||ch&lt;&#39;0&#39;);
+    int res&#x3D;ch-&#39;0&#39;;
+    while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+        res&#x3D;res*10+ch-&#39;0&#39;;
+   	return res;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="28-偷偷水一波-LaTex换行显示在博客上需要敲四个下划线"><a href="#28-偷偷水一波-LaTex换行显示在博客上需要敲四个下划线" class="headerlink" title="28.(偷偷水一波)LaTex换行显示在博客上需要敲四个下划线\"></a>28.(偷偷水一波)LaTex换行显示在博客上需要敲四个下划线\</h3><p>两个的话好像会被吞掉欸。</p>
+<h2 id="2021-7-21"><a href="#2021-7-21" class="headerlink" title="2021/7/21"></a>2021/7/21</h2><h3 id="29-字符串s-size-和s-length-基本上对string类型是一样的。读入字符串时，字符是从下标为0开始存储的！"><a href="#29-字符串s-size-和s-length-基本上对string类型是一样的。读入字符串时，字符是从下标为0开始存储的！" class="headerlink" title="29.字符串s.size()和s.length()基本上对string类型是一样的。读入字符串时，字符是从下标为0开始存储的！"></a>29.字符串s.size()和s.length()基本上对string类型是一样的。读入字符串时，字符是从下标为0开始存储的！</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">LCS代码：
+    #include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+string s,t;
+int f[1002][1002],l1,l2;
+int max(int a,int b)
+&#123;
+	return a&gt;b?a:b;
+&#125;
+int main()
+&#123;
+	cin&gt;&gt;s;
+	cin&gt;&gt;t;
+	for(int i&#x3D;1;i&lt;&#x3D;s.size();i++)
+		for(int j&#x3D;1;j&lt;&#x3D;t.size();j++)
+			&#123;
+				f[i][j]&#x3D;max(f[i-1][j],f[i][j-1]);
+				if(s[i-1]&#x3D;&#x3D;t[j-1])&#x2F;&#x2F;注意这里，枚举的还是上一个位置！
+					f[i][j]&#x3D;max(f[i][j],f[i-1][j-1]+1);
+			&#125;
+	printf(&quot;%d&quot;,f[s.length()][t.length()]);
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1209,8 +1503,7 @@ void toString(char a[],string &amp;b) char数组a-&gt;string类型b
                 <a href="/blog/2021/07/16/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                     <div class="card-image">
                         
-                        
-                        <img src="/blog/medias/featureimages/19.jpg" class="responsive-img" alt="基础数据结构">
+                        <img src="https://img2.huashi6.com/images/resource/2019/08/18/76h316346p0.jpg?imageView2/3/q/100/interlace/1/w/1600/h/1600/format/webp" class="responsive-img" alt="基础数据结构">
                         
                         <span class="card-title">基础数据结构</span>
                     </div>
@@ -1534,7 +1827,7 @@ void toString(char a[],string &amp;b) char数组a-&gt;string类型b
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24.4k</span>&nbsp;字
+                class="white-color">30.3k</span>&nbsp;字
             
             
             

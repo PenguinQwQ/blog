@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二分及二分答案, 🐟的博客">
+    <meta name="keywords" content="动态规划入门, 🐟的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二分及二分答案 | 🐟的博客</title>
+    <title>动态规划入门 | 🐟的博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img2.huashi6.com/images/resource/2018/12/29/72354h485p0.png?imageView2/3/q/100/interlace/1/w/1600/h/1600/format/webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二分及二分答案</h1>
+                    <h1 class="description center-align post-title">动态规划入门</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/%E4%BA%8C%E5%88%86/">
-                                <span class="chip bg-color">二分</span>
-                            </a>
-                        
                             <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
                                 <span class="chip bg-color">OI训练</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">
+                                <span class="chip bg-color">动态规划DP</span>
                             </a>
                         
                     </div>
@@ -460,28 +460,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-20
+                    2021-07-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-20
+                    2021-07-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    13 分
                 </div>
                 
 
@@ -504,203 +504,175 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=506650377&auto=0&height=66"></iframe>
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=496774187&auto=0&height=66"></iframe>
 
-<h1 id="总结-二分及二分答案"><a href="#总结-二分及二分答案" class="headerlink" title="[总结]二分及二分答案"></a>[总结]二分及二分答案</h1><h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1.概念："></a>1.概念：</h2><p>  二分是一种精妙的查找算法，通常适用于单调序列、有序序列。可以将求解性问题转化为判定性问题，进而在$O(logn)$的时间复杂度内找到合适的解。</p>
-<p>  举个例子，对于含有1000个元素的有序数列{$a_n$}，对任意x $\in$ ${a_n}$  ，我们猜元素x在数列中的位置。对于一个可以给出回复”猜大了“猜小了”的判定系统，我们采取的策略显然就是猜测区间中点。</p>
-<p>比如先猜是第500个元素，如果反馈为“猜大了”，显然，由于序列的单调性，第500个元素之后的其他项均大于x，那么x对应的数据就在区间[1,499]之间，查找序列折半。下一次再猜是第250个元素，如果反馈是“猜小了”，那么下一次的区间就是[251,499]了。由此反复，显然我们能够在 $\lfloor log_2^ {1000} \rfloor$ 次内找到x在数列中对应的序列元素。</p>
-<h2 id="2-写法："><a href="#2-写法：" class="headerlink" title="2.写法："></a>2.写法：</h2><h3 id="2-1整数域上的二分："><a href="#2-1整数域上的二分：" class="headerlink" title="2.1整数域上的二分："></a>2.1整数域上的二分：</h3><p>二分的写法多种多样，本文提供一种较为普适的二分写法，这种写法保证最终答案在$[l,r]$内，循环以$l=r$结束，每次二分的中间值mid会属于左半段区间或者右半段区间之一。</p>
-<p>在单调递增序列${a_n}$中查找$\ge$x的数中最小的一个（即x或x的后继）：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(l&lt;r)
+<h1 id="动态规划入门"><a href="#动态规划入门" class="headerlink" title="动态规划入门"></a>动态规划入门</h1><h2 id="一、基础动态规划模型"><a href="#一、基础动态规划模型" class="headerlink" title="一、基础动态规划模型"></a>一、基础动态规划模型</h2><h3 id="1-数字金字塔："><a href="#1-数字金字塔：" class="headerlink" title="1.数字金字塔："></a>1.数字金字塔：</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">状态设计：设f[i][j]表示从(1,1)走到(i,j)时的最大数权值和，目标结果为ans&#x3D;max&#123;f[n][1],f[n][2],....f[n][n]&#125;
+状态转移方程：由于每层的移动方式为向下或向右下，显然有：
+    f[i][j]&#x3D;max&#123;f[i-1][j],f[i-1][j-1]&#125;+val[i][j];
+注意初始化f数组为0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-最长上升-下降子序列"><a href="#2-最长上升-下降子序列" class="headerlink" title="2.最长上升/下降子序列"></a>2.最长上升/下降子序列</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">状态设计：设f[i][0]存储序列的元素数据，f[i][1]表示从i位置到达n的最长上升子序列长度，f[i][2]表示从i位置开始最长上升子序列的下一个位置。
+状态转移：枚举每个点之后的所有元素，尝试从枚举的元素向当前元素过渡。
+ 
+ 初始化：
+for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+ &#123;	
+     scanf(&quot;%d&quot;,&amp;f[i][0]);
+    f[i][1]&#x3D;1;
+    f[i][2]&#x3D;i;
+ &#125;
+for(int i&#x3D;n-1;i&gt;&#x3D;0;i--)
+ &#123;
+     for(int j&#x3D;i+1;j&lt;&#x3D;n;j++)
+     &#123;
+         if(f[i][0]&lt;f[j][0]&amp;&amp; f[i][1]&lt;f[j][1]+1)&#x2F;&#x2F;表示可以从j过渡并且可以更新最大子序列
+         &#123;
+          f[i][1]&#x3D;f[j][1]+1;   &#x2F;&#x2F;更新序列长度
+          f[i][2]&#x3D;j;&#x2F;&#x2F;标记序列的下一个位置，方便输出路径
+         &#125;
+     &#125;
+     if(f[i][1]&gt;ans)
+     &#123;
+         ans&#x3D;f[i][1];
+         root&#x3D;i;
+     &#125;
+ &#125;
+
+打印路径：
+while(f[root][2]!&#x3D;root)
 &#123;
-    int mid&#x3D;(l+r)&gt;&gt;1;
-    if(a[mid]&gt;&#x3D;x) r&#x3D;mid;
-    else l&#x3D;mid+1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在单调递增序列${a_n}$中查找$\le$x的数中最大的一个（即x或x的前驱）：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(l&lt;r)
-&#123;
-    int mid&#x3D;(l+r+1)&gt;&gt;1;
-    if(a[mid]&lt;&#x3D;x) l&#x3D;mid;
-    else r&#x3D;mid-1;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>解释一下这一种二分方法：</p>
-<p>首先，判定语句中是可以取到a[mid]=x的，也就是说一次二分后，若a[mid]&gt;=x成立，结果就缩小到小于mid或者mid的范围内。如果不成立，即a[mid]&lt;x，结果就缩小到mid+1到r的范围了，不包括mid。</p>
-<p>所以，判定中有等号，相应的变化条件也要做出取舍。在缩小边界时需要取mid，而不能省略。</p>
-<p>其次，不同方向的二分取中值的操作不一样。从小到大二分时，如果也采用mid=(l+r)&gt;&gt;1的操作，那么当$r-l=1$时，这里的mid=l，如果判定成功，接下来进入l=mid这一步就会陷入死循环。而且，这样操作得到的最终结果r=mid-1=l-1，并不是以l=r为边界脱离循环的，最后的结果可能会有偏差。</p>
-<p>最后，推荐用右移操作完成二分，而不是/2，是因为右移得到的结果自动向下取整，而/2的话是向零取整，在处理含有负数的序列时，后者就不能正常工作了！</p>
-<p>当然，分析两种mid的取法，发现第一种mid取不到r，第二种mid取不到l，可以利用这一性质，把最初的二分区间[1,n]扩大为[1,n+1]和[0,n]，把数组${a_n}$的一个越界下标也包含进来，这样就可以找到误无解的情况了。如果最后二分终止于这个扩大后的越界下标上，就说明${a_n}$中不存在这样的x。</p>
-<p>总而言之，两个配套形式：</p>
-<p>mid= (l+r) &gt;&gt;1,r=mid,l=mid+1</p>
-<p>mid= (l+r+1) &gt;&gt;1,l=mid,r=mid-1</p>
-<p>补充：C++中STL的upper_bound和lower_bound可以在有序数列中查找大于等于x的第一个位置！</p>
-<h3 id="2-2实数域上的二分"><a href="#2-2实数域上的二分" class="headerlink" title="2.2实数域上的二分"></a>2.2实数域上的二分</h3><p>实数域上二分相对简便，只需要确定好精度eps，以l+eps&lt;r为循环条件。每次根据在mid上的判定选择r=mid或l=mid分支之一即可。一般要求保留k位小数时，精度设置成：$10^{-(k+2)}$</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while( l + 1e-3 &lt; r)
-&#123;
-    double mid&#x3D;(l+r)&#x2F;2;
-    if(check(mid)) l&#x3D;mid;
-    else r&#x3D;mid;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>当然，有的时候精度不容易表示，可以直接限制循环次数，通常精度要比eps限制更高！</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;1;i&lt;&#x3D;100;i++)
-&#123;
-    double mid&#x3D;(l+r)&#x2F;2;
-    if(check(mid)) l&#x3D;mid;
-    else r&#x3D;mid;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="3-二分答案"><a href="#3-二分答案" class="headerlink" title="3.二分答案"></a>3.二分答案</h2><p>有的时候一个宏观的问题也可以转化为类似函数的判定性问题，在确定好定义域之后，可以通过二分解决，这类问题通常都有“要求最小值最大”或者“要求最大值最小”一类的前提，这样的问题就是二分答案。如一个问题在保证合法的前提下，分数越大越好。假设最佳评分为val，那么，对于任意t&gt;val，原问题都不合法。否则，相比于val有更优解，与最优性互斥。对于任意t&lt;val，一定合法，因为val是合法的。这样的话，原问题的判定就在定义域上具有某种“单调性”，可以类比为一个分段函数。其中1和0象征合法性。</p>
-<p>$$<br>f(x)=<br>\begin{cases}<br>    1, &amp; \text{$x\le val$}\\<br>    0, &amp; \text{$x&gt;val$}<br>\end{cases}<br>$$</p>
-<h2 id="4-题目及实例："><a href="#4-题目及实例：" class="headerlink" title="4.题目及实例："></a>4.题目及实例：</h2><h3 id="例题1：-一本通1433：【例题1】愤怒的牛"><a href="#例题1：-一本通1433：【例题1】愤怒的牛" class="headerlink" title="例题1： 一本通1433：【例题1】愤怒的牛"></a>例题1： 一本通1433：【例题1】愤怒的牛</h3><p><a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1433">http://ybt.ssoier.cn:8088/problem_show.php?pid=1433</a></p>
-<ul>
-<li>题目描述：</li>
-</ul>
-<p>农夫 John 建造了一座很长的畜栏，它包括N(2≤N≤100,000)N(2≤N≤100,000)个隔间，这些小隔间依次编号为x1,…,xN(0≤xi≤1,000,000,000)x1,…,xN(0≤xi≤1,000,000,000). 但是，John的C(2≤C≤N)C(2≤C≤N)头牛们并不喜欢这种布局，而且几头牛放在一个隔间里，他们就要发生争斗。为了不让牛互相伤害。John决定自己给牛分配隔间，使任意两头牛之间的最小距离尽可能的大，那么，这个最大的最小距离是什么呢</p>
-<ul>
-<li><p>输入：</p>
-<p>第一行：空格分隔的两个整数NN和CC；</p>
-<p>第二行—第N+1N+1行：i+1i+1行指出了xixi的位置。</p>
-</li>
-<li><p>输出：一个整数，最大的最小值。</p>
-</li>
-<li><p>输入样例：</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">5 3
-1 2 8 4 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>输出样例：(把牛放在1，4，8这样最小距离是3。)</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>分析：这道题等价于，一条数轴上有N个点，我们需要从N个点中选出C个点，使得这C个点中任意两点之间的最小距离最大。思路就是二分答案。</p>
-<p>(1)输入的数量级较大，可以考虑用读入优化。坐标范围大，开long long</p>
-<p>(2)为了方便书写判定函数，一开始就对坐标进行排序。二分下界是1，上界是xmax-xmin</p>
-<p>(3)求什么就对什么进行二分。我们二分的就是这个最小距离。如何进行判断呢？假设此时二分的距离是d，我们需要求解距离为d是所能够最大容纳的牛的数量，设为cnt。如果cnt&gt;k,说明在满足最小距离为d的前提下可以容纳多于k的牛，那么显然这里的距离d可以增大。如果cnt&lt;k，说明在满足最小距离为d的前提下不能容纳到k头牛，也就是隔板间的距离太大了，需要将d调小。这里，对d的分析发现，d的合法性是与d的大小相单调的！因此，我们需要找的就是这个d的临界点。</p>
-<p>(4)考虑check函数的书写，为了使cnt最大化，这里应用了一种贪心的算法。原则上，尽可能占据靠前的点可以有最大的容纳量，这个贪心的正确性是显然的。</p>
-</li>
-</ul>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-typedef long long LL;
-const int N&#x3D;100200;
-LL x[N],l,r;
-int n,c;
-bool check(LL d)&#x2F;&#x2F;这里考虑枚举距离为d的情况
-&#123;
-	LL last&#x3D;-d;&#x2F;&#x2F;保证第一个位置可以占据,last记录上一个棚位的坐标
-	int cnt&#x3D;0;&#x2F;&#x2F;初始化计数器
-	for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#x2F;&#x2F;枚举每一个棚位
-		&#123;
-			if(x[i]-last&gt;&#x3D;d)&#x2F;&#x2F;如果当前枚举到的棚位与上一个占据的位置距离相隔大于
-  &#x2F;&#x2F;要求的最小距离d
-				&#123;
-					cnt++;&#x2F;&#x2F;贪心原则，统计上这个棚位！
-					last&#x3D;x[i];&#x2F;&#x2F;标记这个棚位为最后一个
-				&#125;
-		&#125;
-	return cnt&gt;&#x3D;c;&#x2F;&#x2F;判断标准，cnt&gt;&#x3D;c,意思就是d偏小，cnt偏多或恰好，需要调整左边界l，而且答案应当包含在这种情况内，所以左边界调整为l&#x3D;mid即可，相应的，右边界调整为r&#x3D;mid-1;注意到这是第二种二分的边界取法，因此mid的取法就是mid&#x3D;(l+r+1)&gt;&gt;1
+    printf(&quot;%d-&gt;&quot;,root);
+    root&#x3D;f[root][2];
 &#125;
-int main()
-&#123;
-	scanf(&quot;%d%d&quot;,&amp;n,&amp;c);
-	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-			scanf(&quot;%lld&quot;,&amp;x[i]);
-	sort(x+1,x+1+n);
-	l&#x3D;1;
-	r&#x3D;x[n]-x[1];
-	while(l&lt;r)
-	&#123;
-		LL mid&#x3D;(l+r+1)&gt;&gt;1;
-		if(check(mid)) l&#x3D;mid;
-		else r&#x3D;mid-1;
-	&#125;
-	printf(&quot;%lld&quot;,l);
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+printf(&quot;%d&quot;,root);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="例题2：P2370-yyy2015c01-的-U-盘"><a href="#例题2：P2370-yyy2015c01-的-U-盘" class="headerlink" title="例题2：P2370 yyy2015c01 的 U 盘"></a>例题2：P2370 yyy2015c01 的 U 盘</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2370">https://www.luogu.com.cn/problem/P2370</a></p>
-<ul>
-<li>题目描述</li>
-</ul>
-<p>你找 yyy2015c01 借到了这个高端的 U 盘，拷贝一些重要资料，但是你发现这个 U 盘有一些问题：</p>
-<ol>
-<li>这个 U 盘的传输接口很小，只能传输大小不超过 L<em>L</em> 的文件。</li>
-<li>这个 U 盘容量很小，一共只能装不超过 S<em>S</em> 的文件。</li>
-</ol>
-<p>但是你要备份的资料却有很多，你只能备份其中的一部分。</p>
-<p>为了选择要备份哪些文件，你给所有文件设置了一个价值 V_i<em>V**i</em>，你希望备份的文件总价值不小于 p<em>p</em>。</p>
-<p>但是很快你发现这是不可能的，因为 yyy2015c01 的传输接口太小了，你只有花钱买一个更大的接口（更大的接口意味着可以传输更大的文件，但是购买它会花费更多的钱）。</p>
-<p>注意：你的文件不能被分割（你只能把一个文件整个的传输进去，并储存在U盘中）,</p>
-<p>你放在 U 盘中文件的总大小不能超过 U 盘容量。</p>
-<p>现在问题来了：你想知道，在满足 U 盘中文件价值之和<strong>不小于</strong> p<em>p</em> 时，最小需要多大的接口。</p>
-<ul>
-<li>输入格式</li>
-</ul>
-<p>第 11 行，三个正整数 n,p,S分别表示文件总数，希望最小价值 p<em>p</em> ，硬盘大小。</p>
-<p>接下来 n行，每行两个正整数 <em>W</em>i*,<em>V</em>i*，表示第 i 个文件的大小和价值。</p>
-<ul>
-<li>输出格式</li>
-</ul>
-<p>输出一个正整数表示最小需要的接口大小。</p>
-<p>如果无解输出 <code>No Solution!</code>。</p>
-<p>思路：二分套背包。</p>
-<p>（1）我们需要使最大的单个文件空间最小化，只需要二分这个空间即可。</p>
-<p>（2）二分上下界源自输入数据，思考check函数的书写方式？在所有满足文件大小不大于二分要求的d前提下，对剩下的文件跑01背包。设dp[s]表示在空间体积不超过s的前提下达到的最大价值，有状态转移方程dp[s]=max(dp[s],dp[s-f[i].w]+f[i].val);注意，这里的s需要从最大值向小循环，一直到f[i].w为止，这样才不会覆盖原先的数据，否则是完全背包了！</p>
-<p>（3）注意，这里的check函数返回值为true时，最后答案会包括在这里。一般的，此时的文件体积d可以进一步缩小，因此调整就是r=mid，相应的l=mid+1，此时的mid取法就是mid=(l+r)&gt;&gt;1了。最后l==r时就是最终结果。</p>
-<p>（4）关于无解的处理很妙！将区间从[min,max]更新为[min,max+1]，这里的max+1并不是原序列中的元素，一旦无解，check函数始终返回值为false，那么l和r最后就会指到max+1这里，检测到就意味着无解了！</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-using namespace std;
-const int N&#x3D;1002;
-typedef long long LL;
-struct node&#123;
-	int w;
-	int val;
-&#125;f[N];
-int n,s,l&#x3D;1002,r&#x3D;-1,dp[N];
-LL p;
-bool cmp(node a,node b)
+<h3 id="3-LCS最长公共子序列："><a href="#3-LCS最长公共子序列：" class="headerlink" title="3.LCS最长公共子序列："></a>3.LCS最长公共子序列：</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">状态设计：设f[x][y]为子串s[x]和t[y]的最长公共子序列。
+考虑状态转移：
+若s[x]不在LCS中，那么f[x][y]&#x3D;f[x-1][y]
+若t[y]不在LCS中，那么f[x][y]&#x3D;f[x][y-1]
+若s[x]&#x3D;t[y]，那么f[x][y]&#x3D;f[x-1][y-1]+1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-合唱队形"><a href="#4-合唱队形" class="headerlink" title="4.合唱队形:"></a>4.合唱队形:</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">就是一个LIS+LDS，求max(LIS+LDS)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="二、背包问题："><a href="#二、背包问题：" class="headerlink" title="二、背包问题："></a>二、背包问题：</h2><h3 id="1-01背包："><a href="#1-01背包：" class="headerlink" title="1. 01背包："></a>1. 01背包：</h3><p>有N件物品，每件物品的价值为c[i],空间为w[i],现在有一个体积为V的背包，要求向背包中装入物品，使得背包中的物品价值最大化。</p>
+<p>每种物品只有一件，可以选择放或者不放。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">状态设计:设f[i][j]表示将前i件物品恰好放入一个容量为j的背包时可以获得的最大价值。
+状态转移：假设放到了第i物品，只可以选择放或者不妨，那么
+    f[i][j]&#x3D;max(f[i-1][j],f[i-1][j-w[i]]+c[i])
+核心代码：
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+        for(int j&#x3D;w[i];j&lt;&#x3D;v;j++)
+            	f[i][j]&#x3D;max(f[i-1][j],f[i-1][j-w[i]]+c[i]);
+优化：空间复杂度可以节省一维，采用滚动数组的方式进行更新。
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+        for(int j&#x3D;v;j&gt;&#x3D;w[i];j--)
+            f[j]&#x3D;max(f[j],f[j-w[i]]+c[i]);
+一定注意，这里是01背包，所以第二重循环必须从v往w[i]倒着循环！这样才在更新较大空间时覆盖掉前一件物品的更新情况。也就是，如果先更新了更小的空间，有可能会多次选取第i间物品，就不是01背包而是完全背包了。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-完全背包："><a href="#2-完全背包：" class="headerlink" title="2.完全背包："></a>2.完全背包：</h3><p>基本与01背包相同，不过可以无限次选取所有种类的物品，改一下代码，使得二重循环自小到大即可！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+    for(int j&#x3D;w[i];j&lt;&#x3D;v;j++)
+        f[j]&#x3D;max(f[j],f[j-w[i]]+c[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>与完全背包有关的思想：</p>
+<p>（1）一个显然成立的优化：若w[i]&gt;=w[j]并且c[i]&lt;=c[j]，那么显然可以去掉i物品，因为任意i均可以替换成更加物美价廉的物品j，至少不会得到更差的方案。从而加快速度。</p>
+<p>（2）考虑完全背包与01背包的转化问题：对于可以把完全背包拆成V/w[i]件物品，然后套01背包进行处理。（相应的价值取k*c[i],k∈{1,2,…..V/w[i]}</p>
+<h3 id="3-多重背包："><a href="#3-多重背包：" class="headerlink" title="3.多重背包："></a>3.多重背包：</h3><p>一共有n类物品，每类物品的价值为c[i],体积w[i],有n[i]件i类物品可以选择。要求对于一个体积为v的背包，选择最大价值的物品。</p>
+<p>这里同样有不同思考；</p>
+<p>首先可以按照朴素的方法来进行，也就是相当于使用01背包进行转化，枚举每一类的1，2，…..n[i]件物品。复杂度O(v*Σn[i])</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+    for(int j&#x3D;v;j&gt;&#x3D;0;j--)&#x2F;&#x2F;从大到小枚举空间，因为原理上是拆物品构造01背包的！
+        for(int k&#x3D;1;k&lt;&#x3D;n[i];k++)&#x2F;&#x2F;从小到大枚举，这样下面破除循环时更方便
+        &#123;
+            if(j-k*w[i]&lt;0) break;&#x2F;&#x2F;如果j空间已经容纳不下了，那就退出去
+            f[j]&#x3D;max(f[j],f[j-k*w[i]]+k*c[i]);&#x2F;&#x2F;否则，进行状态转移
+        &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其次，还是构造01背包，不过我们换一种更加行之有效的分物品方式。</p>
+<p>注意理解这里的物品拆分原理，我们将n[i]件物品分成k件物品，只需要这k件能够组成0~n[i]间任意一个数，就满足了等效的物品拆分！这样才能做到每种情况全部覆盖到。</p>
+<p>因此，不妨将10进制下的物品用二进制来处理，对于n[i],可以构造1,2,4,8,16,2^k,n[i]-2^k+1,这k+2个物品。因为这k+2个物品可以组成任意的0~n[i]的数据。只需要在读入n[i]的时候，进行等效处理就可以了。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int n1,t,v;
+scanf(&quot;%d%d&quot;,&amp;n,&amp;v);
+for(int i&#x3D;1;i&lt;&#x3D;n;i++)
 &#123;
-	return a.w&lt;b.w;&#x2F;&#x2F;按照空间从小到大排序 
+    scanf(&quot;%d%d%d&quot;,&amp;wt,&amp;ct,&amp;nt);
+    t&#x3D;1;&#x2F;&#x2F;初始化2的次幂为2^0
+    while(nt&gt;&#x3D;t)&#x2F;&#x2F;在t的大小不超过nt时，进行二进制物品压缩
+    &#123;
+        w[++num]&#x3D;wt*t;&#x2F;&#x2F;进行等效价值转换
+        c[num]&#x3D;ct*t;
+        t&lt;&lt;&#x3D;1;&#x2F;&#x2F;左移*2
+    &#125;
+    t&#x3D;nt-t+1;&#x2F;&#x2F;溢出物品统计
+    w[++num]&#x3D;wt*t;
+    c[num]&#x3D;ct*t;
 &#125;
-int max(int a,int b)
-&#123;
-	return a&gt;b?a:b;
-&#125;
-bool check(int d)&#x2F;&#x2F;对于输入的二分数据d
-&#123;
-	memset(dp,0,sizeof(dp));&#x2F;&#x2F;初始化dp数组
-	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-		&#123;
-			if(f[i].w&gt;d) break;&#x2F;&#x2F;如果当前文件已经达到上界，以后的也一定大于上界了，直接break出去
-			for(int j&#x3D;s;j&gt;&#x3D;f[i].w;j--)&#x2F;&#x2F;注意，一维的01背包一定要从大到小进行状态转移，否则会覆盖掉上一个文件更新的数据，造成同一文件下价值的重复更新（废话这么多其实就是完全背包）
-				dp[j]&#x3D;max(dp[j],dp[j-f[i].w]+f[i].val);
-		&#125;	
-	for(int i&#x3D;s;i&gt;&#x3D;0;i--)&#x2F;&#x2F;从大到小进行判定,这样更快！
-		if(dp[i]&gt;&#x3D;p) return true;&#x2F;&#x2F;如果可以，那就缩小上界（大小），而且答案应该在这里！ 
-	else
-		return false;
-&#125;
-int main()
-&#123;
-	scanf(&quot;%d%lld%d&quot;,&amp;n,&amp;p,&amp;s);
-	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-		scanf(&quot;%d%d&quot;,&amp;f[i].w,&amp;f[i].val);
-	sort(f+1,f+1+n,cmp);&#x2F;&#x2F;排一下序，既方便找左右边界，也方便之后check函数直接退出！
-	l&#x3D;f[1].w;
-	r&#x3D;f[n].w+1;&#x2F;&#x2F;确定二分的上下界 
-	while(l&lt;r)
-	&#123;
-		int mid&#x3D;(l+r)&gt;&gt;1;&#x2F;&#x2F;位运算优化一下
-		if(check(mid)) r&#x3D;mid;
-		else l&#x3D;mid+1;	
-	&#125;
-	if(l&#x3D;&#x3D;f[n].w+1) printf(&quot;No Solution!&quot;);&#x2F;&#x2F;如果无解，无论是U盘空间不够还是文件价值达不到，check函数的返回值都是false,这样会一直逼近上界，只需要把上界设置成一个原序列中不含有的溢出数据，一旦返回值是这一个溢出值，那么就说明无解！
-	else printf(&quot;%d&quot;,l);	
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+for(int i&#x3D;1;i&lt;&#x3D;num;i++)&#x2F;&#x2F;num为等效的物品总数
+    for(int j&#x3D;v;j&gt;&#x3D;w[i];j--)&#x2F;&#x2F;套正常的01背包即可
+        f[j]&#x3D;max(f[j],f[j-w[i]]+c[i]);
+   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>二进制优化之后，复杂度变为O(v*Σlogn[i])</p>
+<h3 id="4-二维背包："><a href="#4-二维背包：" class="headerlink" title="4.二维背包："></a>4.二维背包：</h3><p>只是状态多了一维而已，按照01、完全背包的写法增添一重循环即可。</p>
+<p>值得注意的是，如果题目中要求的是对物品的选择数目有限制，其实也就是二维的一种表述了！</p>
+<h3 id="5-分组的背包问题："><a href="#5-分组的背包问题：" class="headerlink" title="5.分组的背包问题："></a>5.分组的背包问题：</h3><p>有n件物品和一个容量为V的背包，第i件物品的费用是w[i],价值是c[i],这些物品被划分为若干组，每组中的物品互相冲突，最多选一件。求解将哪些物品装入背包可使这些物品的费用综合不超过背包容量，且价值总和最大。这里，选取的结果就是，本组的一件物品都不选，还是选择一件物品。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;1;i&lt;&#x3D;k;i++)&#x2F;&#x2F;枚举所有的k组
+    for(int s&#x3D;v;s&gt;&#x3D;0;s--)&#x2F;&#x2F;从大到小枚举体积，保证只有一个i组物品被选上
+   	 for(int j&#x3D;0;j&lt;&#x3D;a[k].size()-1;j++)&#x2F;&#x2F;假设所有物品的编号都被存储在了vector容器a中
+    	&#123;
+         	int t&#x3D;a[k][j];&#x2F;&#x2F;提取一下标号
+        	if(s&lt;w[t]) continue;&#x2F;&#x2F;如果体积不合适，直接继续
+        	f[i][s]&#x3D;max(f[i-1][s],f[i-1][s-w[t]]+c[t]);&#x2F;&#x2F;否则，就从上一个状态进行转移
+    	&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>（1）注意，这里的体积要放在第二重循环进行，只有这样每一组才会只有一件物品被选上。而且为了符合01背包，体积应当从大到小循环。</p>
+<p>（2）显然，每一组均可以应用性价比优化，除去性价比低的物品。</p>
+<h3 id="6-有依赖的背包问题："><a href="#6-有依赖的背包问题：" class="headerlink" title="6.有依赖的背包问题："></a>6.有依赖的背包问题：</h3><p>  此类问题源自于NOIP2006 金明的预算方案 一题。可以等效为特殊的分组问题，每一组分为一个主件，许多个附件。而选择附件的前提是选择了逐渐。假设存在这样一个组：其中有1个主件，费用为w，价值为c。多个附件的费用、价值分别为w[i],c[i].假设有k个附件，那么这个组总共就会有2^k+1中方案选择，这是指数级的复杂度，O(V*Σ(2^ki+1))基本上不可能接受。</p>
+<p>我们考虑一下这个问题的本质，同组中的所有选择方案是互斥的，k个附件导致了问题的复杂化，但是为了服务于”价值最大化“这个目的，我们其实不必考虑这么多种情况。只需要得到单位成本下的最大利润即可，不必枚举过多方案。</p>
+<p>想到这里，拨得云开见月明，只需要在附件组中跑一边01背包就可以了！设t[x]表示费用为x在附件组中得到得最大利润，那么我们取01背包的体积s=v-w就够用了！再大对于这个问题的解决也没有意义啦。</p>
+<p>可以定义一个二维数组，存储01背包的结果。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int val[k][s];&#x2F;&#x2F;代表第k组，消耗s成本得到的最大利润
+for(int i&#x3D;1;i&lt;&#x3D;k;i++)&#x2F;&#x2F;枚举组号
+  for(int s&#x3D;v;s&gt;&#x3D;0;s--)&#x2F;&#x2F;枚举空间，从大到小保证01背包的成立
+    for(int j&#x3D;0;j&lt;&#x3D;t[i].size();j++)&#x2F;&#x2F;枚举第k组的所有物品
+    &#123;
+        int p&#x3D;t[i][j];&#x2F;&#x2F;记录i组j物品的标号。
+        if(s&lt;w[p]) continue;&#x2F;&#x2F;如果大于可行空间，跳过
+        val[i][s]&#x3D;max(val[i][s],val[i][s-w[p]]+c[p]);&#x2F;&#x2F;进行
+    &#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来，就可以正常跑背包了！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">设计状态：
+    f[i][j]表示前i组，消耗成本为j得到的最大利润
+for(int i&#x3D;1;i&lt;&#x3D;k;i++)&#x2F;&#x2F;枚举组编号
+    for(int s&#x3D;v;s&gt;&#x3D;0;s--)&#x2F;&#x2F;枚举空间大小,这个空间作用的是总体背包
+    &#123;
+        f[i][s]&#x3D;f[i-1][s];&#x2F;&#x2F;先赋值不选主件的情况
+        for(int j&#x3D;s;j&gt;&#x3D;0;j--)&#x2F;&#x2F;单独枚举所有附件的情况，这里的前提是选主件
+        &#123;
+            if(s&lt;j+w[k]) continue;&#x2F;&#x2F;如果容纳不下主件+当前泛化附件组，跳过！
+            f[i][s]&#x3D;max(f[i][s],f[i-1][s-j-w[k]]+val[k][j]+c[k]);
+            &#x2F;&#x2F;状态转移，注意多减一个主件费用，多加一个主件利润
+        &#125;
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>这里的手法，涉及到了”泛化背包“的概念，将整体附件组抽象化，大大节省了枚举的复杂度。此时是：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">01背包组：v*Σn[i]
+分组依赖背包：v^2*k(有向上估计)
+    总复杂度&lt;O(v*Σn[i]+v^2*k) 指数级降到平方级，真是降维打击<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>另外，值得一提的是，这里的处理思想，在多维依赖时依旧可以参考。比如图和树中的子树与父结点就是依赖的关系。如果定义根节点深度为0，一级依赖是一层深度为1的子树域，二级依赖又是一层深度为2的子树域。那么，应当先对二级依赖跑一遍01背包，这是得到的信息存储在深度为1的子树域内，这是，要将信息返回到根节点上，需要对深度为1的子树域跑分组背包（因为每一种选择情况是互斥的），最后的信息整合在根节点上，就是所求结果了。</p>
+<h3 id="7-背包方案的统计"><a href="#7-背包方案的统计" class="headerlink" title="7.背包方案的统计"></a>7.背包方案的统计</h3><p>一般的，将状态转移方程中的max改为sum即可，定义状态存储标记的次数。以01背包为例，我们需要得到任意消费为i，利润为j的物品组方案数f[i] [j]</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">f[i][j]表示占据空间为i，利润为j的所有方案数。
+for(int t&#x3D;1;t&lt;&#x3D;n;t++)&#x2F;&#x2F;枚举物品类
+    for(int s&#x3D;v;s&gt;&#x3D;0;s--)&#x2F;&#x2F;枚举空间
+    &#123;
+        for(int j&#x3D;Vsum;j&gt;&#x3D;c[t];j--)&#x2F;&#x2F;枚举目标利润
+            f[s][j]+&#x3D;f[s-w[t]][j-c[t]];
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -728,7 +700,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yoursite.com/blog/blog/2021/07/20/tes/">https://yoursite.com/blog/blog/2021/07/20/tes/</a>
+                    <a href="https://yoursite.com/blog/blog/2021/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/">https://yoursite.com/blog/blog/2021/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -766,12 +738,12 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/%E4%BA%8C%E5%88%86/">
-                                    <span class="chip bg-color">二分</span>
-                                </a>
-                            
                                 <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
                                     <span class="chip bg-color">OI训练</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">
+                                    <span class="chip bg-color">动态规划DP</span>
                                 </a>
                             
                         </div>
@@ -941,9 +913,10 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/blog/2021/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
@@ -960,9 +933,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -975,6 +948,7 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -997,13 +971,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2021/07/18/%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%AE%BA/">
+                <a href="/blog/2021/07/20/tes/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/10.jpg" class="responsive-img" alt="基础图论">
+                        <img src="/blog/medias/featureimages/2.jpg" class="responsive-img" alt="二分及二分答案">
                         
-                        <span class="card-title">基础图论</span>
+                        <span class="card-title">二分及二分答案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1014,7 +988,7 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-20
                             </span>
                         <span class="publish-author">
                             
@@ -1031,12 +1005,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
-                        <span class="chip bg-color">OI训练</span>
+                    <a href="/blog/tags/%E4%BA%8C%E5%88%86/">
+                        <span class="chip bg-color">二分</span>
                     </a>
                     
-                    <a href="/blog/tags/%E5%9B%BE%E8%AE%BA/">
-                        <span class="chip bg-color">图论</span>
+                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                        <span class="chip bg-color">OI训练</span>
                     </a>
                     
                 </div>
@@ -1204,13 +1178,6 @@ int main()
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
 
