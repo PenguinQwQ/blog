@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="随笔杂记1, 🐟的博客">
+    <meta name="keywords" content="数据结构进阶, 🐟的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>随笔杂记1 | 🐟的博客</title>
+    <title>数据结构进阶 | 🐟的博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">随笔杂记1</h1>
+                    <h1 class="description center-align post-title">数据结构进阶</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B0/">
-                                <span class="chip bg-color">随笔杂记</span>
+                            <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                                <span class="chip bg-color">OI训练</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
                             </a>
                         
                     </div>
@@ -443,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/" class="post-category">
-                                所思所想
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                算法竞赛
                             </a>
                         
                     </div>
@@ -456,28 +460,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-28
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-28
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    7.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    40 分
                 </div>
                 
 
@@ -500,18 +504,1094 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="随笔杂记一：凡是过往，皆为序章"><a href="#随笔杂记一：凡是过往，皆为序章" class="headerlink" title="随笔杂记一：凡是过往，皆为序章"></a>随笔杂记一：凡是过往，皆为序章</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=421934070&auto=1&height=66"></iframe>
+                <h1 id="总结-数据结构进阶"><a href="#总结-数据结构进阶" class="headerlink" title="[总结]数据结构进阶"></a>[总结]数据结构进阶</h1><h2 id="0-基础位运算-操作技巧"><a href="#0-基础位运算-操作技巧" class="headerlink" title="0.基础位运算/操作技巧:"></a>0.基础位运算/操作技巧:</h2><p>1&lt;&lt;n=2^n  n&lt;&lt;1=2*n;</p>
+<h3 id="状态压缩的相关操作："><a href="#状态压缩的相关操作：" class="headerlink" title="状态压缩的相关操作："></a>状态压缩的相关操作：</h3><p>取出整数n在二进制表示下的第k位：(n&gt;&gt;k)&1;</p>
+<p>取出整数n在二进制表示下的0~k-1位：n&amp;((1&lt;&lt;k)-1);</p>
+<p>把整数n在二进制表示下的第k位取反：n^(1&lt;&lt;k);</p>
+<p>对整数n在二进制表示下的第k位赋值1：n|(1&lt;&lt;k);</p>
+<p>对整数n在二进制表示下的第k位赋值0：n&amp;(~(1&lt;&lt;k));</p>
+<h3 id="成对变换："><a href="#成对变换：" class="headerlink" title="成对变换："></a>成对变换：</h3><p>注意到，当n为偶数时：n ^ 1 = n+1</p>
+<p>当n为奇数时： n ^ 1=n-1</p>
+<p>这里的技巧常用于无向图邻接表边集的存储中。因为相邻的两条边总是存储在临近的两个位置n和n+1上，而且n为偶数。那么n^1就可以得到与n边反向的边的编号了。</p>
+<h3 id="lowbit操作："><a href="#lowbit操作：" class="headerlink" title="lowbit操作："></a>lowbit操作：</h3><p>lowbit操作是取出数n在二进制表示下的最低位的1。假设n的第一个1在第k位上，操作流程如下：</p>
+<p>首先，对n进行取反操作，这样0<del>k-1位的所有0都变成了1，而第k位变成了0。接下来对取反后的数据+1，那么0</del>k-1位的数就会进位到第k位，这里的0~k-1又变成0了，而第k位变成1了。此时k+1位到最高位的数与原n相反，按位与一下就可以全部清零了。</p>
+<p>因此，lowbit(n)=n&amp;(<del>n+1) 而在补码表示法下，</del>n=-1-n，因此有：</p>
+<p>lowbit(n)=n &amp; (-n);</p>
+<p>这个操作是树状数组的基础。</p>
+<h3 id="hash操作存储对数结果："><a href="#hash操作存储对数结果：" class="headerlink" title="hash操作存储对数结果："></a>hash操作存储对数结果：</h3><p>定义hash数组h[x]，使得h[2^t]=t;相当于存储一个取对数表，可以在线性时间内完成。</p>
+<p>如：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;1;i&lt;&#x3D;20;i++) h[(1&lt;&lt;i)]&#x3D;i; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>本蒟蒻的第一篇随笔，没有什么老套的开场白。</p>
-<p>想象自己的现在与过往，总有一种不真切的虚幻感。如梦，似幻。过程的幽深曲折，流过的血与泪，都已化为了泡影。无论曾经达到的辉煌巅峰，抑或是失手跌入的深渊低谷。此间种种皆葬送在了回忆的漩涡之中。十八年的时光转瞬即逝，我得到了什么，又失去了什么？我算是达到期望了吗？这个期望又是我自己心中所想，还是家长老师同学对我的期望？我走的路是否合适，想法是否恰当？或许一切疑惑归根结底都是那哲学般无解的三个问题：我是谁？我来自何方？我要去往哪里？</p>
-<p>十八岁的我经历了高考，录取到了南京大学，学习软件工程。</p>
-<p>大概算是，从事自己喜欢的行当了吧。</p>
-<p>年幼时喜欢打游戏，接触到沙盒游戏的代表作——Minecraft。逐渐进阶之后，开始不满足于简单的生存创造。PE端，我试着研究过js，捣鼓mclauncher，试着做一些更加高级的插件与模组，实现更多的功能。我研究命令方块，跟着网上的教程来走（比如帕西等人的命令方块教学，当时还是1.8的版本）命令的语法规则了解后，我第一次写出了能生成手持钻石剑的僵尸的指令。欣喜之余，对此间的奥妙也多了兴趣。</p>
-<p>大概初次接触代码，是在中考完后的那个暑假。我记得当时买了两本书，黄皮和蓝皮的《信息学奥赛一本通》，就照着这两本书练了一个暑假，一本通网站上的题也刷了几道。开学后一次选拔测试竟然考了满分（谁能想到高中唯一一次AK是在高一开学一个周后呢）。但是由于周围同分数段的同学以报数学奥赛为主，最后选择的也是数学竞赛。可一中的竞赛氛围实话说，并不是很好。尤其是班主任对这方面的管控尤其严格。如每次上数学奥赛前，必须去找化学老师/生物老师提前完成小测，只有考到满分才被允许去上奥赛。（这让文化课本就不拔尖的我雪上加霜）每次想到这，脑海中总不由自主地想起阿尔敏的那句话“什么都不愿放弃的人，什么也得不到”。在我看来，如果能够专心于竞赛，加大投入力度，可能文化课成绩会存在一时的波动，但取得的竞赛成绩也会更好吧！当然，文化课为根本的背景下，这么做是无可厚非的。</p>
-<p>于是马马虎虎，高一上我们班的数学奥赛就全部退出了。而我，总归是有些不甘的，也可以说是一种不满。对这个高压的环境，对这个封锁闭塞专制的氛围，对这个唯分数至上而没有兴趣拓展的工厂，产生的一种反抗般的叛逆。因此，我不顾家长老师的反对，一头扎回了信息竞赛。</p>
-<p>可当时的情况却很特别，我这个前AK选手经过一年的荒废，所有知识早都还给书本了。真的是：从零开始的CSP生活。当时我第一天来到机房，我翻开了动态规划的第一页，开始看了起来，旁边的陈泰来同学早就开始切紫题了（我现在还记得那是洛谷P4180严格次小生成树）这种差距产生的压力无形中推着我前进，我当时没有老师讲，完全是自己在摸索自学，不是看书就是在上CSDN博客学习。而至于当时的心态，完全没有去争取省奖。唯一的想法就是尽可能多学习相关的算法和数据结构知识。经过三个月的自学，最后模拟赛达到的水平应该堪堪达到往届的暴力省一。最后成绩2019CSP-S初赛93/100 瞎搞拿到全校rk1，复赛124/600,省rk500左右拿到省二。（D1T2 50分没了，T1没开ULL100-&gt;50)而那年的题又集中考了树和动规，当场死亡。当然，最后的分数只比去年省一的兄弟低了两分，也算是接受范围之内了。</p>
-<p>令我记忆犹新的是考完D1的那天，我心知省一无望，搞不好D2难到炸裂省二也没有。心态炸裂之下在山东职业外国语的操场上跑了10圈。十一月如冰刀般凌厉的晚风混杂着泪水与汗水，一并吞了下去。那种濒临绝境后爆发的意志力让我在D2取得了69分的成绩，比D1的55分都高。当然也有运气成分，D2T3的前45分直接树的直径就可以弄到。那时的我以cls为偶像，也感谢cls的事迹与言语激励了那个濒临崩溃的我。感谢所有因竞赛与我结识的小伙伴，yyh学长、ctl、sjy、chy、ynx、qxj…..</p>
-<p>我出生在一个竞赛资源较为贫瘠的地方，没有北上湖浙一带的先机，支撑我学下去的，只有对算法竞赛的热爱啊。虽然天赋不够，我依然想说出来：我的梦想是成为一名理论计算机科学家，成为黄金时代的一朵浪花，为人类的智慧添砖加瓦。</p>
+<p>进一步，运用一个数学小技巧，即2^k mod 37对任意k∈[0,35]且k∈Z均不相等，可以这样存储：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i&#x3D;0;i&lt;36;i++) h[(1&lt;&lt;i)%37]&#x3D;i;
+&#x2F;&#x2F;相应的,访问时需要对数据取37的模
+cout&lt;&lt;h[x%37]&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>这个操作可以用来优化RMQ</p>
+<h3 id="前缀和与差分"><a href="#前缀和与差分" class="headerlink" title="前缀和与差分"></a>前缀和与差分</h3><p>对于数列{an}，它的前缀和{sn}，有sn=a1+a2+a3+…+an;称为一维前缀和，那么显然，前缀和可以方便地查询任意区间的总和。如:</p>
+<p>sn=sn-1+an,sum(n,m)=sm-s(n-1);</p>
+<p>进一步的，前缀和结论可以扩展到二维空间。设s[i] [j]表示矩阵(0,0)到(i,j)范围内所有元素的和，有结论：</p>
+<p>Si,j=Si-1,j+Si,j-1-Si-1,j-1+ai,j</p>
+<p>查询左下角(x,y)到右上角(m,n)内所有元素的和：</p>
+<p>Sx,y-&gt;m,n=Sm,n-Sx-1,n-Sm,y-1+Sx-1,y-1</p>
+<p>差分，可以理解为前缀和的逆运算，对差分数列求前缀和可以得到原数列中任意一项的值。对于差分数列</p>
+<p>bn=an-an-1</p>
+<p>b1+b2+..+bn=an</p>
+<h2 id="1-树状数组："><a href="#1-树状数组：" class="headerlink" title="1.树状数组："></a>1.树状数组：</h2><p>支持单点修改，区间查询，原理是用O(logn)的时间复杂度维护原序列的前缀和。</p>
+<p>模板：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3374">https://www.luogu.com.cn/problem/P3374</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define N 500010
+using namespace std;
+int c[N],n,m;
+inline int lowbit(int x)
+&#123;
+	return x&amp;(-x);
+&#125;
+inline void update(int x,int y)&#x2F;&#x2F;对x位置上的数据加上y
+&#123;
+	int i&#x3D;x;
+	while(i&lt;&#x3D;n)
+	&#123;
+		c[i]+&#x3D;y;
+		i+&#x3D;lowbit(i);
+	&#125;
+&#125; 
+inline int query(int x)&#x2F;&#x2F;询问1~x的前缀和 
+&#123;
+	int i&#x3D;x,sum&#x3D;0;
+	while(i)
+	&#123;
+		sum+&#x3D;c[i];
+		i-&#x3D;lowbit(i);
+	&#125;
+	return sum;
+&#125;
+int main()
+&#123;
+	int t,x,y;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+	&#123;
+		scanf(&quot;%d&quot;,&amp;x);
+		update(i,x);
+	&#125;
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+	&#123;
+		scanf(&quot;%d%d%d&quot;,&amp;t,&amp;x,&amp;y);
+		if(t&#x3D;&#x3D;1)
+		 update(x,y);
+		if(t&#x3D;&#x3D;2)
+		 printf(&quot;%d\n&quot;,query(y)-query(x-1));
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>或者可以用来辅助维护差分数组，支持区间求改，单点查询。</p>
+<p>例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3368">https://www.luogu.com.cn/problem/P3368</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define N 500002
+using namespace std;
+int c[N],n,m,x1,x2;
+inline int lowbit(int x)
+&#123;
+	return x&amp;(-x); 
+&#125;
+inline void update(int x,int y)
+&#123;
+	int i&#x3D;x;
+	while(i&lt;&#x3D;n)
+	&#123;
+		c[i]+&#x3D;y;
+		i+&#x3D;lowbit(i);
+	&#125;
+&#125;
+inline int query(int x)
+&#123;
+	int i&#x3D;x,sum&#x3D;0;
+	while(i)
+	&#123;
+		sum+&#x3D;c[i];
+		i-&#x3D;lowbit(i);
+	&#125;
+	return sum;
+&#125;
+int main()
+&#123;
+	int x,y,t,val;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+	&#123;
+		scanf(&quot;%d&quot;,&amp;x2);
+		update(i,x2-x1);&#x2F;&#x2F;构造差分前缀和序列。 
+		x1&#x3D;x2;
+	&#125;
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			scanf(&quot;%d&quot;,&amp;t);
+			if(t&#x3D;&#x3D;1)
+				&#123;
+					scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;val);
+					update(x,val);
+					update(y+1,-val);
+				&#125;
+			if(t&#x3D;&#x3D;2)
+				&#123;
+					scanf(&quot;%d&quot;,&amp;x);
+					printf(&quot;%d\n&quot;,query(x));
+				&#125;
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>扩展，对于二维的树状数组，可以加速维护二维的前缀和！写法就是在函数内再加一层循环即可</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline void update(int x,int y,int v)
+&#123;
+    int i&#x3D;x;
+    while(i&lt;&#x3D;n)
+    &#123;
+        int j&#x3D;y;
+        while(j&lt;&#x3D;n)
+        &#123;
+            c[i][j]+&#x3D;v;
+            j+&#x3D;lowbit(j);
+        &#125;
+        i+&#x3D;lowbit(i);
+    &#125;
+&#125;
+inline int query(int x,int y)
+&#123;
+    int sum&#x3D;0,i&#x3D;x;
+    while(i)
+    &#123;
+        int j&#x3D;y;
+        while(j)
+        &#123;
+            sum+&#x3D;c[i][j];
+            j-&#x3D;lowbit(j);
+        &#125;
+        i-&#x3D;lowbit(i);
+    &#125;
+    return sum;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2-线段树："><a href="#2-线段树：" class="headerlink" title="2.线段树："></a>2.线段树：</h2><p>支持区间修改，区间查询。复杂度为O(mlogn)</p>
+<p>例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">https://www.luogu.com.cn/problem/P3373</a></p>
+<p>维护区间加法、区间查询操作：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define Int register int
+#define ll long long
+using namespace std;
+const int N&#x3D;100020;
+int n,m,a[N];
+struct node&#123;
+	int add;
+	ll sum;
+&#125;t[N&lt;&lt;2];
+void build(int k,int l,int r)
+&#123;
+	if(l&#x3D;&#x3D;r)
+		&#123;
+			t[k].add&#x3D;0;
+			t[k].sum&#x3D;a[l];
+			return;
+		&#125;
+	int mid&#x3D;l+r&gt;&gt;1;
+	build(k&lt;&lt;1,l,mid);
+	build(k&lt;&lt;1|1,mid+1,r);
+	t[k].sum&#x3D;t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum;
+	return;
+&#125;
+void add(int k,int l,int r,int val)&#x2F;&#x2F;将k结点打上一个延迟标记val
+&#123;
+	t[k].add+&#x3D;val;
+	t[k].sum+&#x3D;(r-l+1)*val;&#x2F;&#x2F;更新打标机之后对结点权值和的影响 
+	return;
+&#125;
+void pushdown(int k,int l,int r)&#x2F;&#x2F;将k结点的标记下传到子树上,因为k结点的add标记之前作用与权值和了，
+&#x2F;&#x2F;不需要再进行重复计算。 
+&#123;
+	if(t[k].add&#x3D;&#x3D;0) return;&#x2F;&#x2F;无标记就不需要进行标记下传
+	int mid&#x3D;l+r&gt;&gt;1;
+	add(k&lt;&lt;1,l,mid,t[k].add);
+	add(k&lt;&lt;1|1,mid+1,r,t[k].add);
+	t[k].add&#x3D;0;&#x2F;&#x2F;标记清零 
+&#125;
+void modify(int k,int l,int r,int x,int y,int val)
+&#123;
+	if(x&lt;&#x3D;l &amp;&amp; y&gt;&#x3D;r) return add(k,l,r,val);&#x2F;&#x2F;如果当前区间被包括在修改区间内了，直接及逆行修改即可。 
+	if(x&gt;r || y&lt;l) return;&#x2F;&#x2F;在范围外部，回退 
+	int mid&#x3D;l+r&gt;&gt;1;
+	pushdown(k,l,r);&#x2F;&#x2F;否则，先进行标记下传 
+	if(x&lt;&#x3D;mid) modify(k&lt;&lt;1,l,mid,x,y,val);&#x2F;&#x2F;更新左右子树 
+	if(y&gt;mid) modify(k&lt;&lt;1|1,mid+1,r,x,y,val);
+	t[k].sum&#x3D;t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum; &#x2F;&#x2F;更新sum 
+&#125;
+ll query(int k,int l,int r,int x,int y)
+&#123;
+	if(x&lt;&#x3D;l &amp;&amp; r&lt;&#x3D;y) return t[k].sum;
+	if(x&gt; r || y&lt;l) return 0;
+	int mid&#x3D;(l+r)&gt;&gt;1;
+	pushdown(k,l,r);
+	ll res&#x3D;0;
+	if(x&lt;&#x3D;mid) res+&#x3D;query(k&lt;&lt;1,l,mid,x,y);
+	if(y&gt;mid) res+&#x3D;query(k&lt;&lt;1|1,mid+1,r,x,y);
+	return res; 
+&#125;
+int main()
+&#123;
+	int t,x,y,val;
+	scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		scanf(&quot;%d&quot;,&amp;a[i]);
+	build(1,1,n);
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			scanf(&quot;%d&quot;,&amp;t);
+			if(t&#x3D;&#x3D;1)
+				&#123;
+					scanf(&quot;%d%d%d&quot;,&amp;x,&amp;y,&amp;val);
+					modify(1,1,n,x,y,val);
+					continue;
+				&#125;
+			if(t&#x3D;&#x3D;2)
+				&#123;
+					scanf(&quot;%d%d&quot;,&amp;x,&amp;y);				
+					printf(&quot;%lld\n&quot;,query(1,1,n,x,y));
+					continue;
+				&#125;
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>还有一种标记永久化的写法，在树套树和可持久化数据结构中比较常见：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define max(a,b) ((a)&gt;(b)?(a):(b))
+#define min(a,b) ((a)&lt;(b)?(a):(b))
+#define ll long long
+using namespace std;
+const int N&#x3D;1e5+2;
+struct node&#123;
+	ll add;
+	ll sum;
+&#125;t[N&lt;&lt;2];
+int n,m;
+inline ll read()
+&#123;
+	int f&#x3D;1;
+	char ch;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39; || ch&lt;&#39;0&#39;)
+	&#123;
+		if(ch&#x3D;&#x3D;&#39;-&#39;) f&#x3D;-1;
+	&#125;
+	ll res&#x3D;ch^48;
+	while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+		res&#x3D;(res&lt;&lt;3)+(res&lt;&lt;1)+(ch^48);
+	return res;
+&#125;
+ll a[N];
+int type;
+void build(int k,int l,int r)
+&#123;
+	if(l&#x3D;&#x3D;r)
+		&#123;
+			t[k].add&#x3D;0;
+			t[k].sum&#x3D;a[l];
+			return;
+		&#125;
+	int mid&#x3D;l+r&gt;&gt;1;
+	build(k&lt;&lt;1,l,mid);
+	build(k&lt;&lt;1|1,mid+1,r);
+	t[k].sum&#x3D;t[k&lt;&lt;1].sum+t[k&lt;&lt;1|1].sum;
+	return;
+&#125;
+void modify(int k,int l,int r,int x,int y,ll v)
+&#123;
+	if(x&gt;r || y&lt;l) return;
+	if(x&lt;&#x3D;l&amp;&amp;r&lt;&#x3D;y)
+		&#123;
+			t[k].add+&#x3D;v;
+			return;
+		&#125;
+	t[k].sum+&#x3D;(min(y,r)-max(l,x)+1)*v;
+	int mid&#x3D;l+r&gt;&gt;1;
+	if(x&lt;&#x3D;mid) modify(k&lt;&lt;1,l,mid,x,y,v);
+	if(y&gt;mid) modify(k&lt;&lt;1|1,mid+1,r,x,y,v);
+	return;
+&#125;
+ll query(int k,int l,int r,int x,int y)
+&#123;
+	if(x&gt;r || y&lt;l) return 0;
+	if(x&lt;&#x3D;l&amp;&amp;r&lt;&#x3D;y)
+		return t[k].sum+(r-l+1)*t[k].add;
+	ll res&#x3D;t[k].add*(min(r,y)-max(l,x)+1);
+	int mid&#x3D;l+r&gt;&gt;1;
+	if(x&lt;&#x3D;mid) res+&#x3D;query(k&lt;&lt;1,l,mid,x,y);
+	if(y&gt;mid) res+&#x3D;query(k&lt;&lt;1|1,mid+1,r,x,y);
+	return res;
+&#125;
+int main()
+&#123;
+	n&#x3D;read();
+	m&#x3D;read();
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		a[i]&#x3D;read();
+	build(1,1,n);
+	ll x,y,val;
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			scanf(&quot;%d&quot;,&amp;type);
+			if(type&#x3D;&#x3D;1)
+			&#123;
+				x&#x3D;read();
+				y&#x3D;read();
+				val&#x3D;read();
+				modify(1,1,n,x,y,val);
+				continue;
+			&#125;
+			if(type&#x3D;&#x3D;2)
+			&#123;
+				x&#x3D;read();
+				y&#x3D;read();
+				printf(&quot;%lld\n&quot;,query(1,1,n,x,y));
+				continue;
+			&#125;
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>还可以进一步，维护区间所有数同时乘上一个数，或者加上一个数，同时查询区间和。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3373">https://www.luogu.com.cn/problem/P3373</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+using namespace std;
+&#x2F;&#x2F;题目中给的p
+int p;
+&#x2F;&#x2F;暂存数列的数组
+long long a[100007];
+&#x2F;&#x2F;线段树结构体，v表示此时的答案，mul表示乘法意义上的lazytag，add是加法意义上的
+struct node&#123;
+    long long v, mul, add;
+&#125;st[400007];
+&#x2F;&#x2F;buildtree
+void bt(int root, int l, int r)&#123;
+&#x2F;&#x2F;初始化lazytag
+    st[root].mul&#x3D;1;
+    st[root].add&#x3D;0;
+    if(l&#x3D;&#x3D;r)&#123;
+        st[root].v&#x3D;a[l];
+    &#125;
+    else&#123;
+        int m&#x3D;(l+r)&#x2F;2;
+        bt(root*2, l, m);
+        bt(root*2+1, m+1, r);
+        st[root].v&#x3D;st[root*2].v+st[root*2+1].v;
+    &#125;
+    st[root].v%&#x3D;p;
+    return ;
+&#125;
+&#x2F;&#x2F;核心代码，维护lazytag
+void pushdown(int root, int l, int r)&#123;
+    int m&#x3D;(l+r)&#x2F;2;
+&#x2F;&#x2F;根据我们规定的优先度，儿子的值&#x3D;此刻儿子的值*爸爸的乘法lazytag+儿子的区间长度*爸爸的加法lazytag
+    st[root*2].v&#x3D;(st[root*2].v*st[root].mul+st[root].add*(m-l+1))%p;
+    st[root*2+1].v&#x3D;(st[root*2+1].v*st[root].mul+st[root].add*(r-m))%p;
+&#x2F;&#x2F;很好维护的lazytag
+    st[root*2].mul&#x3D;(st[root*2].mul*st[root].mul)%p;
+    st[root*2+1].mul&#x3D;(st[root*2+1].mul*st[root].mul)%p;
+    st[root*2].add&#x3D;(st[root*2].add*st[root].mul+st[root].add)%p;
+    st[root*2+1].add&#x3D;(st[root*2+1].add*st[root].mul+st[root].add)%p;
+&#x2F;&#x2F;把父节点的值初始化
+    st[root].mul&#x3D;1;
+    st[root].add&#x3D;0;
+    return ;
+&#125;
+&#x2F;&#x2F;update1，乘法，stdl此刻区间的左边，stdr此刻区间的右边，l给出的左边，r给出的右边
+void ud1(int root, int stdl, int stdr, int l, int r, long long k)&#123;
+&#x2F;&#x2F;假如本区间和给出的区间没有交集
+    if(r&lt;stdl || stdr&lt;l)&#123;
+        return ;
+    &#125;
+&#x2F;&#x2F;假如给出的区间包含本区间
+    if(l&lt;&#x3D;stdl &amp;&amp; stdr&lt;&#x3D;r)&#123;
+        st[root].v&#x3D;(st[root].v*k)%p;
+        st[root].mul&#x3D;(st[root].mul*k)%p;
+        st[root].add&#x3D;(st[root].add*k)%p;
+        return ;
+    &#125;
+&#x2F;&#x2F;假如给出的区间和本区间有交集，但是也有不交叉的部分
+&#x2F;&#x2F;先传递lazytag
+    pushdown(root, stdl, stdr);
+    int m&#x3D;(stdl+stdr)&#x2F;2;
+    ud1(root*2, stdl, m, l, r, k);
+    ud1(root*2+1, m+1, stdr, l, r, k);
+    st[root].v&#x3D;(st[root*2].v+st[root*2+1].v)%p;
+    return ;
+&#125;
+&#x2F;&#x2F;update2，加法，和乘法同理
+void ud2(int root, int stdl, int stdr, int l, int r, long long k)&#123;
+    if(r&lt;stdl || stdr&lt;l)&#123;
+        return ;
+    &#125;
+    if(l&lt;&#x3D;stdl &amp;&amp; stdr&lt;&#x3D;r)&#123;
+        st[root].add&#x3D;(st[root].add+k)%p;
+        st[root].v&#x3D;(st[root].v+k*(stdr-stdl+1))%p;
+        return ;
+    &#125;
+    pushdown(root, stdl, stdr);
+    int m&#x3D;(stdl+stdr)&#x2F;2;
+    ud2(root*2, stdl, m, l, r, k);
+    ud2(root*2+1, m+1, stdr, l, r, k);
+    st[root].v&#x3D;(st[root*2].v+st[root*2+1].v)%p;
+    return ;
+&#125;
+&#x2F;&#x2F;访问，和update一样
+long long query(int root, int stdl, int stdr, int l, int r)&#123;
+    if(r&lt;stdl || stdr&lt;l)&#123;
+        return 0;
+    &#125;
+    if(l&lt;&#x3D;stdl &amp;&amp; stdr&lt;&#x3D;r)&#123;
+        return st[root].v;
+    &#125;
+    pushdown(root, stdl, stdr);
+    int m&#x3D;(stdl+stdr)&#x2F;2;
+    return (query(root*2, stdl, m, l, r)+query(root*2+1, m+1, stdr, l, r))%p;
+&#125;
+int main()&#123;
+    int n, m;
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;p);
+    for(int i&#x3D;1; i&lt;&#x3D;n; i++)&#123;
+        scanf(&quot;%lld&quot;, &amp;a[i]);
+    &#125;
+    bt(1, 1, n);
+    while(m--)&#123;
+        int chk;
+        scanf(&quot;%d&quot;, &amp;chk);
+        int x, y;
+        long long k;
+        if(chk&#x3D;&#x3D;1)&#123;
+            scanf(&quot;%d%d%lld&quot;, &amp;x, &amp;y, &amp;k);
+            ud1(1, 1, n, x, y, k);
+        &#125;
+        else if(chk&#x3D;&#x3D;2)&#123;
+            scanf(&quot;%d%d%lld&quot;, &amp;x, &amp;y, &amp;k);
+            ud2(1, 1, n, x, y, k);
+        &#125;
+        else&#123;
+            scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
+            printf(&quot;%lld\n&quot;, query(1, 1, n, x, y));
+        &#125;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="3-RMQ问题-Range-Maximum-Minimum-Question-："><a href="#3-RMQ问题-Range-Maximum-Minimum-Question-：" class="headerlink" title="3.RMQ问题(Range Maximum/Minimum Question)："></a>3.RMQ问题(Range Maximum/Minimum Question)：</h2><p>对于给定静态序列，不进行后续操作，有多次询问区间[i,j]最大值/最小值(通常为10^6数量级)，可以使用ST算法进行O(nlogn)预处理，O(1)的询问。本质为动态规划。</p>
+<p>预处理：</p>
+<p>设f[i] [j]表示横坐标i为起点，向后走2^j的区间的最小值。显然这个区间可以用两个2^(j-1)得到，即状态转移方程为：</p>
+<p>f[i] [j]=max(f[i] [j-1],f[i+(1&lt;&lt;j-1)] [j-1]);</p>
+<p>设log[N]表示真数为N的log2对数值。可以有递推关系log[x]=log[x&gt;&gt;1]+1;注意赋值log[0]=-1,这样log[1]=0;</p>
+<p>询问：</p>
+<p>求出[X,Y]内的最大值：取k=log(Y-X+1),则ans=max(f[X] [k],f[Y-(1&lt;&lt;k)] [k]);</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3865">https://www.luogu.com.cn/problem/P3865</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define max(a,b) ((a)&gt;(b)?(a):(b))
+using namespace std;
+const int N&#x3D;1e5+2,logN&#x3D;20;
+int n,m,f[N][logN],ans,log[N],X,Y;
+inline int read()
+&#123;
+	char ch;
+	int f&#x3D;1;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39; || ch&lt;&#39;0&#39;)
+		&#123;
+			if(ch&#x3D;&#x3D;&#39;-&#39;) f&#x3D;-1; 
+		&#125;
+	int res&#x3D;ch^48;
+	while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+		res&#x3D;(res&lt;&lt;3)+(res&lt;&lt;1)+(ch^48);
+	return res*f;
+&#125;
+int main()
+&#123;
+	n&#x3D;read();
+	m&#x3D;read();
+	log[0]&#x3D;-1;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+	&#123;
+		f[i][0]&#x3D;read();
+		log[i]&#x3D;log[i&gt;&gt;1]+1;
+	&#125;
+	for(int j&#x3D;1;j&lt;&#x3D;logN;j++)
+		for(int i&#x3D;1;i+(1&lt;&lt;j)-1&lt;&#x3D;n;i++)
+				f[i][j]&#x3D;max(f[i][j-1],f[i+(1&lt;&lt;j-1)][j-1]);
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			X&#x3D;read();
+			Y&#x3D;read();
+			int k&#x3D;log[Y-X+1];
+			ans&#x3D;max(f[X][k],f[Y-(1&lt;&lt;k)+1][k]);
+			printf(&quot;%d\n&quot;,ans);
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-倍增求LCA"><a href="#4-倍增求LCA" class="headerlink" title="4.倍增求LCA"></a>4.倍增求LCA</h2><p>树上倍增优化LCA求解速度。本质依旧是动态规划；</p>
+<p>设f[i] [j]表示从i开始向上走2^j所到达的点的标号。显然有f[i] [j]=f[f[i] [j-1] ] [j-1];这里可以进行递推。而且f[i] [0]就是父结点。</p>
+<p>其次，我们需要记录dep[x]也就是结点x的深度。赋值dep[root]=1;</p>
+<p>算法步骤：</p>
+<p>1.对于每个询问x,y，先深度大的x(否则，swap(x,y))向上跳，使得xy的深度一样</p>
+<p>2.若x=y，直接return</p>
+<p>3.x!=y,那么分别向上跳，从高幂次向低幂次跳跃，这样才能实现加速。当且仅当f[x] [t]!=f[y] [t]的时候才跳，这样最后f[x] [0]=f[y] [0]就是LCA了</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+using namespace std;
+const int N&#x3D;500002,logN&#x3D;20;
+struct node&#123;
+	int from;
+	int to;
+	int next;
+&#125;e[N&lt;&lt;1];
+int head[N&lt;&lt;1],num,n,m,s,dep[N],f[N][logN],log[N];
+void addedge(int from,int to)
+&#123;
+	e[++num].from&#x3D;from;
+	e[num].to&#x3D;to;
+	e[num].next&#x3D;head[from];
+	head[from]&#x3D;num;
+&#125;
+void dfs(int u,int fa)&#x2F;&#x2F;预处理得到f数组和dep数组的值。 
+&#123;
+	dep[u]&#x3D;dep[fa]+1;
+	f[u][0]&#x3D;fa;
+	for(int i&#x3D;1;i&lt;&#x3D;log[dep[u]];i++)
+		f[u][i]&#x3D;f[f[u][i-1]][i-1];
+	int v;
+	for(int i&#x3D;head[u];i;i&#x3D;e[i].next)
+	&#123;
+		v&#x3D;e[i].to;
+		if(v!&#x3D;fa)
+			dfs(v,u);
+	&#125;
+&#125;
+void swap(int &amp;a,int &amp;b)
+&#123;
+	int t;
+	t&#x3D;a;
+	a&#x3D;b;
+	b&#x3D;t;
+	return;
+&#125;
+int ask(int x,int y)
+&#123;
+	if(dep[x]&lt;dep[y]) swap(x,y);
+	while(dep[x]&gt;dep[y])
+			x&#x3D;f[x][log[dep[x]-dep[y]]];
+	if(x&#x3D;&#x3D;y) return x;
+	for(int i&#x3D;log[dep[x]];i&gt;&#x3D;0;i--)
+	&#123;
+		if(f[x][i]!&#x3D;f[y][i])
+			&#123;
+				x&#x3D;f[x][i];
+				y&#x3D;f[y][i];
+			&#125;
+	&#125;
+	return f[x][0];
+&#125;
+int main()
+&#123;
+	int x,y;
+	log[0]&#x3D;-1;
+	scanf(&quot;%d%d%d&quot;,&amp;n,&amp;m,&amp;s);
+	for(int i&#x3D;1;i&lt;&#x3D;n-1;i++)
+		&#123;
+			scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+			addedge(x,y);
+			addedge(y,x);
+			log[i]&#x3D;log[i&gt;&gt;1]+1;
+		&#125;
+	log[n]&#x3D;log[n&gt;&gt;1]+1;
+	dfs(s,0);
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+			printf(&quot;%d\n&quot;,ask(x,y));
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="5-树链剖分"><a href="#5-树链剖分" class="headerlink" title="5.树链剖分"></a>5.树链剖分</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2590">https://www.luogu.com.cn/problem/P2590</a></p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+using namespace std;
+const int N&#x3D;320001;
+int size[N],top[N],son[N],dep[N],Summ,Maxx,fa[N],Max[N],sum[N],seg[N],rev[N],num[N],n,m;
+inline int max(int x,int y)
+&#123;
+	return x&gt;y?x:y;
+&#125;
+void swap(int &amp;a,int &amp;b)
+&#123;
+	int c&#x3D;a;
+	a&#x3D;b;
+	b&#x3D;c;
+	return;
+&#125;
+inline int read()
+&#123;
+	char ch;
+	int sign&#x3D;1,res;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39;||ch&lt;&#39;0&#39;)
+		if(ch&#x3D;&#x3D;&#39;-&#39;)
+			sign&#x3D;-1;
+	res&#x3D;ch-&#39;0&#39;;
+	while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+		res&#x3D;res*10+ch-&#39;0&#39;;
+	return res*sign;
+&#125;
+struct node&#123;
+	int from;
+	int to;
+	int next;
+&#125;e[N&lt;&lt;1];
+int head[N&lt;&lt;1],numm;
+void addedge(int from,int to)
+&#123;
+	e[++numm].next&#x3D;head[from];
+	e[numm].to&#x3D;to;
+	head[from]&#x3D;numm;
+&#125;
+void dfs1(int u,int f)
+&#123;
+	size[u]&#x3D;1;
+	fa[u]&#x3D;f;
+	dep[u]&#x3D;dep[f]+1;
+	for(int i&#x3D;head[u];i;i&#x3D;e[i].next)
+		&#123;
+			int to&#x3D;e[i].to;
+			if(to!&#x3D;f)
+				&#123;
+					dfs1(to,u);
+					size[u]+&#x3D;size[to];
+					if(size[to]&gt;size[son[u]])
+						son[u]&#x3D;to;
+				&#125;
+		&#125;
+&#125;
+void dfs2(int u,int f)
+&#123;
+	int v;
+	if(son[u])
+		&#123;
+			seg[son[u]]&#x3D;++seg[0];
+			rev[seg[0]]&#x3D;son[u];
+			top[son[u]]&#x3D;top[u];
+			dfs2(son[u],u);
+		&#125;
+	for(int i&#x3D;head[u];i;i&#x3D;e[i].next)
+		&#123;
+			int to&#x3D;e[i].to;
+			if(!top[to])
+				&#123;
+					seg[to]&#x3D;++seg[0];
+					rev[seg[0]]&#x3D;to;
+					top[to]&#x3D;to;
+					dfs2(to,u);
+				&#125;
+		&#125;
+&#125;
+inline void build(int k,int l,int r)
+&#123;
+	if(l&#x3D;&#x3D;r)
+		&#123;
+			sum[k]&#x3D;Max[k]&#x3D;num[rev[l]];
+			return;
+		&#125;
+	int mid&#x3D;(l+r)&gt;&gt;1;
+	build(k&lt;&lt;1,l,mid);
+	build(k&lt;&lt;1|1,mid+1,r);
+	sum[k]&#x3D;sum[k&lt;&lt;1]+sum[k&lt;&lt;1|1];
+	Max[k]&#x3D;max(Max[k&lt;&lt;1],Max[k&lt;&lt;1|1]);
+	return;
+&#125;
+void update(int k,int l,int r,int pos,int val)
+&#123;
+	if(pos&lt;l||pos&gt;r)
+		return;
+	if(l&#x3D;&#x3D;r&amp;&amp;pos&#x3D;&#x3D;l)
+		&#123;
+			sum[k]&#x3D;Max[k]&#x3D;val;
+			return;
+		&#125;
+	int mid&#x3D;(l+r)&gt;&gt;1;
+	if(pos&lt;&#x3D;mid)
+		update(k&lt;&lt;1,l,mid,pos,val);
+	if(pos&gt;mid)
+		update(k&lt;&lt;1|1,mid+1,r,pos,val);
+	sum[k]&#x3D;sum[k&lt;&lt;1]+sum[k&lt;&lt;1|1];
+	Max[k]&#x3D;max(Max[k&lt;&lt;1],Max[k&lt;&lt;1|1]);
+	return;
+&#125;
+void query(int k,int l,int r,int L,int R)
+&#123;
+	if(L&gt;r || R&lt;l)
+		return;
+	if(L&lt;&#x3D;l&amp;&amp;r&lt;&#x3D;R)
+		&#123;
+			Summ+&#x3D;sum[k];
+			Maxx&#x3D;max(Max[k],Maxx);
+			return;
+		&#125;
+	int mid&#x3D;(l+r)&gt;&gt;1;
+	if(L&lt;&#x3D;mid)
+		query(k&lt;&lt;1,l,mid,L,R);
+	if(R&gt;mid)
+		query(k&lt;&lt;1|1,mid+1,r,L,R);
+	return ;
+&#125;
+void ask(int x,int y)
+&#123;
+	int fx&#x3D;top[x],fy&#x3D;top[y];
+	while(fx!&#x3D;fy)
+		&#123;
+			if(dep[fx]&lt;dep[fy])
+				swap(x,y),swap(fx,fy);
+			query(1,1,seg[0],seg[fx],seg[x]);
+			x&#x3D;fa[fx];
+			fx&#x3D;top[x];
+		&#125;
+	if(dep[x]&gt;dep[y])
+		swap(x,y);
+	query(1,1,seg[0],seg[x],seg[y]);
+&#125;
+int main()
+&#123;
+	int x,y;
+	n&#x3D;read();
+	for(int i&#x3D;1;i&lt;&#x3D;n-1;i++)
+		&#123;
+			x&#x3D;read();
+			y&#x3D;read();
+			addedge(x,y);
+			addedge(y,x);
+		&#125;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		num[i]&#x3D;read();
+	dfs1(1,0);
+	seg[0]&#x3D;seg[1]&#x3D;rev[1]&#x3D;top[1]&#x3D;1;
+	dfs2(1,0);
+	build(1,1,seg[0]);
+	m&#x3D;read();
+	char str[1200];
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			scanf(&quot;%s&quot;,str);
+			if(str[0]&#x3D;&#x3D;&#39;Q&#39;)
+				&#123;
+					Maxx&#x3D;-1200000;
+					Summ&#x3D;0;
+					scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+					ask(x,y);
+					if(str[1]&#x3D;&#x3D;&#39;M&#39;)
+						printf(&quot;%d\n&quot;,Maxx);
+					if(str[1]&#x3D;&#x3D;&#39;S&#39;)
+						printf(&quot;%d\n&quot;,Summ);
+				&#125;
+			else
+				&#123;
+					scanf(&quot;%d%d&quot;,&amp;x,&amp;y);
+					update(1,1,seg[0],seg[x],y);
+				&#125;
+		&#125;
+		return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="6-树链剖分求解LCA"><a href="#6-树链剖分求解LCA" class="headerlink" title="6.树链剖分求解LCA"></a>6.树链剖分求解LCA</h2><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define ll long long
+using namespace std;
+const int N&#x3D;500002;
+inline ll read()
+&#123;
+	char ch;
+	int f&#x3D;1;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39; || ch&lt;&#39;0&#39;)
+	&#123;
+		if(ch&#x3D;&#x3D;&#39;-&#39;) f&#x3D;-1;
+	&#125;
+	ll res&#x3D;ch^48;
+	while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+		res&#x3D;(res&lt;&lt;3)+(res&lt;&lt;1)+(ch^48);
+	return res*f;
+&#125;
+struct edge&#123;
+	int from;
+	int to;
+	int next;
+&#125;e[N&lt;&lt;1];
+int head[N&lt;&lt;1],num;
+void addedge(int from,int to)
+&#123;
+	e[++num].from&#x3D;from;
+	e[num].to&#x3D;to;
+	e[num].next&#x3D;head[from];
+	head[from]&#x3D;num;
+&#125;
+int size[N],son[N],dep[N],top[N],fa[N];
+int n,m,root;
+void dfs1(int u,int ff)
+&#123;
+	dep[u]&#x3D;dep[ff]+1;
+	size[u]&#x3D;1;
+	fa[u]&#x3D;ff;
+	int v;
+	for(int i&#x3D;head[u];i;i&#x3D;e[i].next)
+	&#123;
+		v&#x3D;e[i].to;
+		if(v!&#x3D;ff)
+		&#123;
+			dfs1(v,u);
+			size[u]+&#x3D;size[v];
+			if(size[v]&gt;size[son[u]])
+				son[u]&#x3D;v;
+		&#125;
+	&#125;
+&#125;
+void dfs2(int u)
+&#123;
+	int v;
+	if(son[u])
+	&#123;
+		top[son[u]]&#x3D;top[u];
+		dfs2(son[u]);
+	&#125;
+	for(int i&#x3D;head[u];i;i&#x3D;e[i].next)
+	&#123;
+		v&#x3D;e[i].to;
+		if(!top[v])
+		&#123;
+			top[v]&#x3D;v;
+			dfs2(v);
+		&#125;
+	&#125;
+	return;
+&#125;
+void swap(int &amp;a,int &amp;b)
+&#123;
+	int c&#x3D;a;
+	a&#x3D;b;
+	b&#x3D;c;
+	return;
+&#125;
+inline int ask(int x,int y)
+&#123;
+	int fx&#x3D;top[x],fy&#x3D;top[y];
+	while(fx!&#x3D;fy)
+	&#123;
+		if(dep[fx]&lt;dep[fy])
+			swap(x,y),swap(fx,fy);
+		x&#x3D;fa[fx];
+		fx&#x3D;top[x];
+	&#125;
+	if(dep[x]&gt;dep[y])
+		swap(x,y);
+	return x;
+&#125;
+int main()
+&#123;
+	n&#x3D;read();
+	m&#x3D;read();
+	root&#x3D;read();
+	int x,y;
+	for(int i&#x3D;1;i&lt;&#x3D;n-1;i++)
+		&#123;
+			x&#x3D;read();
+			y&#x3D;read();
+			addedge(x,y);
+			addedge(y,x);
+		&#125;
+	dfs1(root,0);
+	top[root]&#x3D;root;
+	dfs2(root);
+	for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+		&#123;
+			x&#x3D;read();
+			y&#x3D;read();
+			printf(&quot;%d\n&quot;,ask(x,y));
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="7-Treap平衡树"><a href="#7-Treap平衡树" class="headerlink" title="7.Treap平衡树"></a>7.Treap平衡树</h2><p>Treap平衡树的本质是一个二叉查找树Tree的基础上，对每个节点都赋予一个随机权值，再使得每个节点保证构成小根堆Heap，从而避免了有序数据使得树退化为链的情况。Tree+Heap–&gt;Treap</p>
+<p>操作一：左旋右旋操作：Zag/Zig</p>
+<p>为了在维持BST性质的前提下，还要构成小根堆的性质，我们势必要对结点进行操作。这里的操作就是旋转。</p>
+<p>Zig操作，右旋：对于以k为根节点的子树，将k的左子结点变为新的根节点，原左子结点的右子结点变成k的新左子结点，而新根的新右子结点变为k。右旋的形象化表现就是k的左子结点被抬升了上去。</p>
+<p>Zag操作，左旋：对于以k为根节点的子树，将k的右子结点变为新的根节点，原右子结点的左子结点变为k的新右子结点，而新根的新左子结点变为k。左旋的形象化表现就是k的右子结点被抬升了上去。</p>
+<p>代码如下：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int pool,n,root,opt;
+struct node&#123;
+	int lc,rc,key,size,cnt,pri;
+	#define lc(x) t[x].lc
+	#define rc(x) t[x].rc
+	#define val(x) t[x].key
+	#define size(x) t[x].size
+	#define cnt(x) t[x].cnt
+	#define p(x) t[x].pri
+&#125;t[N];
+inline void upt(const int &amp;k) 
+&#123;
+	size(k)&#x3D;size(lc(k))+size(rc(k))+cnt(k);
+	return;
+&#125;
+&#x2F;&#x2F;更新k结点的大小
+inline void Zig(int &amp;k)&#x2F;&#x2F;对k结点进行右旋操作：k为原根，左子结点为新根。需要将左子结点的右子结点移动到k结点的新左子结点上，将左子结点的右子结点更新为k 
+&#123;
+	int y&#x3D;lc(k);
+	lc(k)&#x3D;rc(y);
+	rc(y)&#x3D;k;
+	size(y)&#x3D;size(k);
+	upt(k);
+	k&#x3D;y;
+&#125;
+inline void Zag(int &amp;k)&#x2F;&#x2F;对k结点i进行左旋操作：k为原根，右子结点为新根，则右子结点的原左子结点更新为k，k的右子结点更新为原右子结点的左子结点 
+&#123;
+	int y&#x3D;rc(k);
+	rc(k)&#x3D;lc(y);
+	lc(y)&#x3D;k;
+	size(y)&#x3D;size(k);
+	upt(k);
+	k&#x3D;y;
+&#125;
+in<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>操作二：将权值为w的结点插入到Treap中</p>
+<p>算法如下：</p>
+<p>现需要找到权值为w结点插入的位置，从根节点开始遍历，将w与当前结点的权值进行比较：若w==val(x) size(x)++,cnt(x)++;</p>
+<p>如果w&lt;val(x) 那么就插入到左子树中；如果w&gt;val(x)那么就插入到右子树中；</p>
+<p>如果到达一个空的结点，那就新建一个结点。使得其值为w，并且随机一个优先值p(x)=rand();</p>
+<p>在回溯的过程中进行左右旋的操作：</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline void insert(int &amp;k,const int &amp;key)
+&#123;
+	if(!k)
+		&#123;
+			k&#x3D;++pool;
+			val(k)&#x3D;key;
+			cnt(k)&#x3D;size(k)&#x3D;1;
+			p(k)&#x3D;rand(); 
+			lc(k)&#x3D;rc(k)&#x3D;0;
+			return;
+		&#125;
+	else ++size(k);
+	
+	if(key&#x3D;&#x3D;val(k))
+	&#123;
+			cnt(k)++;
+	&#125;
+	if(key&lt;val(k))
+	&#123;
+		insert(lc(k),key);
+		if(p(lc(k))&lt;p(k))
+			Zig(k);
+	&#125;
+	if(key&gt;val(k))
+	&#123;
+		insert(rc(k),key);
+		if(p(rc(k))&lt;p(k))
+			Zag(k);
+	&#125;
+	return;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看出，左右旋操作在维护小根堆性质中的重要作用！</p>
+<p>操作三：删除操作</p>
+<p>算法流程：</p>
+<p>先找到需要删除元素在Treap中的位置。</p>
+<p>其次，若cnt(k)&gt;1 直接cnt(k)–,size(k)–</p>
+<p>若cnt(k)==1，分两种情况分析：</p>
+<p>若该节点为链结点或叶节点，那么就直接将其删除即可。k=lc(k)+rc(k)</p>
+<p>若该节点有两个非空左右子结点，我们的思路就是，比较左右两个子结点的优先值的大小，将优先值较小的结点旋转到该节点处，再对旋转后的子树进行这样的递归操作，直到该节点变为叶节点或者链结点再执行方案一</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline void Delete(int &amp;k,const int &amp;key)
+&#123;
+	size(k)--;
+	if(key&lt;val(k)) Delete(lc(k),key);
+	if(key&gt;val(k)) Delete(rc(k),key);
+	if(key&#x3D;&#x3D;val(k))
+	&#123;
+		if(cnt(k)&gt;1)&#123;
+			cnt(k)--;
+			return;
+		&#125;
+		if(!lc(k) || !rc(k))&#x2F;&#x2F;如果k结点是链节点或者叶节点
+			&#123;
+				k&#x3D;lc(k)+rc(k);
+			&#125;
+		else
+			&#123;
+				
+				if(p(lc(k))&lt;p(rc(k)))&#x2F;&#x2F;如果左儿子更优，那就右旋一下
+					Zig(k),Delete(k,key); 
+				else
+					Zag(k),Delete(k,key);
+			&#125; 
+	&#125;
+	return;
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>操作四：求一个元素在Treap中的前驱，也就是最大的小于等于该元素的Treap中的数据。</p>
+<p>只需要不断对该元素w与结点值进行比较就可以了，从根结点出发，遍历结点即可。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline int QueryPre(const int &amp;key)
+&#123;
+	int x&#x3D;root,pre&#x3D;-INF;
+	while(x)
+	&#123;
+		if(val(x)&lt;key) pre&#x3D;val(x),x&#x3D;rc(x);
+		else x&#x3D;lc(x);
+	&#125;
+	return pre;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>求后继是类似的过程。</p>
+<p>操作五：查找Treap中排名第k大的元素值：</p>
+<p>我们思考第k大元素的位置。由于整颗Treap是有序的，若存在结点x，使得size(lc(x))+1=k,那么结点x就是对应的第k大元素。这里对于相同元素我们默认其排序是相同的。那么，对于val(k)的结点，占据的区间便是：[size(lc(x))+1,size(lc(x))+cnt(x)];</p>
+<p>于是，我们可以按照分治的思路寻找第k大的元素：</p>
+<p>若k∈[size(lc(x))+1,size(lc(x))+cnt(x)],返回val(x)</p>
+<p>若k&lt;=size(lc(x)) 那么就在左子树中寻找对应元素，且排序依旧是第k个元素</p>
+<p>若k&gt;size(lc(x))+cnt(x)，那么就在右子树中寻找对应元素，且排序是第k-size(lc(x))-cnt(x)个元素</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline int QueryKth(int k)
+&#123;
+	int x&#x3D;root;
+	while(x)
+	&#123;
+		if(k&gt;&#x3D;size(lc(x))+1&amp;&amp;k&lt;&#x3D;size(lc(x))+cnt(x)) return val(x); 
+		if(k&lt;&#x3D;size(lc(x))) 
+		&#123;
+			x&#x3D;lc(x);
+		&#125;
+		else 
+		&#123;
+			k&#x3D;k-size(lc(x))-cnt(x);
+			x&#x3D;rc(x);
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>操作六：查找Treap中元素值为w的元素的排名；</p>
+<p>可以看作操作五的逆运算过程！一样用分治的思路：res代表已经累计的小于w的元素个数，只需要考虑当前以k为根的子树即可。</p>
+<p>若w=val(k) return res+size(lc(k))+1;</p>
+<p>若w&lt;val(k) 就跳到左子树中去寻找。 k=lc(k);</p>
+<p>若w&gt;val(k) 就跳到右子树中去寻找。同时res需要加上所有左子树和根节点的大小！res+=size(lc(k))+cnt(k);k=rc(k);</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline int QueryRank(int w)
+&#123;
+	int x&#x3D;root,res&#x3D;0;
+	while(x)
+	&#123;
+		if(w&#x3D;&#x3D;val(x)) return res+size(lc(x))+1;
+		if(w&lt;val(x)) x&#x3D;lc(x);
+		else res+&#x3D;size(lc(x))+cnt(x),x&#x3D;rc(x);
+	&#125;
+	return res;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -538,7 +1618,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yoursite.com/blog/blog/2021/07/28/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B01/">https://yoursite.com/blog/blog/2021/07/28/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B01/</a>
+                    <a href="https://yoursite.com/blog/blog/2021/08/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/">https://yoursite.com/blog/blog/2021/08/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -576,8 +1656,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B0/">
-                                    <span class="chip bg-color">随笔杂记</span>
+                                <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                                    <span class="chip bg-color">OI训练</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
                                 </a>
                             
                         </div>
@@ -751,13 +1835,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/2021/08/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/">
+                <a href="/blog/2021/08/02/%E7%BB%BC%E5%90%88%E8%A1%A5%E9%A2%98-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/14.jpg" class="responsive-img" alt="数据结构进阶">
+                        <img src="/blog/medias/featureimages/7.jpg" class="responsive-img" alt="综合补题(1)">
                         
-                        <span class="card-title">数据结构进阶</span>
+                        <span class="card-title">综合补题(1)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,8 +1873,8 @@
                         <span class="chip bg-color">OI训练</span>
                     </a>
                     
-                    <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/blog/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
@@ -804,12 +1888,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2021/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/">
+                <a href="/blog/2021/07/28/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B01/">
                     <div class="card-image">
                         
-                        <img src="https://img2.huashi6.com/images/resource/2018/12/29/72354h485p0.png?imageView2/3/q/100/interlace/1/w/1600/h/1600/format/webp" class="responsive-img" alt="动态规划入门">
                         
-                        <span class="card-title">动态规划入门</span>
+                        <img src="/blog/medias/featureimages/18.jpg" class="responsive-img" alt="随笔杂记1">
+                        
+                        <span class="card-title">随笔杂记1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -820,14 +1905,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    算法竞赛
+                            <a href="/blog/categories/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/" class="post-category">
+                                    所思所想
                                 </a>
                             
                             
@@ -837,12 +1922,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
-                        <span class="chip bg-color">OI训练</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">
-                        <span class="chip bg-color">动态规划DP</span>
+                    <a href="/blog/tags/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B0/">
+                        <span class="chip bg-color">随笔杂记</span>
                     </a>
                     
                 </div>
@@ -1010,6 +2091,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

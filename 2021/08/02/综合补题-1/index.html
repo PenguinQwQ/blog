@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="随笔杂记1, 🐟的博客">
+    <meta name="keywords" content="综合补题(1), 🐟的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>随笔杂记1 | 🐟的博客</title>
+    <title>综合补题(1) | 🐟的博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">随笔杂记1</h1>
+                    <h1 class="description center-align post-title">综合补题(1)</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B0/">
-                                <span class="chip bg-color">随笔杂记</span>
+                            <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                                <span class="chip bg-color">OI训练</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">刷题</span>
                             </a>
                         
                     </div>
@@ -443,8 +447,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/" class="post-category">
-                                所思所想
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                算法竞赛
                             </a>
                         
                     </div>
@@ -456,28 +460,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-28
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-28
+                    2021-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    17 分
                 </div>
                 
 
@@ -500,18 +504,333 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="随笔杂记一：凡是过往，皆为序章"><a href="#随笔杂记一：凡是过往，皆为序章" class="headerlink" title="随笔杂记一：凡是过往，皆为序章"></a>随笔杂记一：凡是过往，皆为序章</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=421934070&auto=1&height=66"></iframe>
+                <h2 id="1-POJ-1995-Raising-Modulo-Numbers-分解递推"><a href="#1-POJ-1995-Raising-Modulo-Numbers-分解递推" class="headerlink" title="1.POJ 1995 Raising Modulo Numbers(分解递推)"></a>1.POJ 1995 <strong>Raising Modulo Numbers</strong>(分解递推)</h2><p><a target="_blank" rel="noopener" href="http://poj.org/problem?id=1995">http://poj.org/problem?id=1995</a></p>
+<p>题意分析：给出Z组数据，每组数据内有n个人，每个人输入两个数ai,bi，每组数据指定一个mod，要求<br>给出(Σai^bi)%mod的值<br>对于每一组数据，我们考虑分解的情况，先对bi进行二进制的表示：<br>$$<br>b_i=c_k \times 2^k + c_{k-1} \times 2^{k-1} + … +c_0 \times 2^0<br>$$<br>显然的，由于<br>$$<br>a_i^{2^k}=(a_i^{2^{k-1}})^2<br>$$<br>我们可以线性递推出每一项的大小，再取出$b_i$的所有二进制位，根据$c_i$的正负决定是否进行累加，同时注意取模！</p>
+<p>AC code:</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+using namespace std;
+int Z,mod,n,Ans,x,y;
 
-<p>本蒟蒻的第一篇随笔，没有什么老套的开场白。</p>
-<p>想象自己的现在与过往，总有一种不真切的虚幻感。如梦，似幻。过程的幽深曲折，流过的血与泪，都已化为了泡影。无论曾经达到的辉煌巅峰，抑或是失手跌入的深渊低谷。此间种种皆葬送在了回忆的漩涡之中。十八年的时光转瞬即逝，我得到了什么，又失去了什么？我算是达到期望了吗？这个期望又是我自己心中所想，还是家长老师同学对我的期望？我走的路是否合适，想法是否恰当？或许一切疑惑归根结底都是那哲学般无解的三个问题：我是谁？我来自何方？我要去往哪里？</p>
-<p>十八岁的我经历了高考，录取到了南京大学，学习软件工程。</p>
-<p>大概算是，从事自己喜欢的行当了吧。</p>
-<p>年幼时喜欢打游戏，接触到沙盒游戏的代表作——Minecraft。逐渐进阶之后，开始不满足于简单的生存创造。PE端，我试着研究过js，捣鼓mclauncher，试着做一些更加高级的插件与模组，实现更多的功能。我研究命令方块，跟着网上的教程来走（比如帕西等人的命令方块教学，当时还是1.8的版本）命令的语法规则了解后，我第一次写出了能生成手持钻石剑的僵尸的指令。欣喜之余，对此间的奥妙也多了兴趣。</p>
-<p>大概初次接触代码，是在中考完后的那个暑假。我记得当时买了两本书，黄皮和蓝皮的《信息学奥赛一本通》，就照着这两本书练了一个暑假，一本通网站上的题也刷了几道。开学后一次选拔测试竟然考了满分（谁能想到高中唯一一次AK是在高一开学一个周后呢）。但是由于周围同分数段的同学以报数学奥赛为主，最后选择的也是数学竞赛。可一中的竞赛氛围实话说，并不是很好。尤其是班主任对这方面的管控尤其严格。如每次上数学奥赛前，必须去找化学老师/生物老师提前完成小测，只有考到满分才被允许去上奥赛。（这让文化课本就不拔尖的我雪上加霜）每次想到这，脑海中总不由自主地想起阿尔敏的那句话“什么都不愿放弃的人，什么也得不到”。在我看来，如果能够专心于竞赛，加大投入力度，可能文化课成绩会存在一时的波动，但取得的竞赛成绩也会更好吧！当然，文化课为根本的背景下，这么做是无可厚非的。</p>
-<p>于是马马虎虎，高一上我们班的数学奥赛就全部退出了。而我，总归是有些不甘的，也可以说是一种不满。对这个高压的环境，对这个封锁闭塞专制的氛围，对这个唯分数至上而没有兴趣拓展的工厂，产生的一种反抗般的叛逆。因此，我不顾家长老师的反对，一头扎回了信息竞赛。</p>
-<p>可当时的情况却很特别，我这个前AK选手经过一年的荒废，所有知识早都还给书本了。真的是：从零开始的CSP生活。当时我第一天来到机房，我翻开了动态规划的第一页，开始看了起来，旁边的陈泰来同学早就开始切紫题了（我现在还记得那是洛谷P4180严格次小生成树）这种差距产生的压力无形中推着我前进，我当时没有老师讲，完全是自己在摸索自学，不是看书就是在上CSDN博客学习。而至于当时的心态，完全没有去争取省奖。唯一的想法就是尽可能多学习相关的算法和数据结构知识。经过三个月的自学，最后模拟赛达到的水平应该堪堪达到往届的暴力省一。最后成绩2019CSP-S初赛93/100 瞎搞拿到全校rk1，复赛124/600,省rk500左右拿到省二。（D1T2 50分没了，T1没开ULL100-&gt;50)而那年的题又集中考了树和动规，当场死亡。当然，最后的分数只比去年省一的兄弟低了两分，也算是接受范围之内了。</p>
-<p>令我记忆犹新的是考完D1的那天，我心知省一无望，搞不好D2难到炸裂省二也没有。心态炸裂之下在山东职业外国语的操场上跑了10圈。十一月如冰刀般凌厉的晚风混杂着泪水与汗水，一并吞了下去。那种濒临绝境后爆发的意志力让我在D2取得了69分的成绩，比D1的55分都高。当然也有运气成分，D2T3的前45分直接树的直径就可以弄到。那时的我以cls为偶像，也感谢cls的事迹与言语激励了那个濒临崩溃的我。感谢所有因竞赛与我结识的小伙伴，yyh学长、ctl、sjy、chy、ynx、qxj…..</p>
-<p>我出生在一个竞赛资源较为贫瘠的地方，没有北上湖浙一带的先机，支撑我学下去的，只有对算法竞赛的热爱啊。虽然天赋不够，我依然想说出来：我的梦想是成为一名理论计算机科学家，成为黄金时代的一朵浪花，为人类的智慧添砖加瓦。</p>
+inline int read()&#x2F;&#x2F;快读
+&#123;
+	char ch;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39; || ch&lt;&#39;0&#39;);
+	int res&#x3D;ch-&#39;0&#39;;
+	while((ch&#x3D;getchar())&lt;&#x3D;&#39;9&#39;&amp;&amp;ch&gt;&#x3D;&#39;0&#39;)
+		res&#x3D;res*10+ch-&#39;0&#39;;
+	return res;
+&#125;
+int calc(int a,int b)&#x2F;&#x2F;计算a^b
+&#123;
+	int ans&#x3D;1%mod;&#x2F;&#x2F;由于计算的是连乘积，初始化时一定弄成1，不要弄成0！注意取模mod!
+	for(;b;b&gt;&gt;&#x3D;1)&#x2F;&#x2F;b的二进制位向低位移动 
+	&#123;
+		if(b&amp;1) ans&#x3D;((long long)ans*a)%mod;&#x2F;&#x2F;如果b的当前最低二进制位ci为1，那么就加上贡献值 
+		a&#x3D;(long long)a*a % mod;&#x2F;&#x2F;对a进行平方操作 
+	&#125;
+	return ans;
+&#125;
+int main() 
+&#123;
+	Z&#x3D;read();
+	for(int i&#x3D;1;i&lt;&#x3D;Z;i++)
+		&#123;
+			Ans&#x3D;0;
+			mod&#x3D;read();
+			n&#x3D;read();
+			for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+				&#123;
+					x&#x3D;read();
+					y&#x3D;read();
+					Ans&#x3D;(Ans+calc(x,y))%mod;
+				&#125;
+			printf(&quot;%d\n&quot;,Ans);
+		&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>注意在进行calc时是算的a^b，是连乘积，不要和求和弄混了。求和初始化为0，连乘积初始化为1。</li>
+<li>注意，在较大数的乘法运算时，可能会爆int，此时需要先把数据类型转化为long long才可以。</li>
+</ul>
+<h2 id="2-POJ-2288-Islands-and-Bridges-状态压缩DP"><a href="#2-POJ-2288-Islands-and-Bridges-状态压缩DP" class="headerlink" title="2.POJ 2288 Islands and Bridges(状态压缩DP)"></a>2.POJ 2288 <strong>Islands and Bridges</strong>(状态压缩DP)</h2><p><a target="_blank" rel="noopener" href="http://poj.org/problem?id=2288">http://poj.org/problem?id=2288</a></p>
+<p>题意分析：给定多组数据以及多张图的信息。我们先考虑一张图：有n个点，m条边，关于哈密尔顿路径权值和的定义，来自三部分。其一是所有城市的权值和，其二是哈密尔顿路径两端点权积之和，其三是所有路径构成连通三角形的权值连乘积之和。需要输出这个最大的总和以及这样的路径数目。</p>
+<p>1.由于n&lt;=13，显然考虑状态压缩表征所有点的状态了。用一个int类二进制数i，为0的位表示没有经过，为1的位表示已经经过。</p>
+<p>2.存图的话考虑临界矩阵。g[i] [j]表示i和j之间路径的长度。初始化为0，这样对建图时，</p>
+<p>g[i] [j]=g[j] [i]=v[i]*v[j] 当作路的权重</p>
+<p>3.考虑遍历所有点。可以枚举所有的状态。记f[i] [j]表示当前状态为i，且位置在j的最大边权值和。（注意需要初始化为-1）初始化可以以任意一个数为起点，设为s，即f[(1&lt;&lt;s)] [s]=0;最外层枚举所有的状态：</p>
+<p>for(int i=1;i&lt;=(1&lt;&lt;n)-1;i++)</p>
+<p>4.枚举所有状态后，再考虑枚举状态下所有当前的点：</p>
+<p>​    for(int j=0;j&lt;=n-1;j++)</p>
+<p>​    if((i&gt;&gt;j)&amp;1)  //如果i的第j位为真，也就是经过了第j位的话，那么上一步的状态必定就是： i ^ (1&lt;&lt;j) </p>
+<p>之后再枚举所有的点k，满足k!=j &amp;&amp; (i&gt;&gt;k) 也就是除了j之外的任一点</p>
+<p>f[i] [j]=max(f[i] [j],f[i^(1&lt;&lt;j)] [k]+g[k] [j]) 这里得到的是路径的权重和 那么，第二部分权值的贡献就是max{f[(1&lt;&lt;n)-1] [1],f[(1&lt;&lt;n)-1] [2],…}</p>
+<p>5.对于三角形的判定，其实一点也不麻烦！因为最后所有的点都会被遍历到，因此，只需要求解一共有多少个点有三角通路即可！</p>
+<p>for(int i=1;i&lt;=n;i++)</p>
+<p>​    for(int j=1;j&lt;=n;j++)</p>
+<p>​        for(int k=1;k&lt;=n;j++)</p>
+<p>​                if(i!=j &amp;&amp; i!=k &amp;&amp; j!=k &amp;&amp; g[i] [j] &amp;&amp; g[j] [k] &amp;&amp; g[k] [i])</p>
+<p>​                    val+=g[i] [j] * g[j] [k] * g[k] [i]</p>
+<p>最后，每一个三角形被加了6遍，应该需要除6才可以！ </p>
+<p>Errors:</p>
+<p>1.只有相邻的两个点之间才需要计算vi*vi+1，头尾的两个点是不算的。</p>
+<p>2.连续的三个点构成三角形才需要计算连乘积！</p>
+<p>Solution:</p>
+<p>设dp[s] [i] [j] 表示状态为s，上一个点为j，上上个点为i时的最大值，用num[s] [i] [j]数组统计这种状态下的最大值的所有方案数。</p>
+<p>那么，我们可以考虑初始化任意两点之间的dp值和num值，再枚举下一个点完成暴力状态转移即可。</p>
+<p>AC code:</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#define R register int
+#define max(a,b) ((a)&gt;(b)?(a):(b))
+#define min(a,b) ((a)&lt;(b)?(a):(b))
+#define ll long long
+#define N 13
+using namespace std;
+int q,n,m,x,y;
+int v[N],dp[1&lt;&lt;N][N][N],ans1;
+bool g[N][N];
+ll ans2,num[1&lt;&lt;N][N][N];
+inline int read()
+&#123;
+	char ch;
+	int f&#x3D;1;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39; || ch&lt;&#39;0&#39;) &#123;
+		if(ch&#x3D;&#x3D;&#39;-&#39;) f&#x3D;-1;
+	&#125;
+	int res&#x3D;ch-&#39;0&#39;;
+	while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+		res&#x3D;res*10+ch-&#39;0&#39;;
+	return res;
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;q);
+	while(q--)
+	&#123;
+		ans1&#x3D;0;
+		ans2&#x3D;0;
+		memset(g,0,sizeof(g));
+		memset(dp,0,sizeof(dp));
+		memset(num,0,sizeof(num));
+		n&#x3D;read();m&#x3D;read();
+		for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)
+			v[i]&#x3D;read();
+		if(n&#x3D;&#x3D;1)&#x2F;&#x2F;特判只有一个点时的情况 
+		&#123;
+			printf(&quot;%d 1\n&quot;,v[0]); 
+			continue;
+		&#125;
+		for(int i&#x3D;1;i&lt;&#x3D;m;i++)
+			&#123;
+				x&#x3D;read();
+				y&#x3D;read();
+				x--,y--;
+				g[x][y]&#x3D;g[y][x]&#x3D;1;&#x2F;&#x2F;建路 
+			&#125;
+		for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)&#x2F;&#x2F;初始化 
+			for(int j&#x3D;0;j&lt;&#x3D;n-1;j++)
+				&#123;
+					if(i!&#x3D;j &amp;&amp; g[i][j])
+						&#123;
+							dp[(1&lt;&lt;i)|(1&lt;&lt;j)][i][j]&#x3D;v[i]*v[j]+v[i]+v[j];
+							num[(1&lt;&lt;i)|(1&lt;&lt;j)][i][j]&#x3D;1;
+						&#125;
+				&#125;
+		for(int s&#x3D;0;s&lt;&#x3D;(1&lt;&lt;n)-1;s++)&#x2F;&#x2F;枚举所有的状态 
+			&#123;
+				for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)&#x2F;&#x2F;枚举前两个点 
+					if(s&amp;(1&lt;&lt;i))
+						for(int j&#x3D;0;j&lt;&#x3D;n-1;j++) &#x2F;&#x2F;枚举前一个点，要求与前两个点是连通的关系！ 
+							if(s&amp;(1&lt;&lt;j) &amp;&amp; i!&#x3D;j &amp;&amp; g[i][j] &amp;&amp; dp[s][i][j])
+								for(int k&#x3D;0;k&lt;&#x3D;n-1;k++)&#x2F;&#x2F;枚举下一步要走的点k,要求s中未包含点k,并且jk连通 
+									&#123;
+										if(k!&#x3D;i &amp;&amp; k!&#x3D;j &amp;&amp; (!((s&gt;&gt;k)&amp;1)) &amp;&amp; g[j][k])&#x2F;&#x2F;这是更新的条件 
+											&#123;
+												int tmp;
+												if(g[i][k]) tmp&#x3D;dp[s][i][j]+v[k]+v[j]*v[k]+v[i]*v[j]*v[k];
+												else tmp&#x3D;dp[s][i][j]+v[k]+v[j]*v[k];
+												if(dp[s|(1&lt;&lt;k)][j][k]&#x3D;&#x3D;tmp)
+													&#123;
+														num[s|(1&lt;&lt;k)][j][k]+&#x3D;num[s][i][j];
+														continue;
+													&#125;
+												if(dp[s|(1&lt;&lt;k)][j][k]&lt;tmp)
+													&#123;
+														dp[s|(1&lt;&lt;k)][j][k]&#x3D;tmp;
+														num[s|(1&lt;&lt;k)][j][k]&#x3D;num[s][i][j];
+														continue;
+													&#125;
+										
+						
+											&#125;
+									&#125;
+						
+				
+			 &#125; 
+		for(int i&#x3D;0;i&lt;&#x3D;n-1;i++)
+			for(int j&#x3D;0;j&lt;&#x3D;n-1;j++)
+				if(i!&#x3D;j &amp;&amp; g[i][j])
+					&#123;
+						if(dp[(1&lt;&lt;n)-1][i][j]&#x3D;&#x3D;ans1)
+							ans2+&#x3D;num[(1&lt;&lt;n)-1][i][j]; 
+						if(dp[(1&lt;&lt;n)-1][i][j]&gt;ans1)
+						&#123;
+							ans1&#x3D;dp[(1&lt;&lt;n)-1][i][j];
+							ans2&#x3D;num[(1&lt;&lt;n)-1][i][j];
+						&#125;
+						
+					&#125;
+		printf(&quot;%d %lld\n&quot;,ans1,ans2&#x2F;2);
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-POJ-1958-Strange-Towers-of-Hanoi-递推-DP"><a href="#3-POJ-1958-Strange-Towers-of-Hanoi-递推-DP" class="headerlink" title="3.POJ 1958 Strange Towers of Hanoi(递推+DP)"></a>3.POJ 1958 <strong>Strange Towers of Hanoi</strong>(递推+DP)</h2><p><a target="_blank" rel="noopener" href="http://poj.org/problem?id=1958">http://poj.org/problem?id=1958</a></p>
+<p>这道题要我们求四柱汉诺塔的情况。即此时有4根柱子，k个盘子，求将这k个盘子从A柱移动到D柱的最少移动次数。</p>
+<p>对于三柱汉诺塔，设d[x]表示将x个盘子通过一根辅助柱B从A移到C的最少移动次数。显然有：d[x]=2*d[x-1]+1,可以理解为先将x-1号盘子从A移到B，再把x号盘子从A移到C，最后将x-1个盘子从B移到C。</p>
+<p>那么，相应的，对于四根柱子的情况，我们假设先移动k个盘子到B柱，用剩余的A、C、D柱将n-k个盘子从A移动到D，此时以C为辅助柱，AD为目标柱，再将k个盘子从B移动到D柱，此时以AC为辅助柱。BD为目标柱。思考到这里，我们就发现这个问题可以化归成三柱问题+四柱问题！</p>
+<p>设f[x]表示x个盘子下四柱问题的解，设d[x]表示x个盘子下三柱问题的解。显然有：<br>$$<br>f[x]=max_{1&lt;=k&lt;=x-1}(f[x],2*f[k]+d[x-k])<br>$$<br>这里有k&lt;=n-1，显然在求解f[x]前f[k]已经得到结果，可以直接调用。而d[n-k]可以提前预处理得到结果。因此，这个状态转移方程是成立的，且初始化条件就是三柱问题的答案。</p>
+<p>想到这里，问题可以扩展为任意n柱m盘的情况，其递推关系如下：<br>$$<br>f_n[m]=max_{1&lt;=k&lt;=m-1}(f_n[m],2*f_n[k]+f_{n-1}[m-k])<br>$$<br>AC code:</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#define ll long long
+#define R register int
+#define min(a,b) ((a)&lt;(b)?(a):(b))
+using namespace std;
+ll f[13],d[13];
+int main()
+&#123;
+	memset(f,0x7f,sizeof(f));
+	d[1]&#x3D;1;
+	for(int i&#x3D;2;i&lt;&#x3D;12;i++)&#x2F;&#x2F;init three tower
+		d[i]&#x3D;2*d[i-1]+1;&#x2F;&#x2F;1 3 7
+	f[1]&#x3D;1;
+	for(int i&#x3D;2;i&lt;&#x3D;12;i++)
+		for(int j&#x3D;1;j&lt;&#x3D;i-1;j++)
+			f[i]&#x3D;min(f[i],2*f[j]+d[i-j]);
+	for(int i&#x3D;1;i&lt;&#x3D;12;i++)
+		printf(&quot;%lld\n&quot;,f[i]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="4-POJ-3263-Tallest-Cow-差分构造"><a href="#4-POJ-3263-Tallest-Cow-差分构造" class="headerlink" title="4.POJ 3263 Tallest Cow(差分构造)"></a>4.POJ 3263 <strong>Tallest Cow</strong>(差分构造)</h2><p><a target="_blank" rel="noopener" href="http://poj.org/problem?id=3263">http://poj.org/problem?id=3263</a></p>
+<p>题意描述：给定序列以及序列中的最大高度和标号，给定一系列约束条件：$a_i$-&gt;$a_j$,</p>
+<p>区间[i,j]之间的任意元素至少比i小一个高度，而且$a_i$&lt;=$a_j$</p>
+<p>运用差分的思想，构造差分数列b[i],对任意一组询问[i,j]，对b[i+1]–,对b[j]++,显然最后的最大高度就是</p>
+<p>bi的前缀和了。注意，我们这里的bi数组前缀和用来描述的是高度差，一定是基于最高的牛I的。显然。</p>
+<p>sum[I]=0;而其他牛与I的最小身高差距，就在bi的前缀和中体现出来了。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#include&lt;map&gt;
+#include&lt;algorithm&gt;
+#include&lt;iomanip&gt;
+#include&lt;iostream&gt;
+#include&lt;cstdlib&gt;
+#define N 10002
+#define mp make_pair
+using namespace std;
+map &lt;pair&lt;int, int&gt; , bool &gt; existed;
+int n,I,H,R;
+int A,B,sum,h[N];
+void swap(int &amp;a,int &amp;b)
+&#123;
+	int t;
+	t&#x3D;a;
+	a&#x3D;b;
+	b&#x3D;t;
+&#125;
+inline int read()
+&#123;
+	char ch;
+	while((ch&#x3D;getchar())&gt;&#39;9&#39; || ch&lt;&#39;0&#39;);
+	int res&#x3D;ch-&#39;0&#39;;
+	while((ch&#x3D;getchar())&gt;&#x3D;&#39;0&#39;&amp;&amp;ch&lt;&#x3D;&#39;9&#39;)
+		res&#x3D;res*10+ch-&#39;0&#39;;
+	return res;
+&#125;
+int main()
+&#123;
+	n&#x3D;read();
+	I&#x3D;read();
+	H&#x3D;read();
+	R&#x3D;read();
+	for(int i&#x3D;1;i&lt;&#x3D;R;i++)
+		&#123;
+			A&#x3D;read();
+			B&#x3D;read();
+			if(A&gt;B)
+				swap(A,B);
+			if(existed[mp(A,B)]) continue;
+			existed[mp(A,B)]&#x3D;true;
+			h[A+1]--;
+			h[B]++;
+		&#125;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+	&#123;
+		sum+&#x3D;h[i];
+		printf(&quot;%d\n&quot;,sum+H);
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>补充个知识：C++中的map可以提供一对一的hash，第一个可以称为关键字，每个关键字</p>
+<p>在map中只能出现一次，第二个可能称为该关键字的值；</p>
+<p>头文件map</p>
+<p>声明方式：map &lt; string ,int &gt;这样就声明了一个用string作为索引，指向int的指针。</p>
+<p>推荐用数组方式进行赋值或查找，不涉及集合的互异性。如本题中的existed[make_pair(a,b)]=true;</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010029439/article/details/89681773">https://blog.csdn.net/u010029439/article/details/89681773</a></p>
+<h2 id="5-一本通练习1435：【例题3】曲线（三分单峰函数顶点）"><a href="#5-一本通练习1435：【例题3】曲线（三分单峰函数顶点）" class="headerlink" title="5. 一本通练习1435：【例题3】曲线（三分单峰函数顶点）"></a>5. 一本通练习1435：【例题3】曲线（三分单峰函数顶点）</h2><p><a target="_blank" rel="noopener" href="http://ybt.ssoier.cn:8088/problem_show.php?pid=1435">http://ybt.ssoier.cn:8088/problem_show.php?pid=1435</a></p>
+<p>三分求单峰函数顶点，利用的是函数的单峰性。当然，对于任何单峰函数求顶点的问题，可以转化为二分导函数零点的问题来求解。</p>
+<p>对于定义在[l,r]上的函数f(x)，我们取其三等分点m1,m2.其中m1=l+(r-l)/3,m2=r-(r-l)/3,</p>
+<p>定义f(m1),f(m2)中较大的叫好点，较小的叫坏点，显然好点和顶点应当在坏点同侧，利用这个原理可以每次缩小1/3的定义域，达到求解的目的。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">while(l+1e-7&lt;r)
+&#123;
+    double m1&#x3D;l+(r-l)&#x2F;3,m2&#x3D;r-(r-l)&#x2F;3;
+    if(f(m1)&gt;f(m2)) r&#x3D;m2;
+    else l&#x3D;m1;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下面证明，n个开口方向向上的二次函数f1、f2、….fn构造的函数gn(x)=max(f1,f2,….fn)是单谷函数。<br>n=1时，g1(x)=f1(x)，显然成立。<br>假设n条二次函数时，gn(x)是单谷函数，并在x=t时的fi(x)取到。<br>新增一条二次函数fn+1;<br>如果fn+1与gn无交点，也就是以下两种：<br>如果原来的函数gn(x)始终在fn+1上方，此时gn+1=gn，显然成立<br>如果fn+1始终在gn(x)上方，此时gn+1=fn+1，也只有一个谷，成立。<br>如果fn+1与gn只有一个交点：设为(x0,y0) 不妨设fn+1在左,gn在右画图可知成立。<br>如果fn+1与gn有两个交点，画图可知成立。 </p>
+<p>这一步证明了单峰（谷）性，是套用三分的前提！</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include&lt;cstdio&gt;
+#define N 10002
+using namespace std;
+int T,n,a[N],b[N],c[N];
+double ans,l,r,m1,m2;
+inline double max(double x,double y)
+&#123;
+	return x&gt;y?x:y;
+&#125;
+double f(double x)
+&#123;
+	double res&#x3D;-0x7fffffff;
+	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+		res&#x3D;max(res,a[i]*x*x+b[i]*x+c[i]);
+	return res;
+&#125;
+int main()
+&#123;
+	scanf(&quot;%d&quot;,&amp;T);
+	while(T--)
+	&#123;
+		scanf(&quot;%d&quot;,&amp;n);			
+		for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+			scanf(&quot;%d %d %d&quot;,&amp;a[i],&amp;b[i],&amp;c[i]);
+		l&#x3D;0,r&#x3D;1000.0;
+		while(l+1e-11&lt;r)	
+		&#123;
+			m1&#x3D;l+(r-l)&#x2F;3;
+			m2&#x3D;r-(r-l)&#x2F;3;
+			if(f(m1)&lt;f(m2)) r&#x3D;m2;
+			else l&#x3D;m1;
+		&#125;
+		printf(&quot;%.4lf\n&quot;,f(l));
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 
                 
             </div>
@@ -538,7 +857,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yoursite.com/blog/blog/2021/07/28/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B01/">https://yoursite.com/blog/blog/2021/07/28/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B01/</a>
+                    <a href="https://yoursite.com/blog/blog/2021/08/02/%E7%BB%BC%E5%90%88%E8%A1%A5%E9%A2%98-1/">https://yoursite.com/blog/blog/2021/08/02/%E7%BB%BC%E5%90%88%E8%A1%A5%E9%A2%98-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -576,8 +895,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/%E9%9A%8F%E7%AC%94%E6%9D%82%E8%AE%B0/">
-                                    <span class="chip bg-color">随笔杂记</span>
+                                <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                                    <span class="chip bg-color">OI训练</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">刷题</span>
                                 </a>
                             
                         </div>
@@ -747,9 +1070,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/2021/08/02/%E7%BB%BC%E5%90%88%E8%A1%A5%E9%A2%98-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/7.jpg" class="responsive-img" alt="综合补题(1)">
+                        
+                        <span class="card-title">综合补题(1)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    算法竞赛
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
+                        <span class="chip bg-color">OI训练</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/blog/2021/08/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%BF%9B%E9%98%B6/">
                     <div class="card-image">
@@ -767,9 +1145,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -791,58 +1169,6 @@
                     
                     <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                         <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog/2021/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%85%A5%E9%97%A8/">
-                    <div class="card-image">
-                        
-                        <img src="https://img2.huashi6.com/images/resource/2018/12/29/72354h485p0.png?imageView2/3/q/100/interlace/1/w/1600/h/1600/format/webp" class="responsive-img" alt="动态规划入门">
-                        
-                        <span class="card-title">动态规划入门</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/blog/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" class="post-category">
-                                    算法竞赛
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blog/tags/OI%E8%AE%AD%E7%BB%83/">
-                        <span class="chip bg-color">OI训练</span>
-                    </a>
-                    
-                    <a href="/blog/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">
-                        <span class="chip bg-color">动态规划DP</span>
                     </a>
                     
                 </div>
